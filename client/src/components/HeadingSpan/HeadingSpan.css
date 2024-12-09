@@ -1,0 +1,13 @@
+.instruo-span {
+    background: linear-gradient(#fff , hsla(0, 0%, 100%, 0.3));
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+.instruo-span.down {
+    background: linear-gradient(hsla(0, 0%, 100%, 0.3), #fff);
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}

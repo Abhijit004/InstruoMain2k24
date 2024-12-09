@@ -15,3 +15,7 @@ html {
 #root {
   width: 100%;
 }
+
+input {
+  font-family: 'Space Grotesk' !important;
+}

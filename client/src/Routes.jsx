@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import EventRegistration from "./pages/EventRegistration/EventRegistration";
 import HeadingSpan from "./components/HeadingSpan/HeadingSpan";
 import HypeCard from "./components/HypeCard/HypeCard";
-import { EnvironmentFilled } from "@ant-design/icons";
+import { EnvironmentFilled, LineChartOutlined } from "@ant-design/icons";
+import CustomButton from "./components/CustomButton/CustomButton";
 
 const AllRoutes = () => {
   const location = useLocation();
@@ -18,9 +19,10 @@ const AllRoutes = () => {
       <Route path="/about" element={<AboutUs />} />
       <Route path="/sponsor" element={<Sponsor />} />
       <Route path="/register" element={<Register />} /> */}
-      <Route path="/test" element={<HypeCard count={6000} desc={"lorem ipsum dolor sit amen lorem itspd jkhfg l"} subtitle={'Footfall'} color={'#C096DD'} Icon={EnvironmentFilled}/>} />
+      {/* <Route path="/test" element={<HypeCard count={6000} desc={"lorem ipsum dolor sit amen lorem itspd jkhfg l"} subtitle={'Footfall'} color={'#C096DD'} Icon={EnvironmentFilled}/>} /> */}
       {/* <Route path="/test" element={<HeadingSpan direction={1} text={"Sponsors"} size={40}/>} /> */}
       {/* <Route path="/test" element={<EventRegistration />} /> */}
+      <Route path="/test" element={<CustomButton text={'Click Me'} icon={<LineChartOutlined/>}/>} />
 
     </Routes>
   );

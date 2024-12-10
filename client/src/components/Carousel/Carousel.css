@@ -1,0 +1,38 @@
+.sponsors-carousel {
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+.sponsors-track {
+  display: inline-flex;
+  animation: scroll 30s linear infinite;
+  margin-bottom: 20px;
+}
+
+.sponsors-track:hover {
+  animation-play-state: paused;
+}
+
+/* Sponsor Card Styles */
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+  width: 12rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0 1rem;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-0.5rem);
+}
+
+.sponsor-logo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}

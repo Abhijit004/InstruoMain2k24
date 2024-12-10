@@ -1,0 +1,142 @@
+/* Sponsors Container */
+.sponsors-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: #0a0a12;
+  color: white;
+}
+
+.main-lamp {
+  position: relative;
+  height: 35rem;
+  margin-top: -100px;
+  margin-bottom: -300px;
+  z-index: 1;
+}
+.footer-lamp {
+  height: 50rem;
+  margin-top: -21.2rem;
+  margin-bottom: -30rem;
+}
+.events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 80%;
+  margin-bottom: -50px;
+  background: url("/assets/Check-background.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: -10rem;
+}
+.eventHeading {
+  font-size: 4rem;
+  height: inherit;
+  background: linear-gradient(90deg, #dff423 4%, #e80fae 100%);
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+  background-clip: text;
+  text-fill-color: transparent;
+  text-align: center;
+}
+
+/* Title Styles */
+.sponsors-title {
+  z-index: 3;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+  background-clip: text;
+  text-fill-color: transparent;
+  text-align: center;
+}
+
+.sponsors-description {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 36rem;
+}
+
+/* CTA Section Styles */
+.sponsors-cta {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.sponsors-cta p {
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.text-area {
+  margin-top: 20px;
+  padding: 10px;
+  resize: none;
+  color: #fff;
+  height: 30rem;
+  border-radius: 5px;
+  width: 60rem;
+  background: linear-gradient(
+    to right,
+    rgba(217, 217, 217, 0.12) 0%,
+    rgba(115, 115, 115, 0.1) 100%
+  );
+}
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sponsors-container {
+    padding: 60px 16px;
+  }
+
+  .sponsors-title {
+    font-size: 2rem;
+  }
+
+  .sponsors-description {
+    font-size: 1.125rem;
+  }
+
+  .sponsor-card {
+    height: 6rem;
+    width: 10rem;
+  }
+  .text-area {
+    height: 15rem;
+    width: 30rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsors-title {
+    font-size: 1.75rem;
+  }
+
+  .sponsor-card {
+    height: 5rem;
+    width: 8rem;
+  }
+}

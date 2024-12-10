@@ -1,0 +1,35 @@
+<svg width="1775" height="1300" viewBox="0 0 1775 1300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="71" y="211" width="749.6" height="616" fill="url(#paint0_angular_237_203)"/>
+<rect width="749.6" height="616" transform="matrix(-1 0 0 1 1570.2 211)" fill="url(#paint1_angular_237_203)"/>
+<g filter="url(#filter0_f_237_203)">
+<path d="M1212 650C1212 702.467 1030 745 805.5 745C580.996 745 399 702.467 399 650C399 597.533 580.996 555 805.5 555C1030 555 1212 597.533 1212 650Z" fill="#7B5AEF"/>
+</g>
+<g filter="url(#filter1_bf_237_203)">
+<rect x="21" y="697" width="1599" height="246" fill="#0A0A12"/>
+</g>
+<defs>
+<filter id="filter0_f_237_203" x="-156" y="0" width="1923" height="1300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="277.5" result="effect1_foregroundBlur_237_203"/>
+</filter>
+<filter id="filter1_bf_237_203" x="-179" y="497" width="1999" height="646" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="100"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_237_203"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_237_203" result="shape"/>
+<feGaussianBlur stdDeviation="77.5" result="effect2_foregroundBlur_237_203"/>
+</filter>
+<radialGradient id="paint0_angular_237_203" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(445.8 519) scale(213.284 125.366)">
+<stop stop-color="#704CDA"/>
+<stop offset="0.0866666" stop-color="#50379B" stop-opacity="0.773485"/>
+<stop offset="0.382609" stop-color="#50379B" stop-opacity="0"/>
+<stop offset="1" stop-color="#50379B" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_angular_237_203" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(374.8 308) scale(213.284 125.366)">
+<stop stop-color="#704CDA"/>
+<stop offset="0.382609" stop-color="#50379B" stop-opacity="0"/>
+<stop offset="1" stop-color="#50379B" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

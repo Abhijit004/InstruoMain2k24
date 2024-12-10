@@ -1,5 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Sponsorship from "./Screens/Sponsorship/Sponsorship";
 // import EventRegistrationPage from "./components/EventRegistration/EventRegistration";
 import EventRegistration from "./Screens/EventRegistration/EventRegistration";
 import HeadingSpan from "./components/HeadingSpan/HeadingSpan";
@@ -18,6 +19,7 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
+      <Route path="/sponsors" exact element={<Sponsorship />} />
       <Route path="/eregister" element={<EventRegistration />} />
       <Route
         path="/uregister"

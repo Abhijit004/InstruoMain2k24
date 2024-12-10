@@ -19,7 +19,7 @@ const AllRoutes = () => {
         <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/eregister" element={<EventRegistration />} />
-            <Route path="/uregister" element={<UserRegistration maxTeamSize={4} minTeamSize={1} regType={"team"} />} />
+            <Route path="/uregister" element={<UserRegistration maxTeamSize={4} minTeamSize={1} regType={"combined"} />} />
             {/* <Route path="/" exact element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/sponsor" element={<Sponsor />} />

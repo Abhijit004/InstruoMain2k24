@@ -27,5 +27,17 @@ html {
 }
 
 input {
-    font-family: "Space Grotesk" !important;
+  font-family: "Space Grotesk" !important;
+}
+
+.instruo-content {
+  margin-top: 4rem;
+}
+
+a,
+a::selection {
+  text-decoration: none;
+  text-transform: none;
+  outline: none;
+  color: #fff;
 }

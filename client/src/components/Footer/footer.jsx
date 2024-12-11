@@ -20,11 +20,9 @@ const Footer = () => {
               </Link>
             </div>
             <p>
-              The largest technical fest of
-              <br />
-              Kolkata. Some more spicy lines
-              <br />
-              instead of lorem.
+              Kolkata's largest tech festival, where innovation meets
+              excellence. Join us to experience the pinnacle of technology,
+              creativity, and learning!
             </p>
           </div>
 

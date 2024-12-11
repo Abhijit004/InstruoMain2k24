@@ -46,8 +46,6 @@ const Sponsorship = () => {
       {/* Carousel Component */}
       <Carousel />
 
-      {/* <img src="/assets/Footer-lamp.png" alt="" className="footer-lamp" /> */}
-
       <div className="sponsors-cta">
         <h1 className="sponsors-title">Connect With Us</h1>
         <p>

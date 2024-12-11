@@ -9,6 +9,7 @@ import { EnvironmentFilled, LineChartOutlined } from "@ant-design/icons";
 import CustomButton from "./components/CustomButton/CustomButton";
 import Home from "./Screens/Home/Home";
 import UserRegistration from "./Screens/UserRegistration/UserRegistration";
+import LampSectionHeader from "./components/LampSectionHeader/LampSectionHeader";
 
 const AllRoutes = () => {
   const location = useLocation();
@@ -41,7 +42,7 @@ const AllRoutes = () => {
       <Route
         path="/test"
         element={
-          <CustomButton text={"Click Me"} icon={<LineChartOutlined />} />
+          <LampSectionHeader />
         }
       />
     </Routes>

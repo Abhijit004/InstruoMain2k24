@@ -1,15 +1,17 @@
 import React from 'react'
+import Hype from './Hype'
+import './Home.css'
 
 const Hero = () => {
     return (
         <div>Hero</div>
     )
 }
-const Hype = () => {
-    return (
-        <div>Hype</div>
-    )
-}
+// const Hype = () => {
+//     return (
+//         <div>Hype</div>
+//     )
+// }
 const AboutUs = () => {
     return (
         <div>AboutUs</div>

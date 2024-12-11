@@ -6,8 +6,8 @@ const HypeCard = ({ Icon, count, subtitle, desc, color }) => {
         <div className="wrapper">
             <div className="lighter" style={{backgroundColor: color}}></div>
             <div className="hypecard">
-                <div className="icon">
-                    <Icon style={{ fontSize: "1.5rem", color: '#C096DD' }}/>
+                <div className="icon" style={{color: color}}>
+                    <Icon style={{ fontSize: "1.5rem", fill: color}}/>
                 </div>
                 <div className="count" style={{ color: color }}>
                     {count}

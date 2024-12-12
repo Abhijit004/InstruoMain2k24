@@ -9,7 +9,7 @@ import { EnvironmentFilled, LineChartOutlined } from "@ant-design/icons";
 import CustomButton from "./components/CustomButton/CustomButton";
 import Home from "./Screens/Home/Home";
 import UserRegistration from "./Screens/UserRegistration/UserRegistration";
-import LampSectionHeader from "./components/LampSectionHeader/LampSectionHeader";
+// import LampSectionHeader from "./components/LampSectionHeader/LampSectionHeader";
 
 const AllRoutes = () => {
   const location = useLocation();
@@ -39,12 +39,6 @@ const AllRoutes = () => {
       {/* <Route path="/test" element={<HypeCard count={6000} desc={"lorem ipsum dolor sit amen lorem itspd jkhfg l"} subtitle={'Footfall'} color={'#C096DD'} Icon={EnvironmentFilled}/>} /> */}
       {/* <Route path="/test" element={<HeadingSpan direction={1} text={"Sponsors"} size={40}/>} /> */}
       {/* <Route path="/test" element={<EventRegistration />} /> */}
-      <Route
-        path="/test"
-        element={
-          <LampSectionHeader />
-        }
-      />
     </Routes>
   );
 };

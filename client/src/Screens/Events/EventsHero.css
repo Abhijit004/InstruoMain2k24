@@ -34,13 +34,13 @@
     position: absolute;
     left: 0;
     top: 10rem;
-    /* height: 200vh; */
+    height: 200vh;
 }
 .events-hero .ellipse-2 {
     position: absolute;
     top: 0;
     right: 0;
-    /* height: 200vh; */
+    height: 100vh;
 }
 
 .events-hero .byline {

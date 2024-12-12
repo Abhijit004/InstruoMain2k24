@@ -38,3 +38,10 @@
   max-width: 100%;
   object-fit: contain;
 }
+
+@media (max-width: 480px) {
+  .sponsor-card {
+    height: 7rem;
+    width: 10rem;
+  }
+}

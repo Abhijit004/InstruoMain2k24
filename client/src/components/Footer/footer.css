@@ -17,6 +17,7 @@
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
+  line-height: 1.5;
 }
 
 /* Left section */
@@ -32,33 +33,29 @@
   margin-bottom: 20px;
 }
 
+.logo h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .logo-icon {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
 
-.logo h1 {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.left p {
-  line-height: 1.5;
-  font-weight: 300;
-}
-
 /* Middle section */
 .footer-section.middle {
-  flex: 2;
   display: flex;
+  flex: 2;
   justify-content: space-around;
   gap: 40px;
   min-width: 300px;
 }
 
 .quick-links h3,
-.contact h3 {
+.contact h3,
+.right h3 {
   font-size: 18px;
   margin-bottom: 20px;
   color: #9ca3af;
@@ -72,17 +69,17 @@
 
 .quick-links li,
 .contact li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-.quick-links a {
+.quick-links Link {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .quick-links a:hover {
-  color: white;
+  color: #9ca3af;
 }
 
 .contact li {
@@ -103,14 +100,10 @@
   min-width: 150px;
 }
 
-.right h3 {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
 .social-icons {
   display: flex;
   gap: 15px;
+  margin-bottom: 3rem;
 }
 
 .social-icon {
@@ -118,7 +111,6 @@
   height: 24px;
   display: flex;
   align-items: center;
-  justify-content: center;
   transition: opacity 0.3s ease;
 }
 
@@ -143,6 +135,7 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .footer-content {
+    padding-left: 1rem;
     flex-direction: column;
     gap: 30px;
   }
@@ -164,9 +157,5 @@
 
   .logo h1 {
     font-size: 20px;
-  }
-
-  .social-icons {
-    justify-content: center;
   }
 }

@@ -1,13 +1,8 @@
 import React from 'react'
 import Hype from './Hype'
 import AboutUs from './AboutUs'
+import Hero from './Hero'
 import './Home.css'
-
-const Hero = () => {
-    return (
-        <div>Hero</div>
-    )
-}
 // const Hype = () => {
 //     return (
 //         <div>Hype</div>
@@ -19,10 +14,8 @@ const Hero = () => {
 //     )
 // }
 const PreviousEditions = () => {
-    return (
-        <div>PreviousEditions</div>
-    )
-}
+    return <div>PreviousEditions</div>;
+};
 
 const Home = () => {
   return (
@@ -43,4 +36,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

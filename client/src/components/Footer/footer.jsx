@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="logo">
               <Link to="/">
                 <img
-                  src="/assets/instruo 1.svg"
+                  src="/assets/Footer/logo.svg"
                   alt="Instruo Logo"
                   className="logo-icon"
                 />
@@ -20,11 +20,9 @@ const Footer = () => {
               </Link>
             </div>
             <p>
-              The largest technical fest of
-              <br />
-              Kolkata. Some more spicy lines
-              <br />
-              instead of lorem.
+              Kolkata's largest tech festival, where innovation meets
+              excellence. Join us to experience the pinnacle of technology,
+              creativity, and learning!
             </p>
           </div>
 
@@ -49,25 +47,25 @@ const Footer = () => {
               <ul>
                 <li>
                   <span className="phone-icon">
-                    <img src="/assets/Phone.svg" alt="phone-icon" />
+                    <img src="/assets/Footer/Phone.svg" alt="phone-icon" />
                   </span>
                   <span>+91 1234234534</span>
                 </li>
                 <li>
                   <span className="phone-icon">
-                    <img src="/assets/Phone.svg" alt="phone-icon" />
+                    <img src="/assets/Footer/Phone.svg" alt="phone-icon" />
                   </span>
                   <span>+91 1234234534</span>
                 </li>
                 <li>
                   <span className="phone-icon">
-                    <img src="/assets/Phone.svg" alt="phone-icon" />
+                    <img src="/assets/Footer/Phone.svg" alt="phone-icon" />
                   </span>
                   <span>+91 1234234534</span>
                 </li>
                 <li>
                   <span className="phone-icon">
-                    <img src="/assets/Phone.svg" alt="phone-icon" />
+                    <img src="/assets/Footer/Phone.svg" alt="phone-icon" />
                   </span>
                   <span>+91 1234234534</span>
                 </li>
@@ -80,19 +78,19 @@ const Footer = () => {
 
             <div className="social-icons">
               <a href="#" className="social-icon">
-                <img src="/assets/Email.svg" alt="Email" />
+                <img src="/assets/Footer/Email.svg" alt="Email" />
               </a>
               <a href="#" className="social-icon">
-                <img src="/assets/Facebook.svg" alt="Facebook" />
+                <img src="/assets/Footer/Facebook.svg" alt="Facebook" />
               </a>
               <a
                 href="https://www.instagram.com/instruo_iiests?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 className="social-icon"
               >
-                <img src="/assets/Instagram.svg" alt="Instagram" />
+                <img src="/assets/Footer/Instagram.svg" alt="Instagram" />
               </a>
               <a href="#" className="social-icon">
-                <img src="/assets/YouTube.svg" alt="YouTube" />
+                <img src="/assets/Footer/YouTube.svg" alt="YouTube" />
               </a>
             </div>
           </div>

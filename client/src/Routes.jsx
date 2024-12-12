@@ -9,6 +9,8 @@ import { EnvironmentFilled, LineChartOutlined } from "@ant-design/icons";
 import CustomButton from "./components/CustomButton/CustomButton";
 import Home from "./Screens/Home/Home";
 import UserRegistration from "./Screens/UserRegistration/UserRegistration";
+import Mesh from "./components/Mesh/Mesh";
+import Events from "./Screens/Events/Events";
 
 const AllRoutes = () => {
   const location = useLocation();
@@ -20,6 +22,7 @@ const AllRoutes = () => {
     <Routes>
       <Route path="/" exact element={<Home />} />
       <Route path="/sponsors" exact element={<Sponsorship />} />
+      <Route path="/events" exact element={<Events />} />
       <Route path="/eregister" element={<EventRegistration />} />
       <Route
         path="/uregister"
@@ -41,7 +44,7 @@ const AllRoutes = () => {
       <Route
         path="/test"
         element={
-          <CustomButton text={"Click Me"} icon={<LineChartOutlined />} />
+          <Mesh />
         }
       />
     </Routes>

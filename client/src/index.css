@@ -23,6 +23,13 @@ input {
 
 .instruo-content {
   margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instruo-content > section {
+  max-width: 1200px;
 }
 
 a,

@@ -69,7 +69,6 @@ p {
 }
 /* Title Styles */
 .sponsors-title {
-  z-index: 3;
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 0.8rem;
@@ -150,7 +149,7 @@ p {
   }
 
   .footer-lamp {
-    margin-bottom: -22rem;
+    margin-bottom: 9rem;
   }
   .sponsors-title {
     font-size: 2rem;

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { Drawer, Menu, ConfigProvider, theme, Layout } from "antd";
 import { Link, useLocation } from "react-router-dom";
-import Icon, { ToolOutlined, CalendarOutlined, DollarOutlined, TeamOutlined, MenuOutlined } from "@ant-design/icons";
+import Icon, {
+    ToolOutlined,
+    CalendarOutlined,
+    DollarOutlined,
+    TeamOutlined,
+    MenuOutlined,
+    HomeOutlined,
+} from "@ant-design/icons";
 const { Header } = Layout;
 
 const DrawerSidebar = () => {
@@ -63,7 +70,7 @@ const DrawerSidebar = () => {
                 </Header>
             </Layout>
             <Drawer
-                title="Instruo 2k24"
+                title="Instruo 2k25"
                 placement="left"
                 closable={true}
                 onClose={closeDrawer}
@@ -71,9 +78,14 @@ const DrawerSidebar = () => {
                 bodyStyle={{ padding: 0 }}
             >
                 <Menu mode="inline" selectedKeys={[selectedKey]} style={{ height: "100%" }}>
-                    <Menu.Item key="/" icon={<ToolOutlined />}>
+                    <Menu.Item key="/" icon={<HomeOutlined />}>
                         <Link to="/" onClick={closeDrawer}>
                             Home
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="/events" icon={<ToolOutlined />}>
+                        <Link to="/events" onClick={closeDrawer}>
+                            Events
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="/about" icon={<CalendarOutlined />}>
@@ -86,9 +98,9 @@ const DrawerSidebar = () => {
                             Sponsors
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="/register" icon={<TeamOutlined />}>
-                        <Link to="/register" onClick={closeDrawer}>
-                            Register
+                    <Menu.Item key="/team" icon={<TeamOutlined />}>
+                        <Link to="/team" onClick={closeDrawer}>
+                            Our Team
                         </Link>
                     </Menu.Item>
                 </Menu>

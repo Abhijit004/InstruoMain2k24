@@ -1,13 +1,13 @@
 import React from "react";
 import "./AboutUs.css";
-import lamp from "/assets/AboutUsLamp.png";
-import orb from "/assets/AboutUsOrb.png";
+import lamp from "/assets/AboutUsLamp.webp";
+import orb from "/assets/AboutUsOrb.webp";
 
 const AboutUs = () => {
     return (
         <section className="instruo-about">
-            <div className="lamp" style={{ top: 0 }}  >
-                <img src={lamp} alt="lamp" srcset=""/>
+            <div className="lamp" style={{ top: 0 }}>
+                <img src={lamp} alt="lamp" srcset="" />
             </div>
             <div className="heading">About Us</div>
             <section className="about-card-wrapper">

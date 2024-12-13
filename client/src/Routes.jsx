@@ -11,6 +11,9 @@ import Home from "./Screens/Home/Home";
 import UserRegistration from "./Screens/UserRegistration/UserRegistration";
 // import LampSection from "./components/Lamp/Lamp";
 // import LampSectionHeader from "./components/LampSectionHeader/LampSectionHeader";
+import Mesh from "./components/Mesh/Mesh";
+import Events from "./Screens/Events/Events";
+import EventGroup from "./components/EventGroup/EventGroup";
 
 const AllRoutes = () => {
   const location = useLocation();
@@ -22,6 +25,7 @@ const AllRoutes = () => {
     <Routes>
       <Route path="/" exact element={<Home />} />
       <Route path="/sponsors" exact element={<Sponsorship />} />
+      <Route path="/events" exact element={<Events />} />
       <Route path="/eregister" element={<EventRegistration />} />
       <Route
         path="/uregister"
@@ -40,6 +44,13 @@ const AllRoutes = () => {
       {/* <Route path="/test" element={<HypeCard count={6000} desc={"lorem ipsum dolor sit amen lorem itspd jkhfg l"} subtitle={'Footfall'} color={'#C096DD'} Icon={EnvironmentFilled}/>} /> */}
       {/* <Route path="/test" element={<HeadingSpan direction={1} text={"Sponsors"} size={40}/>} /> */}
       {/* <Route path="/test" element={<LampSection />} /> */}
+      {/* <Route path="/test" element={<EventRegistration />} /> */}
+      <Route
+        path="/test"
+        element={
+          <EventGroup />
+        }
+      />
     </Routes>
   );
 };

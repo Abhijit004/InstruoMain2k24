@@ -14,7 +14,7 @@ const useStylePrimary = createStyles(({ prefixCls, css }) => ({
 
             &::before {
                 content: "";
-                background: linear-gradient(135deg, var(--color-darkblue), var(--color-purple));
+                background: linear-gradient(135deg, var(--darkblue), var(--purple));
                 position: absolute;
                 inset: 0;
                 opacity: 1;
@@ -34,7 +34,7 @@ const useStyleSecondary = createStyles(({ prefixCls, css }) => ({
     linearGradientButton: css`
         &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
             border-width: 0;
-            color: var(--color-purple);
+            color: var(--purple);
 
             > span {
                 position: relative;

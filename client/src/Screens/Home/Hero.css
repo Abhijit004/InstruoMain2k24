@@ -68,22 +68,6 @@
     width: 100%;
 }
 
-.gradient-color {
-    background: linear-gradient(120deg, var(--color-sky), var(--color-pink));
-    background-clip: text;
-    -webkit-background-clip: text !important;
-    color: transparent;
-    font-weight: bolder;
-}
-.gradient-bw {
-    background: linear-gradient(90deg, var(--color-grey), #fff);
-    background-clip: text;
-    -webkit-background-clip: text !important;
-    color: transparent;
-    font-weight: bolder;
-}
-
-
 @media only screen and (max-width: 900px) {
     .hero-section .content .headline,
     .hero-section .content .byline {

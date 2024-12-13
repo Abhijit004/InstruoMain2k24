@@ -1,0 +1,29 @@
+.events-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+@keyframes bounce-down {
+    0%{
+        transform: translateY(0);
+    }
+    5% {
+        transform: translateY(10px);
+    }
+    10% {
+        transform: translateY(-10px);
+    }
+    15% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

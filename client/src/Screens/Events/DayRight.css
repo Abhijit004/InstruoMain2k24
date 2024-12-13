@@ -1,0 +1,46 @@
+.dayright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    padding: 3rem 0rem;
+}
+
+.dayright .content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+}
+
+.dayright .content .about-day {
+    font-size: 1.2rem;
+    font-weight: 100;
+    text-align: left;
+    max-width: 30rem;
+    height: max-content;
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dayright .content .about-day p {
+    padding: 1.2rem 0rem;
+    text-align: right;
+}
+
+@media only screen and (max-width: 850px) {
+    .dayright .content {
+        flex-direction: column;
+        flex-flow: column-reverse;
+        align-items: flex-end
+    }
+}

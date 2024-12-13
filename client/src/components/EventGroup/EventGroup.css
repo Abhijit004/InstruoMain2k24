@@ -4,7 +4,6 @@
     justify-content: center;
     gap: 0.5rem;
     /* border: 1px solid black; */
-    margin: 1rem;
     color: #fff;
 }
 
@@ -124,6 +123,7 @@
 @media only screen and (max-width: 720px) {
     .eventbox-wrapper {
         flex-direction: column;
+        width: min(90%, 20rem);
     }
     .eventcard {
         height: 3rem;

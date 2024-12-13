@@ -32,9 +32,10 @@
 }
 .events-hero .ellipse-1 {
     position: absolute;
+    z-index: 100;
     left: 0;
-    top: 10rem;
-    height: 200vh;
+    top: 5rem;
+    height: 100vh;
 }
 .events-hero .ellipse-2 {
     position: absolute;

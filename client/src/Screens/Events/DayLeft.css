@@ -1,0 +1,39 @@
+.dayleft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    padding: 3rem 0rem;
+}
+
+.dayleft .content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+}
+
+.dayleft .content .about-day {
+    font-size: 1.2rem;
+    font-weight: 100;
+    text-align: left;
+    max-width: 30rem;
+    height: max-content;
+    position: relative;
+}
+
+.dayleft .content .about-day p {
+    padding: 1.2rem 0rem
+}
+
+@media only screen and (max-width: 850px) {
+    .dayleft .content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

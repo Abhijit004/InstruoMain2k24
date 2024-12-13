@@ -7,7 +7,7 @@
     height: min(850px, 100vh);
     color: #fff;
 
-    background: url("../../../public/assets/homepage-background.webp");
+    background: url("/assets/homepage-background.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -76,15 +76,21 @@
 
     .hero-section .content {
         width: 100vw;
-        z-index: 2
+        z-index: 2;
+        padding-right: 0;
+
+        align-items: center;
+        justify-content: center;
     }
 
-    .hero-section .image img {
+    .hero-section .image {
         position:absolute;
         top: 0;
         right: 0;
         z-index: 0;
         opacity: 0.1;
+        width: 100%;
+
     }
 
     .hero-section .content .button-group {

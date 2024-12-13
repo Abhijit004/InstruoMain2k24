@@ -3,19 +3,8 @@ import Hype from './Hype'
 import AboutUs from './AboutUs'
 import Hero from './Hero'
 import './Home.css'
-// const Hype = () => {
-//     return (
-//         <div>Hype</div>
-//     )
-// }
-// const AboutUs = () => {
-//     return (
-//         <div>AboutUs</div>
-//     )
-// }
-const PreviousEditions = () => {
-    return <div>PreviousEditions</div>;
-};
+import PreviousEditions from './PreviousEditions'
+
 
 const Home = () => {
   return (
@@ -31,7 +20,7 @@ const Home = () => {
         <Hero />
         <Hype />
         <AboutUs />
-        <PreviousEditions />
+        {/* <PreviousEditions /> */}
     </section>
   )
 }

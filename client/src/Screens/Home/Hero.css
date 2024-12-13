@@ -34,7 +34,7 @@
     flex-direction: column;
     width: 50%;
     /* outline: 1px solid lime; */
-    padding-right: 2rem;
+    padding: 0 2rem 0 1rem;
 }
 
 .hero-section .content * {
@@ -75,12 +75,11 @@
     }
 
     .hero-section .content {
-        width: 100vw;
+        width: 100%;
         z-index: 2;
-        padding-right: 0;
-
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        padding: 0;
     }
 
     .hero-section .image {

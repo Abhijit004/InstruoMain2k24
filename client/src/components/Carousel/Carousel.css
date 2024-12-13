@@ -6,9 +6,10 @@
 }
 
 .sponsors-track {
+  margin-top:1rem;
   display: inline-flex;
   animation: scroll 30s linear infinite;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .sponsors-track:hover {

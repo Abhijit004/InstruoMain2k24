@@ -1,0 +1,17 @@
+.bento-wrapper {
+    /* background-color: red; */
+    outline: 1px solid lime;
+    transform-origin: top;
+    position: relative;
+    z-index: 10;
+}
+
+.bento-wrapper div {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bento-wrapper div img {
+    width: 100%;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
-import { ToolOutlined, CalendarOutlined, DollarOutlined, TeamOutlined } from '@ant-design/icons';
+import { ToolOutlined, CalendarOutlined, DollarOutlined, TeamOutlined, HomeOutlined } from '@ant-design/icons';
 import DrawerSidebar from "./SideBar";
 import "./NavBar.css";
 
@@ -48,8 +48,8 @@ const Navbar = () => {
                             }}
                             className="instruo-navmenu"
                         >
-                            <Menu.Item key="/" icon={<ToolOutlined />}>
-                                <Link to="/workshops">Workshops</Link>
+                            <Menu.Item key="/" icon={<HomeOutlined />}>
+                                <Link to="/">Home</Link>
                             </Menu.Item>
                             <Menu.Item key="/events" icon={<CalendarOutlined />}>
                                 <Link to="/events">Events</Link>

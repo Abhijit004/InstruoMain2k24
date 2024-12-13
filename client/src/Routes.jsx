@@ -11,6 +11,7 @@ import Home from "./Screens/Home/Home";
 import UserRegistration from "./Screens/UserRegistration/UserRegistration";
 import Mesh from "./components/Mesh/Mesh";
 import Events from "./Screens/Events/Events";
+import EventGroup from "./components/EventGroup/EventGroup";
 
 const AllRoutes = () => {
   const location = useLocation();
@@ -44,7 +45,7 @@ const AllRoutes = () => {
       <Route
         path="/test"
         element={
-          <Mesh />
+          <EventGroup />
         }
       />
     </Routes>

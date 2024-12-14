@@ -1,5 +1,6 @@
 /* Sponsors Container */
 .sponsors-container {
+  margin-top: 4rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -170,6 +171,9 @@ p {
 }
 
 @media (max-width: 480px) {
+  .sponsors-container {
+    padding: 5rem 5rem;
+  }
   .sponsors-title {
     font-size: 2rem;
   }
@@ -183,6 +187,7 @@ p {
   .btn-group {
     flex-direction: column;
     gap: 0.8rem;
+    margin-bottom: 10rem;
   }
   p {
     width: 350px;
@@ -191,6 +196,9 @@ p {
     display: none;
   }
 
+  .footer-bottom {
+    font-size: 0.7rem;
+  }
   .text-area {
     height: 12rem;
     width: 25rem;

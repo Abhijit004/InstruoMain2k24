@@ -178,7 +178,8 @@ p {
     font-size: 2rem;
   }
   .footer-lamp {
-    margin-bottom: -22rem;
+    max-width:80%;
+    margin-bottom: -18rem;
   }
   .sponsor-card {
     height: 5rem;

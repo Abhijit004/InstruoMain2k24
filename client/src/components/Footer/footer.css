@@ -126,8 +126,11 @@
 
 /* Footer bottom */
 .footer-bottom {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   color: #9ca3af;
-  text-align: center;
   padding: 20px;
   border-top: 1px solid #333;
 }

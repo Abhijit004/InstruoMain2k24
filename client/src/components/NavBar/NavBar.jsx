@@ -1,7 +1,8 @@
 import React from "react";
+import { useState } from "react";
 import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
-import { ToolOutlined, CalendarOutlined, DollarOutlined, TeamOutlined } from '@ant-design/icons';
+import { ToolOutlined, CalendarOutlined, DollarOutlined, TeamOutlined } from "@ant-design/icons";
 import DrawerSidebar from "./SideBar";
 import "./NavBar.css";
 
@@ -9,6 +10,7 @@ const { Header } = Layout;
 
 const Navbar = () => {
     const width = window.innerWidth;
+    const [selectedKey, setSelectedKey] = useState([]);
     return (
         <>
             {width >= 700 ? (
@@ -22,7 +24,7 @@ const Navbar = () => {
                             backdropFilter: "blur(10px)",
                         }}
                     >
-                        <Link to="/">
+                        <Link to="/" onClick={() => setSelectedKey([])}>
                             <div
                                 className="logo"
                                 style={{
@@ -37,9 +39,10 @@ const Navbar = () => {
                             </div>
                         </Link>
                         <Menu
+                            selectedKeys={selectedKey}
                             theme="dark"
                             mode="horizontal"
-                            defaultSelectedKeys={["/"]}
+                            defaultSelectedKeys={[]}
                             style={{
                                 fontSize: "1rem",
                                 display: "flex",
@@ -48,16 +51,32 @@ const Navbar = () => {
                             }}
                             className="instruo-navmenu"
                         >
-                            <Menu.Item key="/" icon={<ToolOutlined />}>
+                            <Menu.Item
+                                key="/workshops"
+                                icon={<ToolOutlined />}
+                                onClick={() => setSelectedKey(["/workshops"])}
+                            >
                                 <Link to="/workshops">Workshops</Link>
                             </Menu.Item>
-                            <Menu.Item key="/events" icon={<CalendarOutlined />}>
+                            <Menu.Item
+                                key="/events"
+                                icon={<CalendarOutlined />}
+                                onClick={() => setSelectedKey(["/events"])}
+                            >
                                 <Link to="/events">Events</Link>
                             </Menu.Item>
-                            <Menu.Item key="/sponsor" icon={<DollarOutlined />}>
+                            <Menu.Item
+                                key="/sponsor"
+                                icon={<DollarOutlined />}
+                                onClick={() => setSelectedKey(["/sponsor"])}
+                            >
                                 <Link to="/sponsors">Sponsors</Link>
                             </Menu.Item>
-                            <Menu.Item key="/register" icon={<TeamOutlined />}>
+                            <Menu.Item
+                                key="/register"
+                                icon={<TeamOutlined />}
+                                onClick={() => setSelectedKey(["/register"])}
+                            >
                                 <Link to="/team">Our Team</Link>
                             </Menu.Item>
                         </Menu>

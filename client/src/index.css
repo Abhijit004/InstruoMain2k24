@@ -30,12 +30,12 @@ html {
     width: 100%;
 }
 
-input {
+input, textarea {
     font-family: "Space Grotesk" !important;
 }
 
 .instruo-content {
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   display: flex;
   justify-content: center;
   align-items: center;

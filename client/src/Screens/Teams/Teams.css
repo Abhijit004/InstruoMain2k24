@@ -1,0 +1,90 @@
+.instruo-team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 7rem;
+    position: relative;
+}
+
+.instruo-team > .heading {
+    background: linear-gradient(hsla(0, 0%, 100%, 50%), #fff), linear-gradient(270deg, #A97D36, #9B285D, #362D6B);
+    background-clip: text;
+    color: transparent;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    max-width: 16ch;
+    line-height: 3rem;
+    margin-bottom: 3rem;
+}
+
+.instruo-team .accordion {
+    width: min(calc(100vw - 2rem), 1000px);
+    /* padding: 1rem; */
+}
+
+.instruo-team .ant-collapse-item {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    border: 2px solid hsla(0, 0%, 100%, 0.13);
+    margin-bottom: 10px;
+}
+
+.ant-collapse-header {
+    background: linear-gradient(#fff, #ffffff6e);
+    background-clip: text;
+    color: transparent !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+    fill: #fff !important;
+}
+
+.accordion-icon svg {
+    fill: #fff !important;
+    color: #fff !important;
+    font-size: 1.5rem;
+    position: relative;
+    top: 5px;
+}
+
+.instruo-team > * {
+    position: relative;
+    z-index: 6;
+}
+
+.instruo-team .heads {
+    background: hsla(0, 0%, 0%, 0.77);
+    width: min(calc(100vw - 2rem), 1000px);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    border: 2px solid hsla(0, 0%, 100%, 0.13);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 4;
+}
+
+.instruo-team .team-asset-1 {
+    position: absolute;
+    width: 90%;
+    top: -7rem;
+    z-index: -100;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 880px;
+    overflow: hidden;
+}   
+
+.instruo-team .team-asset-2 {
+    position: absolute;
+    width: 100%;
+    height: 2500px;
+    top: 0;
+    z-index: -100;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 880px;
+    overflow: hidden;
+}   

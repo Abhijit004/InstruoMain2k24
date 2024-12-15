@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Sponsorship from "./Screens/Sponsorship/Sponsorship";
+import Teams from "./Screens/Teams/Teams";
 // import EventRegistrationPage from "./components/EventRegistration/EventRegistration";
 import EventRegistration from "./Screens/EventRegistration/EventRegistration";
 // import HeadingSpan from "./components/HeadingSpan/HeadingSpan";
@@ -44,7 +45,7 @@ const AllRoutes = () => {
       {/* <Route path="/test" element={<HypeCard count={6000} desc={"lorem ipsum dolor sit amen lorem itspd jkhfg l"} subtitle={'Footfall'} color={'#C096DD'} Icon={EnvironmentFilled}/>} /> */}
       {/* <Route path="/test" element={<HeadingSpan direction={1} text={"Sponsors"} size={40}/>} /> */}
       {/* <Route path="/test" element={<LampSection />} /> */}
-      {/* <Route path="/test" element={<EventRegistration />} /> */}
+      <Route path="/team" element={<Teams />} />
       <Route
         path="/test"
         element={

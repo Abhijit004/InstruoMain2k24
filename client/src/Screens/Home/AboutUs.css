@@ -101,11 +101,6 @@
   color: transparent;
 }
 
-.instruo-about .about-card-wrapper .about-card[about="instruo"] {
-  text-align: right;
-  align-items: end;
-}
-
 .instruo-about .about-card-wrapper img {
   width: min(55rem, 100%);
   transform: scale(0.63);

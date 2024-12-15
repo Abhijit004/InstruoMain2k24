@@ -1,0 +1,30 @@
+.team-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* outline: 1px solid lime; */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+}
+
+.team-section .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* outline: 1px solid red; */
+    margin-top: -3rem;
+    margin-right: 1.5rem;
+}
+
+.team-section .row > div {
+    margin-right: -1rem;
+}
+
+@media only screen and (max-width: 416px) {
+    .team-section .row{
+        position: relative;
+        left: 15%;
+    }
+}

@@ -7,7 +7,7 @@ const AboutUs = () => {
     return (
         <section className="instruo-about">
             <div className="lamp" style={{ top: 0 }}>
-                <img src={lamp} alt="lamp" srcset="" />
+                <img src={lamp} alt="lamp" />
             </div>
             <div className="heading">About Us</div>
             <section className="about-card-wrapper">

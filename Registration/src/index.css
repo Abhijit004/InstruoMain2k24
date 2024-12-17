@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: "Space Grotesk", sans-serif;
+
+    --purple: #50379b;
+    --pink: #8721b7;
+    --dark-purple: #241d42;
+    --sky: #26eff9;
+    --grey: #d9d9d9;
+    --darkblue: #2d76ff;
+
+    --app-background: #0a0a12;
+    --app-width: 1200px;
+    --navbar-height: 4rem;
+    color: #fff;
+}
+
+body,
+html {
+    background-color: var(--app-background);
+    overflow-x: hidden;
+}
+#root {
+    width: 100%;
+}
+
+input, textarea {
+    font-family: "Space Grotesk" !important;
+}
+
+.instruo-content {
+  /* margin-top: 4rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instruo-content > section {
+  max-width: 1200px;
+}
+
+a,
+a::selection {
+    text-decoration: none;
+    text-transform: none;
+    outline: none;
+    color: #fff;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--app-background);
+}
+
+*::-webkit-scrollbar-thumb {
+    width: 5px !important;
+    border-radius: 10px;
+    background: var(--purple);
+}
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-corner {
+    display: none;
+}
+
+.gradient-color {
+    background: linear-gradient(120deg, var(--pink),var(--sky));
+    background-clip: text;
+    -webkit-background-clip: text !important;
+    color: transparent;
+    font-weight: bolder;
+}
+.gradient-bw {
+    background: linear-gradient(90deg, var(--grey), #fff);
+    background-clip: text;
+    -webkit-background-clip: text !important;
+    color: transparent;
+    font-weight: bolder;
+}

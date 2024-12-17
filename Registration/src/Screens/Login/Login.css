@@ -1,0 +1,8 @@
+.login-container {
+    max-width: 400px !important;
+}
+
+.login-container a {
+    font-weight: 600;
+    color: #9f64f1;
+}

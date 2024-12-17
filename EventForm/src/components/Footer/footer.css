@@ -1,0 +1,164 @@
+/* Footer styles */
+.footer {
+  background: linear-gradient(
+    to right,
+    rgba(217, 217, 217, 0.12) 0%,
+    rgba(115, 115, 115, 0.1) 100%
+  );
+  color: white;
+  padding: 40px 20px;
+  font-family: "Space Grotesk", serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  line-height: 1.5;
+}
+
+/* Left section */
+.footer-section.left {
+  flex: 1;
+  min-width: 250px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.logo h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Middle section */
+.footer-section.middle {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+  gap: 40px;
+  min-width: 300px;
+}
+
+.quick-links h3,
+.contact h3,
+.right h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #9ca3af;
+}
+
+.quick-links ul,
+.contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links li,
+.contact li {
+  margin-bottom: 10px;
+}
+
+.quick-links Link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.quick-links a:hover {
+  color: #9ca3af;
+}
+
+.contact li {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.phone-icon {
+  font-size: 14px;
+}
+
+/* Right section */
+.footer-section.right {
+  flex: 1;
+  min-width: 150px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 3rem;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 0.8;
+}
+
+.social-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color: #9ca3af;
+  padding: 20px;
+  border-top: 1px solid #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-content {
+    padding-left: 1rem;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-section.middle {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+}

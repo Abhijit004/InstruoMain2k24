@@ -89,6 +89,7 @@ a::selection {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     /* padding-top: 4rem; */
 }
 
@@ -129,4 +130,3 @@ a::selection {
 .register-page a:hover {
     color: #bb91f6 !important;
 }
-

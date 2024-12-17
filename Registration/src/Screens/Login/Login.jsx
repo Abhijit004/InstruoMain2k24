@@ -25,9 +25,9 @@ const Login = () => {
                 },
             }}
         >
-            <div className="register-page">
+            <div className="register-page" style={{height: '100vh'}}>
                 <div className="register-container" style={{maxWidth: 400}}>
-                    <h2>Login</h2>
+                    <h2 style={{width: '100%', textAlign: 'center'}}>Contestant Login</h2>
                     <Form form={form} layout="vertical" onFinish={onFinish} size="large">
                         {/* Email */}
                         <Form.Item

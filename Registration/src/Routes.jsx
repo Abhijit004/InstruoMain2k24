@@ -14,6 +14,16 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route
+        path="/uregister"
+        element={
+          <UserRegistration
+            maxTeamSize={4}
+            minTeamSize={1}
+            regType={"combined"}
+          />
+        }
+      />
+      <Route
         path="/"
         element={
           <UserRegistration

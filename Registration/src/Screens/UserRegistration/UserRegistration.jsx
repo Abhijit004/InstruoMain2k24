@@ -33,7 +33,7 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
         >
             <div className="register-page">
                 <div className="register-container">
-                    <h2>User Registration</h2>
+                    <h2>Register for the event</h2>
 
                     <span style={{ fontSize: "1rem", color: "#fff", margin: "0.5rem 0" }}>Registration Mode</span>
                     <Radio.Group

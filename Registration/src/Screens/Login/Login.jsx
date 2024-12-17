@@ -1,13 +1,16 @@
 import React from "react";
 import { Form, Input, Button, ConfigProvider, theme } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 // import "./Login.css";
 
 const Login = () => {
     const [form] = Form.useForm();
+    const navigate = useNavigate();
 
     const onFinish = (values) => {
         console.log("Login Success:", values);
+        navigate("/uregister")
     };
 
     return (

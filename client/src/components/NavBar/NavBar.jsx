@@ -1,9 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider } from "antd";
 import { Link } from "react-router-dom";
-import { ToolOutlined, CalendarOutlined, DollarOutlined, TeamOutlined } from "@ant-design/icons";
+import {
+    ToolOutlined,
+    CalendarOutlined,
+    DollarOutlined,
+    TeamOutlined,
+    UserOutlined,
+    SettingOutlined,
+    LogoutOutlined,
+} from "@ant-design/icons";
 import DrawerSidebar from "./SideBar";
+import ProfileDropdown from "./ProfileDropdown";
 import "./NavBar.css";
 
 const { Header } = Layout;
@@ -13,7 +22,7 @@ const Navbar = () => {
     const [selectedKey, setSelectedKey] = useState([]);
     return (
         <>
-            {width >= 700 ? (
+            {width >= 810 ? (
                 <Layout>
                     <Header
                         style={{
@@ -78,6 +87,9 @@ const Navbar = () => {
                                 onClick={() => setSelectedKey(["/register"])}
                             >
                                 <Link to="/team">Our Team</Link>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <ProfileDropdown />
                             </Menu.Item>
                         </Menu>
                     </Header>

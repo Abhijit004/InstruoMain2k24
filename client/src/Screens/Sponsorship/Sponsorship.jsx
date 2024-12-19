@@ -48,13 +48,59 @@ const Sponsorship = () => {
 
       <div className="sponsors-cta">
         <h1 className="sponsors-title">Connect With Us</h1>
-        <p>
-          Drop an Email and let us collaborate on the awesome journey together{" "}
-          <br />
-          for the better good!
-        </p>
-        <textarea name="text" className="text-area"></textarea>
+
+        <div className="contacts">
+          <div className="contact-grid">
+            <div className="contact-card">
+              <div>Person 1</div>
+              <div className="role">Chairperson</div>
+            </div>
+            <div className="contact-card">
+              <div>Person 2</div>
+              <div className="role">Joint Convenor</div>
+            </div>
+            <div className="contact-card">
+              <div>Person 3</div>
+              <div className="role">Joint Convenor</div>
+            </div>
+            <div className="contact-card">
+              <div>Person 4</div>
+              <div className="role">Treasurer</div>
+            </div>
+            <div className="contact-card">
+              <div>Person 5</div>
+              <div className="contact-info">
+                <img
+                  src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"
+                  alt="Phone"
+                />
+                <span>+91 95552 09179</span>
+              </div>
+            </div>
+            <div className="contact-card">
+              <div>Person 6</div>
+              <div className="contact-info">
+                <img
+                  src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"
+                  alt="Phone"
+                />
+                <span>+91 78909 38525</span>
+              </div>
+            </div>
+            <div className="contact-card">
+              <div>Person 7</div>
+              <div className="contact-info">
+                <img
+                  src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"
+                  alt="Phone"
+                />
+                <span>+91 84204 74705</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      {/* <textarea name="textv classNameName="text-area"></textarea> */}
     </div>
   );
 };

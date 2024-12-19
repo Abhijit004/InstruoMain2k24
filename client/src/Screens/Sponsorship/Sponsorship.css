@@ -119,20 +119,67 @@ p {
   opacity: 0.6;
 }
 
-.text-area {
-  margin-top: 20px;
-  padding: 10px;
-  resize: none;
-  color: #fff;
-  height: 30rem;
-  border-radius: 5px;
-  width: 60rem;
-  background: linear-gradient(
-    to right,
-    rgba(217, 217, 217, 0.12) 0%,
-    rgba(115, 115, 115, 0.1) 100%
-  );
+/* Contact Us Section */
+.contacts {
+  text-align: center;
+  max-width: 1000px;
+  padding: 20px;
 }
+
+.contacts h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Responsive grid */
+  gap: 24px;
+}
+
+.contact-card {
+  background-color: #193152; /* Slightly lighter background for cards */
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.contact-card div {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.role {
+  color: #aaa; /* Grey color for roles */
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.contact-info img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive text sizes for smaller screens */
+@media (max-width: 600px) {
+  .contacts h2 {
+    font-size: 20px;
+  }
+
+  .contact-card {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
 /* Animation */
 @keyframes scroll {
   0% {
@@ -156,6 +203,12 @@ p {
     font-size: 2rem;
   }
 
+  .contact-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(350px, 1fr)
+    ); /* Responsive grid */
+  }
   .sponsors-description {
     font-size: 1.125rem;
   }
@@ -178,7 +231,7 @@ p {
     font-size: 2rem;
   }
   .footer-lamp {
-    max-width:80%;
+    max-width: 80%;
     margin-bottom: -18rem;
   }
   .sponsor-card {

@@ -1,5 +1,11 @@
 /* Footer styles */
 .footer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   background: linear-gradient(
     to right,
     rgba(217, 217, 217, 0.12) 0%,
@@ -127,9 +133,9 @@
 /* Footer bottom */
 .footer-bottom {
   width: 100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #9ca3af;
   padding: 20px;
   border-top: 1px solid #333;
@@ -156,6 +162,9 @@
 @media (max-width: 480px) {
   .footer {
     padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .logo h1 {

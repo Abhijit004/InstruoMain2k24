@@ -5,7 +5,7 @@ import PageHeading from "../../components/PageHeading/PageHeading";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Mesh from "../../components/Mesh/Mesh";
 
-const DayLeft = ({day}) => {
+const DayLeft = ({day, events}) => {
     return (
         <div className="dayleft">
             <div className="content">
@@ -21,7 +21,7 @@ const DayLeft = ({day}) => {
                     </p>
                     <CustomButton text={"Know more"} />
                 </div>
-                <EventGroup />
+                <EventGroup events={events} />
             </div>
         </div>
     );

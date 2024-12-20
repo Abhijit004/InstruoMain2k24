@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./Carousel.css";
+
 const sponsors = [
   {
     name: "Google",
@@ -67,7 +68,10 @@ const Carousel = () => {
       <div ref={carouselRef} className="sponsors-carousel">
         <div className="sponsors-track">
           {[...sponsors, ...sponsors].map((sponsor, index) => (
-            <div key={`${sponsor.name}-${index}`} className="sponsor-card">
+            <div
+              key={`${sponsor.name}-${index}`}
+              className="sponsor-card flex-center"
+            >
               <img
                 src={sponsor.logo}
                 alt={`${sponsor.name} logo`}
@@ -83,7 +87,10 @@ const Carousel = () => {
         </div>
         <div className="sponsors-track">
           {[...sponsors, ...sponsors].map((sponsor, index) => (
-            <div key={`${sponsor.name}-${index}`} className="sponsor-card">
+            <div
+              key={`${sponsor.name}-${index}`}
+              className="sponsor-card flex-center"
+            >
               <img
                 src={sponsor.logo}
                 alt={`${sponsor.name} logo`}

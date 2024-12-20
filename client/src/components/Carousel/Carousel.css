@@ -2,46 +2,41 @@
   margin-top: 3rem;
   max-width: 1000px;
   overflow: hidden;
-  /* border: 2px solid blue; */
 }
 
-.sponsors-track {
-  margin-top:1rem;
+.sponsors-carousel .sponsors-track {
+  margin: 1rem 0;
   display: inline-flex;
   animation: scroll 30s linear infinite;
-  margin-bottom: 1rem;
 }
 
-.sponsors-track:hover {
+.sponsors-carousel .sponsors-track:hover {
   animation-play-state: paused;
 }
 
 /* Sponsor Card Styles */
-.sponsor-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.sponsors-carousel .sponsors-track .sponsor-card {
   height: 8rem;
   width: 12rem;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 0.5rem;
   padding: 1rem;
-  margin: 0 1rem;
+  margin-inline: 1rem;
   transition: transform 0.3s ease;
 }
 
-.sponsor-card:hover {
+.sponsors-carousel .sponsors-track .sponsor-card:hover {
   transform: translateY(-0.5rem);
 }
 
-.sponsor-logo {
+.sponsors-carousel .sponsors-track .sponsor-card .sponsor-logo {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
 }
 
 @media (max-width: 480px) {
-  .sponsor-card {
+  .sponsors-carousel .sponsors-track .sponsor-card {
     height: 7rem;
     width: 10rem;
   }

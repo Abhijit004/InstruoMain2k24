@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./EventGroup.css";
 import CustomButton from "../CustomButton/CustomButton";
+import { Link } from "react-router-dom";
 
 const backdrop = (src) => {
     return {
@@ -23,7 +24,9 @@ const Card = ({ rank, genre, open, changeFocus }) => {
                     Alias fuga, velit exercitationem facere necessitatibus quae, delectus incidunt ipsam ipsum hic
                     temporibus?
                 </div>
-                <CustomButton variant="secondary" className="button" text={"Know more"} />
+                <Link to="/events/newevent">
+                    <CustomButton variant="secondary" className="button" text={"Know more"} />
+                </Link>
                 <div className="rating">12k+ reads and 100+ orders</div>
             </div>
         </div>
@@ -45,6 +48,5 @@ const EventGroup = () => {
         </div>
     );
 };
-
 
 export default EventGroup;

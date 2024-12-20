@@ -10,7 +10,9 @@ const DayLeft = ({day}) => {
         <div className="dayleft">
             <div className="content">
                 <div className="about-day">
-                    <Mesh />
+                    <Mesh style={{
+                        right: 0
+                    }} />
                     <PageHeading variant={"color"} text={`Day ${day}`} />
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ratione excepturi minima animi

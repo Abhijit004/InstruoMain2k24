@@ -1,260 +1,261 @@
 /* Sponsors Container */
 .sponsors-container {
-  margin-top: 4rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 80px 20px;
-  background-color: #0a0a12;
-  color: white;
+    margin-top: 4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px;
+    background-color: #0a0a12;
+    color: white;
 }
 p {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 .ellipse-1 {
-  position: absolute;
-  top: 0;
-  left: 8rem;
-  height: 20%;
+    position: absolute;
+    top: 0;
+    left: 8rem;
+    height: 20%;
 }
 
 .ellipse-2 {
-  position: absolute;
-  top: 0;
-  right: 30rem;
-  height: 20%;
+    position: absolute;
+    top: 0;
+    right: 30rem;
+    height: 20%;
 }
 
 .ellipse-3 {
-  position: absolute;
-  top: 0;
-  right: 7rem;
-  height: 20%;
+    position: absolute;
+    top: 0;
+    right: 7rem;
+    height: 20%;
 }
 .footer-lamp {
-  display: block;
-  max-width: 100%;
-  margin-top: -15rem;
-  margin-bottom: -30rem;
+    display: block;
+    max-width: 100%;
+    margin-top: -15rem;
+    margin-bottom: -30rem;
 }
 .events {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  min-width: 60%;
-  margin-bottom: -50px;
-  background: url("/assets/Sponsor/Check-background.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-bottom: -10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-width: 60%;
+    margin-bottom: -50px;
+    background: url("/assets/Sponsor/Check-background.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: -10rem;
 }
 .btn {
-  color: #fff;
-  background: linear-gradient(90deg, #72d5ff 0%, #c72dff 100%);
-  padding: 12px 30px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 5rem;
-  margin-bottom: -4rem;
-  z-index: 4;
+    color: #fff;
+    background: linear-gradient(90deg, #72d5ff 0%, #c72dff 100%);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: -4rem;
+    z-index: 4;
 }
 .btn-group {
-  display: flex;
-  gap: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
 }
 /* Title Styles */
 .sponsors-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 0.8rem;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
-  -webkit-background-clip: text; /* Clip the background to the text */
-  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
-  background-clip: text;
-  text-fill-color: transparent;
-  text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.3) 100%);
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+    background-clip: text;
+    color: transparent;
+    text-align: center;
 }
 .main-title {
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
+    background: linear-gradient(hsla(0, 0%, 100%, 50%), #fff), linear-gradient(90deg, #dcf026, #bd26f0);
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+    background-clip: text;
+    color: transparent;
+
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
 }
 .main-para {
-  max-width: 45rem;
-  text-align: center;
+    max-width: 45rem;
+    text-align: center;
+	/* font-size: 1.2rem; */
 }
 .sponsor-para {
-  margin-top: 3rem;
-  max-width: 45rem;
-  text-align: center;
+    margin-top: 3rem;
+    max-width: 45rem;
+    text-align: center;
+	/* font-size: 1.2rem; */
 }
 .sponsors-description {
-  font-size: 1.25rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  max-width: 36rem;
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    max-width: 36rem;
 }
 
 /* CTA Section Styles */
 .sponsors-cta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10rem;
 }
 
 .sponsors-cta p {
-  margin-bottom: 1.5rem;
-  opacity: 0.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
 }
 
 /* Contact Us Section */
 .contacts {
-  text-align: center;
-  max-width: 1000px;
-  padding: 20px;
+    text-align: center;
+    max-width: 1000px;
+    padding: 20px;
 }
 
 .contacts h2 {
-  font-size: 24px;
-  margin-bottom: 16px;
+    font-size: 24px;
+    margin-bottom: 16px;
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Responsive grid */
-  gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Responsive grid */
+    gap: 24px;
 }
 
 .contact-card {
-  background-color: #193152; /* Slightly lighter background for cards */
-  border-radius: 8px;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  text-align: left;
+    background-color: #193152; /* Slightly lighter background for cards */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: left;
 }
 
 .contact-card div {
-  font-size: 16px;
-  line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 .role {
-  color: #aaa; /* Grey color for roles */
-  font-size: 14px;
-  margin-top: 4px;
+    color: #aaa; /* Grey color for roles */
+    font-size: 14px;
+    margin-top: 4px;
 }
 
 .contact-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
 }
 
 .contact-info img {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 }
 
 /* Responsive text sizes for smaller screens */
 @media (max-width: 600px) {
-  .contacts h2 {
-    font-size: 20px;
-  }
+    .contacts h2 {
+        font-size: 20px;
+    }
 
-  .contact-card {
-    font-size: 14px;
-    padding: 12px;
-  }
+    .contact-card {
+        font-size: 14px;
+        padding: 12px;
+    }
 }
 
 /* Animation */
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .sponsors-container {
-    padding: 60px 16px;
-  }
+    .sponsors-container {
+        padding: 60px 16px;
+    }
 
-  .footer-lamp {
-    margin-bottom: 9rem;
-  }
-  .sponsors-title {
-    font-size: 2rem;
-  }
+    .footer-lamp {
+        margin-bottom: 9rem;
+    }
+    .sponsors-title {
+        font-size: 2rem;
+    }
 
-  .contact-grid {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(350px, 1fr)
-    ); /* Responsive grid */
-  }
-  .sponsors-description {
-    font-size: 1.125rem;
-  }
+    .contact-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Responsive grid */
+    }
+    .sponsors-description {
+        font-size: 1.125rem;
+    }
 
-  .sponsor-card {
-    height: 6rem;
-    width: 10rem;
-  }
-  .text-area {
-    height: 15rem;
-    width: 30rem;
-  }
+    .sponsor-card {
+        height: 6rem;
+        width: 10rem;
+    }
+    .text-area {
+        height: 15rem;
+        width: 30rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .sponsors-container {
-    padding: 5rem 5rem;
-  }
-  .sponsors-title {
-    font-size: 2rem;
-  }
-  .footer-lamp {
-    max-width: 80%;
-    margin-bottom: -18rem;
-  }
-  .sponsor-card {
-    height: 5rem;
-    width: 8rem;
-  }
-  .btn-group {
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-bottom: 10rem;
-  }
-  p {
-    width: 350px;
-  }
-  .ellipse-1 {
-    display: none;
-  }
+    .sponsors-container {
+        padding: 5rem 5rem;
+    }
+    .sponsors-title {
+        font-size: 2rem;
+    }
+    .footer-lamp {
+        max-width: 80%;
+        margin-bottom: -18rem;
+    }
+    .sponsor-card {
+        height: 5rem;
+        width: 8rem;
+    }
+    .btn-group {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 10rem;
+    }
+    p {
+        width: 350px;
+    }
+    .ellipse-1 {
+        display: none;
+    }
 
-  .footer-bottom {
-    font-size: 0.7rem;
-  }
-  .text-area {
-    height: 12rem;
-    width: 25rem;
-  }
+    .footer-bottom {
+        font-size: 0.7rem;
+    }
+    .text-area {
+        height: 12rem;
+        width: 25rem;
+    }
 }

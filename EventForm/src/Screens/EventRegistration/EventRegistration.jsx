@@ -1,5 +1,17 @@
 import React, { useState } from "react";
-import { Form, Input, DatePicker, Upload, Button, ConfigProvider, theme, InputNumber, Select, message } from "antd";
+import {
+    Form,
+    Input,
+    DatePicker,
+    Upload,
+    Button,
+    ConfigProvider,
+    theme,
+    InputNumber,
+    Select,
+    message,
+    Modal,
+} from "antd";
 import Icon, { UploadOutlined, MoneyCollectOutlined } from "@ant-design/icons";
 // import "./EventRegistration.css";
 import axios from "axios";
@@ -37,12 +49,13 @@ const RupeeFilled = ({ color }) => {
 const EventRegistration = () => {
     const [form] = Form.useForm();
     const [eventType, setEventType] = useState(null);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [modalInstance, setModalInstance] = useState(null);
     // Template for body
     // const { name, email, phone, members, teamName, eventId } = req.body;
 
     const onFinish = async (values) => {
-        setLoading(true)
+        setLoading(true);
         const formData = new FormData();
         formData.append("name", values.name);
         formData.append("description", values.description);
@@ -70,12 +83,36 @@ const EventRegistration = () => {
                 console.log("Event created successfully!");
                 const { _id } = response.data; // Assuming MongoDB ID is returned as `_id`
                 console.log("API Response:", response.data);
-                setLoading(false)
-                message.success("Event Added successfully!");
-                openEventPage();
+                setLoading(false);
+
+                // start modal to redirect
+                let countdownTime = 5;
+                let secondsToGo = countdownTime;
+                const instance = Modal.success({
+                    title: "Event Added Successfully",
+                    content: `Redirecting to events page in ${secondsToGo} seconds...`,
+                    okButtonProps: { style: { display: "none" } }, // Hide the OK button
+                    keyboard: false, // Prevent closing on Esc key press
+                    maskClosable: false,
+                });
+
+                const timer = setInterval(() => {
+                    secondsToGo -= 1;
+                    instance.update({
+                        content: `Redirecting to events page in ${secondsToGo} seconds...`,
+                    });
+                }, 1000);
+
+                setModalInstance(instance);
+                setTimeout(() => {
+                    clearInterval(timer);
+                    instance.destroy();
+                    openEventPage();
+                }, countdownTime * 1000);
+                // end
             })
             .catch((err) => {
-                setLoading(false)
+                setLoading(false);
                 console.log("Error while adding the event");
                 message.error(`${err.code}: ${err.message}`);
                 console.log(err);

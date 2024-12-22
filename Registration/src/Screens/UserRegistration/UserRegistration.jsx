@@ -1,23 +1,110 @@
-import React, { useState } from "react";
-import { Form, Input, Button, Radio, ConfigProvider, theme, Card } from "antd";
-import { PlusOutlined, CloseOutlined } from "@ant-design/icons";
-import './UserRegistration.css'
+import React, { useState, useEffect } from "react";
+import { Form, Input, Button, Radio, ConfigProvider, theme, Card, Modal, Upload, message, notification } from "antd";
+import { PlusOutlined, CloseOutlined, UploadOutlined } from "@ant-design/icons";
+import "./UserRegistration.css";
+
+const IIEST = "iiests.ac.in";
+const allAreIIESTians = (array) => {
+    if (!array) return true;
+    console.log(array);
+
+    for (let member of array) {
+        if (!member.email.endsWith(IIEST)) return false;
+    }
+    return true;
+};
+
+const PaymentModal = ({ isVisible, onClose, formValues }) => {
+    const [form] = Form.useForm();
+
+    const onFinish = (values) => {
+        message.success("Payment Received");
+        message.success("Registration completed");
+        formValues["paymentInfo"] = values;
+        console.log(formValues);
+        onClose();
+    };
+
+    return (
+        <ConfigProvider
+            theme={{
+                algorithm: theme.darkAlgorithm,
+                token: {
+                    colorPrimary: "#722ed1",
+                    colorInfo: "#722ed1",
+                    fontSize: 16,
+                    borderRadius: 5,
+                },
+            }}
+        >
+            <Modal
+                title="Payment"
+                open={isVisible}
+                onCancel={onClose}
+                footer={null}
+                width={400}
+                closable={false}
+                maskClosable={false}
+                style={{ top: 20 }}
+            >
+                <div className="register-container" style={{ maxWidth: 400 }}>
+                    {" "}
+                    <Form form={form} layout="vertical" onFinish={onFinish} size="large">
+                        <div style={{ fontSize: "1.05rem", marginBottom: "2rem" }}>
+                            This event requires a registration fee for Non-IIESTian participants. Scan this QR code to
+                            pay for this event and complete your registration process.
+                        </div>
+                        <div style={{ width: "100%", marginBottom: '1rem' }}>
+                            <img src="/assets/QR.png" alt="QR" style={{ width: "min(100%, 200px)" }} />
+                        </div>
+                        <Form.Item
+                            label="Upload Screenshot of Payment"
+                            name="paymentScreenshot"
+                            rules={[{ required: true, message: "Please upload screenshot of the payment" }]}
+                        >
+                            <Upload maxCount={1} listType="picture" accept="image/*" action={"/#"}>
+                                <Button icon={<UploadOutlined />}>Upload Screenshot</Button>
+                            </Upload>
+                        </Form.Item>
+                        <Form.Item>
+                            <Button size="large" type="primary" htmlType="submit" style={{ width: "100%" }}>
+                                Finish
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </div>
+            </Modal>
+        </ConfigProvider>
+    );
+};
 
 const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
     const [form] = Form.useForm();
-    const [regMode, SetRegMode] = useState(regType != 'combined' ? regType : 'Individual');
+    const [regMode, SetRegMode] = useState(regType != "combined" ? regType : "Individual");
+    const [isPaymentRequired, setIsPaymentRequired] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [formValues, setFormValues] = useState({});
     const options = [
-        { label: "Individual", value: "Individual", disabled: (regType === 'team') },
-        { label: "Team", value: "Team", disabled: (regType === 'individual') },
+        { label: "Individual", value: "Individual", disabled: regType === "team" },
+        { label: "Team", value: "Team", disabled: regType === "individual" },
     ];
     maxTeamSize -= 1;
 
     const onFinish = (values) => {
-        console.log("Form values:", values);
+        if (values.email.endsWith(IIEST) && allAreIIESTians(values.members)) {
+            // Handle form submission without payment
+            message.success("Registration completed");
+            console.log("Form Submitted:", values);
+        } else {
+            setIsPaymentRequired(true);
+            setIsModalVisible(true);
+            setFormValues(values);
+        }
     };
 
-    console.log(regMode);
-    
+    const closePaymentModal = () => {
+        setIsModalVisible(false);
+    };
 
     return (
         <ConfigProvider
@@ -44,13 +131,12 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                         optionType="button"
                         buttonStyle="solid"
                         onChange={(e) => SetRegMode(e.target.value)}
-                        style={{marginBottom: '1rem', width: '10rem'}}
-                        
+                        style={{ marginBottom: "1rem", width: "10rem" }}
                     />
                     <Form form={form} layout="vertical" onFinish={onFinish} size="large">
                         {/* Name */}
                         <Form.Item
-                            label={`Name ${regMode === 'team' ? '(Team Member 1)' : ''}`}
+                            label={`Name ${regMode === "team" ? "(Team Member 1)" : ""}`}
                             name="name"
                             rules={[{ required: true, message: "Please enter your name" }]}
                         >
@@ -142,7 +228,7 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                                                         { type: "email", message: "Please enter a valid email" },
                                                     ]}
                                                 >
-                                                    <Input placeholder="Email"/>
+                                                    <Input placeholder="Email" />
                                                 </Form.Item>
                                                 <Form.Item
                                                     {...restField}
@@ -182,6 +268,9 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                     </Form>
                 </div>
             </div>
+            {isPaymentRequired && (
+                <PaymentModal isVisible={isModalVisible} onClose={closePaymentModal} formValues={formValues} />
+            )}
         </ConfigProvider>
     );
 };

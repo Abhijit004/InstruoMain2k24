@@ -1,36 +1,36 @@
 import React, {useState, useEffect} from "react";
 import { Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider } from "antd";
-import { UserOutlined, SettingOutlined, LogoutOutlined } from "@ant-design/icons";
+import { UserOutlined, SettingOutlined, LogoutOutlined, LoginOutlined } from "@ant-design/icons";
 import axios from "axios";
 
 const { useToken } = theme;
-const items = [
-    {
-        label: (
-            <a href="" target="_blank" rel="noopener noreferrer">
-                1st menu item
-            </a>
-        ),
-        key: "0",
-        icon: <SettingOutlined />,
-    },
-    {
-        label: (
-            <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer">
-                2nd menu item
-            </a>
-        ),
-        key: "1",
-        icon: <SettingOutlined />,
-    },
+const itemsLogin = [
     {
         type: "divider",
     },
     {
-        label: "Log Out",
-        key: "3",
-        icon: <LogoutOutlined />,
+        label: (
+            <a href="https://instruo-backend.onrender.com/auth/google">
+                Login
+            </a>
+        ),
+        key: "0",
+        icon: <LoginOutlined />,
+    }
+];
+const itemsLogout = [
+    {
+        type: "divider",
     },
+    {
+        label: (
+            <a href="https://instruo-backend.onrender.com/auth/logout">
+                Logout
+            </a>
+        ),
+        key: "0",
+        icon: <LoginOutlined />,
+    }
 ];
 
 const ProfileDropdown = () => {
@@ -53,11 +53,11 @@ const ProfileDropdown = () => {
             .then((res) => {
                 console.log("I have got some status!!");
 
-                console.log(JSON.stringify(res));
+                console.log(JSON.stringify(res, null, 2));
 
-                setIsLoggedIn(res.loggedIn);
-                if (res.loggedIn) {
-                    console.log(res.user);
+                setIsLoggedIn(res.data.loggedIn);
+                if (res.data.loggedIn) {
+                    console.log(res.data.user);
                 }
             })
             .catch((error) => {
@@ -70,7 +70,7 @@ const ProfileDropdown = () => {
         <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
             <Dropdown
                 menu={{
-                    items,
+                    items: isLoggedIn?itemsLogout:itemsLogin,
                 }}
                 trigger={["click"]}
                 dropdownRender={(menu) => (

@@ -1,12 +1,66 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, Radio, ConfigProvider, theme, Card, Modal, Upload, message, notification, Typography } from "antd";
-import { PlusOutlined, CloseOutlined, UploadOutlined } from "@ant-design/icons";
+import {
+    Form,
+    Input,
+    Button,
+    Radio,
+    ConfigProvider,
+    theme,
+    Card,
+    Modal,
+    Upload,
+    message,
+    notification,
+    Typography,
+    AutoComplete,
+    Tag,
+} from "antd";
+import {
+    PlusOutlined,
+    CloseOutlined,
+    UploadOutlined,
+    UserOutlined,
+    UserSwitchOutlined,
+    TeamOutlined,
+} from "@ant-design/icons";
 import "./UserRegistration.css";
+
+const apiFetched = [
+    {
+        _id: "6767f82afbf4b80b2fa9e18c",
+        name: "Tejas Pawar",
+        email: "tejaspawar62689@gmail.com",
+    },
+    {
+        _id: "6768098cc80c12cb834a89e0",
+        name: "Ayush Tejaswi",
+        email: "tejaspawar70238@gmail.com",
+    },
+    {
+        _id: "6768098cc80c12cb834a89e0",
+        name: "A Very Long Name",
+        email: "tejaspawar702238@gmail.com",
+    },
+    {
+        _id: "6768098cc80c12cb834a89e0",
+        name: "Rishab Dugar",
+        email: "tejaspawar702318@gmail.com",
+    },
+    {
+        _id: "6768098cc80c12cb834a89e0",
+        name: "Nafis Adnan Mondal",
+        email: "tejaspawar7023338@gmail.com",
+    },
+    {
+        _id: "6768098cc80c12cb834a89e0",
+        name: "Abhijit Karmakar",
+        email: "tejaspawar7023458@gmail.com",
+    },
+];
 
 const IIEST = "iiests.ac.in";
 const allAreIIESTians = (array) => {
     if (!array) return true;
-    console.log(array);
 
     for (let member of array) {
         if (!member.email.endsWith(IIEST)) return false;
@@ -43,8 +97,6 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
                 onCancel={onClose}
                 footer={null}
                 width={400}
-                closable={false}
-                maskClosable={false}
                 style={{ top: 20 }}
             >
                 <div className="register-container" style={{ maxWidth: 400 }}>
@@ -54,7 +106,7 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
                             This event requires a registration fee for Non-IIESTian participants. Scan this QR code to
                             pay for this event and complete your registration process.
                         </div>
-                        <div style={{ width: "100%", marginBottom: '1rem' }}>
+                        <div style={{ width: "100%", marginBottom: "1rem" }}>
                             <img src="/assets/QR.png" alt="QR" style={{ width: "min(100%, 200px)" }} />
                         </div>
                         <Form.Item
@@ -78,7 +130,7 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
     );
 };
 
-const searchAPI = `http://localhost:5000/user/search`
+const searchAPI = `http://localhost:5000/user/search`;
 
 const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
     const [form] = Form.useForm();
@@ -91,8 +143,26 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
         { label: "Team", value: "Team", disabled: regType === "individual" },
     ];
     maxTeamSize -= 1;
+    const [filtered, setFiltered] = useState([]);
+    const [selectedMembers, setSelectedMembers] = useState([]);
+    const [inputValue, setInputValue] = useState("");
+
+    const membersList = [];
+    const emailMapper = {};
+
+    for (let user of apiFetched) {
+        membersList.push(user.email);
+        emailMapper[user.email] = user.name;
+    }
 
     const onFinish = (values) => {
+        console.log(selectedMembers);
+
+        if ((1+selectedMembers.length) < minTeamSize) {
+            message.error(`Team size must be atleast ${minTeamSize}`)
+            return
+        } 
+
         if (values.email.endsWith(IIEST) && allAreIIESTians(values.members)) {
             // Handle form submission without payment
             const formData = new FormData();
@@ -109,6 +179,31 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
 
     const closePaymentModal = () => {
         setIsModalVisible(false);
+    };
+
+    const handleSearch = (value) => {
+        setFiltered(
+            !value
+                ? []
+                : membersList
+                      .filter((member) => member.toLowerCase().includes(value.toLowerCase()))
+                      .map((member) => ({ value: member }))
+        );
+    };
+
+    const handleSelect = (value) => {
+        if (!selectedMembers.includes(value)) {
+            if (selectedMembers.length < maxTeamSize) {
+                setSelectedMembers([...selectedMembers, value]);
+            } else {
+                message.warning(`You can only add up to ${maxTeamSize} members.`);
+            }
+        }
+        setInputValue("");
+    };
+
+    const handleInputChange = (e) => {
+        setInputValue(e);
     };
 
     return (
@@ -202,83 +297,59 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                             </Form.Item>
                         )}
                         {/* Team Members */}
+
                         {regMode === "Team" && (
-                            <Form.List
-                                name="teamMembers"
-                                rules={[
-                                    {
-                                        validator: async (_, teamMembers) => {
-                                            if (!teamMembers || teamMembers.length < minTeamSize) {
-                                                return Promise.reject(new Error(`At least ${minTeamSize} members`));
-                                            }
-                                            if (teamMembers.length > maxTeamSize) {
-                                                return Promise.reject(new Error(`No more than ${maxTeamSize} members`));
-                                            }
-                                        },
-                                    },
-                                ]}
+                            <div
+                                style={{
+                                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                                    borderRadius: "8px",
+                                    padding: "0.4rem",
+                                    marginBottom: "1rem",
+                                }}
                             >
-                                {(fields, { add, remove }) => (
-                                    <>
-                                        {fields.map(({ key, name, ...restField }) => (
-                                            <Card
-                                                size="small"
-                                                style={{ marginBottom: "1rem" }}
-                                                title={`Team Member ${name + 2}`}
-                                                key={key}
-                                                extra={
-                                                    <CloseOutlined
-                                                        onClick={() => {
-                                                            remove(name);
-                                                        }}
-                                                    />
-                                                }
-                                            >
-                                                <Form.Item
-                                                    {...restField}
-                                                    name={[name, "name"]}
-                                                    rules={[{ required: true, message: "Missing name" }]}
-                                                >
-                                                    <Input placeholder="Name" />
-                                                </Form.Item>
-                                                <Form.Item
-                                                    {...restField}
-                                                    name={[name, "email"]}
-                                                    rules={[
-                                                        { required: true, message: "Missing Email" },
-                                                        { type: "email", message: "Please enter a valid email" },
-                                                    ]}
-                                                >
-                                                    <Input placeholder="Email" />
-                                                </Form.Item>
-                                                <Form.Item
-                                                    {...restField}
-                                                    name={[name, "phone"]}
-                                                    rules={[
-                                                        { required: true, message: "Missing phone number" },
-                                                        {
-                                                            pattern: /^\d{10}$/,
-                                                            message: "Please enter a valid 10-digit phone number",
-                                                        },
-                                                    ]}
-                                                >
-                                                    <Input placeholder="Phone" />
-                                                </Form.Item>
-                                            </Card>
-                                        ))}
-                                        <Form.Item>
-                                            <Button
-                                                type="dashed"
-                                                onClick={() => add()}
-                                                icon={<PlusOutlined />}
-                                                disabled={fields.length >= maxTeamSize}
-                                            >
-                                                Add Team Member
-                                            </Button>
-                                        </Form.Item>
-                                    </>
-                                )}
-                            </Form.List>
+                                <span style={{ fontSize: "1rem", color: "#fff", margin: "0.5rem 0", display: "block" }}>
+                                    <TeamOutlined /> Add your team members
+                                </span>
+                                <AutoComplete
+                                    options={filtered}
+                                    style={{ width: "100%" }}
+                                    onSearch={handleSearch}
+                                    onSelect={handleSelect}
+                                    value={inputValue}
+                                    onChange={handleInputChange}
+                                    filterOption
+                                >
+                                    <Input
+                                        size="large"
+                                        placeholder="Type member email"
+                                        suffix={<PlusOutlined />}
+                                        onPressEnter={() => handleSelect(inputValue)}
+                                    />
+                                </AutoComplete>
+                                <div style={{ marginTop: 16 }}>
+                                    {selectedMembers.map((member, index) => (
+                                        <Card
+                                            size="small"
+                                            style={{ marginBottom: "1rem" }}
+                                            title={`Team Member ${index + 2}`}
+                                            key={index}
+                                            extra={
+                                                <CloseOutlined
+                                                    onClick={(m) =>
+                                                        setSelectedMembers(selectedMembers.filter((m) => m !== member))
+                                                    }
+                                                />
+                                            }
+                                        >
+                                            <h3>
+                                                {emailMapper[member]}
+                                                <br />
+                                            </h3>
+                                            <span style={{ opacity: 0.6 }}>{member}</span>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
                         )}
                         {/* Submit Button */}
                         <Form.Item>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, Radio, ConfigProvider, theme, Card, Modal, Upload, message, notification } from "antd";
+import { Form, Input, Button, Radio, ConfigProvider, theme, Card, Modal, Upload, message, notification, Typography } from "antd";
 import { PlusOutlined, CloseOutlined, UploadOutlined } from "@ant-design/icons";
 import "./UserRegistration.css";
 
@@ -46,6 +46,7 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
                 closable={false}
                 maskClosable={false}
                 style={{ top: 20 }}
+                keyboard={false}
             >
                 <div className="register-container" style={{ maxWidth: 400 }}>
                     {" "}

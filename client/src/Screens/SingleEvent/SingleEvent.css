@@ -19,13 +19,14 @@
 }
 
 .single-event .hero .heading {
-    font-size: 3rem !important;
+    font-size: 3rem;
 }
 
 .single-event .hero .byline {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
     width: 80%;
+    color: var(--grey);
 }
 
 .single-event .hero .banner {
@@ -34,4 +35,9 @@
     height: 100vh;
     z-index: -1;
     opacity :0.4;
+}
+
+.single-event .hero .time,
+.single-event .hero .venue {
+    font-size: 1.2rem;
 }

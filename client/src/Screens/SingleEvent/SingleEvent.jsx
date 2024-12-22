@@ -15,6 +15,12 @@ const SingleEvent = () => {
                     background: `url("${back}")`
                 }} className="banner"></div>
                 <div className="heading gradient-bw">Cool event!</div>
+                <div className="time">
+                    10th Jan, 2025, 11:30 PM - 12th Jan, 2025, 11:45 PM
+                </div>
+                <div className="venue">
+                    Cool venue
+                </div>
                 <div className="byline">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti tempora nam dolorem natus quo
                     consectetur velit. Nihil repellat laboriosam officiis.

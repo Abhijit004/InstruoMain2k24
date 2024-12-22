@@ -1,9 +1,11 @@
 import React from "react";
 import { Form, Button, Card, Typography, ConfigProvider, theme } from "antd";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
+
+const google_client_id = `paste_ID_here_@tejas`;
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -29,7 +31,7 @@ const SignUp = () => {
                 },
             }}
         >
-            <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
+            <GoogleOAuthProvider clientId={google_client_id}>
                 <div
                     style={{
                         display: "flex",

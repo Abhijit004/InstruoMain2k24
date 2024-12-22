@@ -1,21 +1,15 @@
 import React from "react";
 import { Form, Button, Card, Typography, ConfigProvider, theme } from "antd";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
 
+const google_client_id = `paste_ID_here_@tejas`;
+
 const SignUp = () => {
     const navigate = useNavigate();
-    const handleGoogleSuccess = (credentialResponse) => {
-        console.log("Google Login Success:", credentialResponse);
-        // You can send credentialResponse.credential to your backend for validation
-        navigate("/");
-    };
-
-    const handleGoogleFailure = () => {
-        console.error("Google Login Failed");
-    };
+    
 
     return (
         <ConfigProvider
@@ -29,17 +23,17 @@ const SignUp = () => {
                 },
             }}
         >
-            <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexDirection: "column",
-                        height: "100vh",
-                        width: "100vw",
-                    }}
-                >
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    height: "100vh",
+                    width: "100vw",
+                }}
+            >
+                <Card style={{ width: "min(400px, 80%)", padding: 20 }}>
                     <Typography.Title
                         level={1}
                         style={{
@@ -52,7 +46,7 @@ const SignUp = () => {
                             style={{
                                 background: "linear-gradient(120deg, var(--pink), var(--sky))",
                                 backgroundClip: "text",
-                                "-webkit-background-clip": "text !important",
+                                WebkitBackgroundClip: "text !important",
                                 color: "transparent",
                                 fontWeight: "bold",
                                 fontSize: "3rem",
@@ -61,25 +55,15 @@ const SignUp = () => {
                             INSTRUO
                         </Typography.Text>
                     </Typography.Title>
-                    <Card style={{ width: "min(400px, 80%)", padding: 20 }}>
-                        <Form layout="vertical">
-                            <Form.Item>
-                                <GoogleLogin
-                                    onSuccess={handleGoogleSuccess}
-                                    onError={handleGoogleFailure}
-                                    text="signin_with"
-                                    theme="filled_blue"
-                                />
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" block>
-                                    Login
-                                </Button>
-                            </Form.Item>
-                        </Form>
-                    </Card>
-                </div>
-            </GoogleOAuthProvider>
+                    <Form layout="vertical">
+                        <Form.Item>
+                            <Button type="primary" block href="http://localhost:5000/auth/google">
+                                Login
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </Card>
+            </div>
         </ConfigProvider>
     );
 };

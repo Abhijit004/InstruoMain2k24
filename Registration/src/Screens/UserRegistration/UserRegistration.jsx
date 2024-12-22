@@ -46,7 +46,6 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
                 closable={false}
                 maskClosable={false}
                 style={{ top: 20 }}
-                keyboard={false}
             >
                 <div className="register-container" style={{ maxWidth: 400 }}>
                     {" "}
@@ -79,6 +78,8 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
     );
 };
 
+const searchAPI = `http://localhost:5000/user/search`
+
 const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
     const [form] = Form.useForm();
     const [regMode, SetRegMode] = useState(regType != "combined" ? regType : "Individual");
@@ -94,6 +95,9 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
     const onFinish = (values) => {
         if (values.email.endsWith(IIEST) && allAreIIESTians(values.members)) {
             // Handle form submission without payment
+            const formData = new FormData();
+            formData.append("name", values.name);
+
             message.success("Registration completed");
             console.log("Form Submitted:", values);
         } else {

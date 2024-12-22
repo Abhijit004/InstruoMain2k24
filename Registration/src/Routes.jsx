@@ -16,7 +16,7 @@ const AllRoutes = () => {
             <Route path="/" element={<UserRegistration maxTeamSize={4} minTeamSize={1} regType={"combined"} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/payment" element={<Payment />} />
+            {/* <Route path="/payment" element={<Payment />} /> */}
         </Routes>
     );
 };

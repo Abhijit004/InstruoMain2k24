@@ -1,12 +1,9 @@
-import React from 'react'
-import {Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider} from 'antd'
-import {
-    UserOutlined,
-    SettingOutlined,
-    LogoutOutlined,
-} from "@ant-design/icons";
+import React, {useState, useEffect} from "react";
+import { Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider } from "antd";
+import { UserOutlined, SettingOutlined, LogoutOutlined } from "@ant-design/icons";
+import axios from "axios";
 
-const { useToken } = theme
+const { useToken } = theme;
 const items = [
     {
         label: (
@@ -37,15 +34,38 @@ const items = [
 ];
 
 const ProfileDropdown = () => {
-    const token = useToken()
+    const token = useToken();
     const contentStyle = {
-        backgroundColor: '#1f1f1f',
-        borderRadius: '5px',
+        backgroundColor: "#1f1f1f",
+        borderRadius: "5px",
         boxShadow: token.boxShadowSecondary,
     };
     const menuStyle = {
         boxShadow: "none",
     };
+
+    const [isLoggedIn, setIsLoggedIn] = useState(null);
+    useEffect(() => {
+        axios
+            .get("https://instruo-backend.onrender.com/auth/status", {
+                credentials: "include",
+            })
+            .then((res) => {
+                console.log("I have got some status!!");
+
+                console.log(JSON.stringify(res));
+
+                setIsLoggedIn(res.loggedIn);
+                if (res.loggedIn) {
+                    console.log(res.user);
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching login status:", error);
+                setIsLoggedIn(false);
+            });
+    }, []);
+
     return (
         <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
             <Dropdown
@@ -58,14 +78,14 @@ const ProfileDropdown = () => {
                         <Space
                             style={{
                                 padding: 8,
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'start',
-                                gap: '0'
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "start",
+                                gap: "0",
                             }}
                         >
                             <h2>User name</h2>
-                            <span style={{opacity: '0.7'}}>email@gmail.com</span>
+                            <span style={{ opacity: "0.7" }}>email@gmail.com</span>
                         </Space>
                         {React.cloneElement(menu, {
                             style: menuStyle,
@@ -85,4 +105,4 @@ const ProfileDropdown = () => {
     );
 };
 
-export default ProfileDropdown
+export default ProfileDropdown;

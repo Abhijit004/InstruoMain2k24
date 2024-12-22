@@ -96,7 +96,7 @@ const ProfileDropdown = () => {
                 <Space>
                     <Avatar
                         size="large"
-                        icon={<UserOutlined style={{ color: "#000" }} />}
+                        icon={<UserOutlined style={{ color: "#000000", fontSize: 16 }} />}
                         style={{ cursor: "pointer", backgroundColor: "#fff" }}
                     />
                 </Space>

@@ -84,6 +84,11 @@ p {
 }
 
 .sponsors-container .main-title {
+  background: var(--sponsor-title-gradient), linear-gradient(90deg, yellow, #f304d3);
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text; /* Clip the background to the text */
+  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
   font-size: 3.5rem;
   margin-bottom: 2rem;
 }
@@ -91,7 +96,7 @@ p {
 .sponsor-para,
 .sponsors-description {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   max-width: min(60%, 45rem);
 }
 .sponsors-container .sponsor-para,

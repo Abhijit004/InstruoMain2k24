@@ -39,7 +39,6 @@ const Sponsorship = () => {
 
                 <div className="btn-group">
                     <CustomButton text={"Read More"} style={{ marginTop: "1rem", zIndex: 4, fontWeight: 900  }} />
-                    <CustomButton text={"Download Brochure"} style={{ marginTop: "1rem", zIndex: 4, fontWeight: 900 }} />
                 </div>
             </div>
 

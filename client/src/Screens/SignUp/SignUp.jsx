@@ -57,7 +57,7 @@ const SignUp = () => {
                     </Typography.Title>
                     <Form layout="vertical">
                         <Form.Item>
-                            <Button type="primary" block href="http://localhost:5000/auth/google">
+                            <Button type="primary" block href="https://instruo-backend.onrender.com/auth/google">
                                 Login
                             </Button>
                         </Form.Item>

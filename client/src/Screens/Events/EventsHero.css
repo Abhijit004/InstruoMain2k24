@@ -11,7 +11,9 @@
 }
 
 .events-hero .hero-title {
-    /* color: #fff; */
+    background: linear-gradient(hsla(0, 0%, 100%, 50%), #fff), linear-gradient(90deg, #C72DFF, #26EFF9);
+    background-clip: text;
+    color: transparent;
     font-size: 5rem;
     font-weight: bold;
 }

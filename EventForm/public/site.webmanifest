@@ -1,0 +1,29 @@
+{
+  "name": "Instruo",
+  "short_name": "Instruo",
+  "description" : "Get ready to witness innovation, adrenaline, and creativity like never before at INSTRUO 13.0 - Kolkata's biggest techno-management fest!",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "start_url": ".",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

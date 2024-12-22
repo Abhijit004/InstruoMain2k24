@@ -18,7 +18,7 @@ const Payment = () => {
                 algorithm: theme.darkAlgorithm,
                 token: {
                     colorPrimary: "#722ed1",
-                    colorInfo: "#722ed1",
+                    colorInfo: "#aa82e3",
                     fontSize: 16,
                     borderRadius: 5,
                 },

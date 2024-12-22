@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Radio, ConfigProvider, theme, Card } from "antd";
+import { Form, Input, Button, Radio, ConfigProvider, theme, Card, Typography } from "antd";
 import { PlusOutlined, CloseOutlined } from "@ant-design/icons";
-import './UserRegistration.css'
+import "./UserRegistration.css";
 
 const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
     const [form] = Form.useForm();
-    const [regMode, SetRegMode] = useState(regType != 'combined' ? regType : 'Individual');
+    const [regMode, SetRegMode] = useState(regType != "combined" ? regType : "Individual");
     const options = [
-        { label: "Individual", value: "Individual", disabled: (regType === 'team') },
-        { label: "Team", value: "Team", disabled: (regType === 'individual') },
+        { label: "Individual", value: "Individual", disabled: regType === "team" },
+        { label: "Team", value: "Team", disabled: regType === "individual" },
     ];
     maxTeamSize -= 1;
 
@@ -17,7 +17,6 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
     };
 
     console.log(regMode);
-    
 
     return (
         <ConfigProvider
@@ -31,10 +30,26 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                 },
             }}
         >
-            <div className="register-page">
+            <div
+                className="register-page"
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                }}
+            >
+                <img
+                    style={{
+                        // position: "fixed",
+                        transform: "scale(0.7)",
+                        cursor: "pointer",
+                    }}
+                    src="/assets/favicon.svg"
+                    onClick={() => {
+                        window.open("http://instruo.tech", "_blank");
+                    }}
+                />
+                <Typography.Title>Event Registration</Typography.Title>
                 <div className="register-container">
-                    <h2>Register for the event</h2>
-
                     <span style={{ fontSize: "1rem", color: "#fff", margin: "0.5rem 0" }}>Registration Mode</span>
                     <Radio.Group
                         size="large"
@@ -44,13 +59,12 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                         optionType="button"
                         buttonStyle="solid"
                         onChange={(e) => SetRegMode(e.target.value)}
-                        style={{marginBottom: '1rem', width: '10rem'}}
-                        
+                        style={{ marginBottom: "1rem", width: "10rem" }}
                     />
                     <Form form={form} layout="vertical" onFinish={onFinish} size="large">
                         {/* Name */}
                         <Form.Item
-                            label={`Name ${regMode === 'team' ? '(Team Member 1)' : ''}`}
+                            label={`Name ${regMode === "team" ? "(Team Member 1)" : ""}`}
                             name="name"
                             rules={[{ required: true, message: "Please enter your name" }]}
                         >
@@ -142,7 +156,7 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                                                         { type: "email", message: "Please enter a valid email" },
                                                     ]}
                                                 >
-                                                    <Input placeholder="Email"/>
+                                                    <Input placeholder="Email" />
                                                 </Form.Item>
                                                 <Form.Item
                                                     {...restField}

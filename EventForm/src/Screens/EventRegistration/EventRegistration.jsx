@@ -6,6 +6,8 @@ import axios from "axios";
 
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
+const POST_URL = `https://instruo-backend.onrender.com/api/event/create`
+// http://localhost:5000/api/event/create
 
 const EventRegistration = () => {
     const [form] = Form.useForm();
@@ -25,25 +27,24 @@ const EventRegistration = () => {
         formData.append("maxSize", values.maxTeamSize);
         formData.append("minSize", values.minTeamSize);
         formData.append("poster", values.posterImage.fileList[0].originFileObj);
-        
-        values.galleryImages.fileList.forEach((file) => {
+
+        values.galleryImages?.fileList.forEach((file) => {
             formData.append("gallery", file.originFileObj);
         });
-        axios.post("http://localhost:5000/api/event/create", formData, {
+        axios
+            .post(POST_URL, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             })
-        .then((response)=>{
-            console.log("Event created successfully!");
-            const { _id } = response.data; // Assuming MongoDB ID is returned as `_id`
-            console.log("API Response:", response.data);
-        })
-        .catch((err)=>{
-            console.log("Error Thrown!!")
-            console.log(err);
-        })
+            .then((response) => {
+                console.log("Event created successfully!");
+                const { _id } = response.data; // Assuming MongoDB ID is returned as `_id`
+                console.log("API Response:", response.data);
+            })
+            .catch((err) => {
+                console.log("Error Thrown 1!!");
+                console.log(err);
+            });
 
-            
-        
         console.log(values);
     };
 
@@ -134,10 +135,10 @@ const EventRegistration = () => {
                             ]}
                         >
                             <Upload
-                                beforeUpload={() => false}
+                                beforeUpload={()=>false}
                                 maxCount={1}
                                 listType="picture"
-                                accept="image/*"
+                                accept="image/png, image/jpeg, image/jpg"
                                 action={"/#"}
                             >
                                 <Button icon={<UploadOutlined />}>Upload Poster</Button>
@@ -146,7 +147,7 @@ const EventRegistration = () => {
 
                         {/* Gallery Images */}
                         <Form.Item label="Gallery Images" name="galleryImages">
-                            <Upload multiple listType="picture" accept="image/*" beforeUpload={() => false}>
+                            <Upload multiple listType="picture" accept="image/png, image/jpeg, image/jpg" beforeUpload={()=>false}>
                                 <Button icon={<UploadOutlined />}>Upload Gallery Images</Button>
                             </Upload>
                         </Form.Item>

@@ -1,15 +1,44 @@
-import React from "react";
-import "./Hero.css"
+import React, { useState, useEffect } from "react";
+import "./Hero.css";
 import CustomButton from "../../components/CustomButton/CustomButton";
+
+const Dynamic = () => {
+    const [holder, setHolder] = useState(0);
+    const [index, setIndex] = useState(0);
+    let values = ["Potential", "Creativity", "Sharpness"];
+    const [typedText, setTypedText] = useState("");
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (index < values[holder].length) {
+                setTypedText((prevTypedText) => prevTypedText + values[holder][index]);
+
+                setIndex(index + 1);
+            } else {
+                clearInterval(interval);
+                setTimeout(() => {
+                    setTypedText("");
+                    setIndex(0);
+                    setHolder((holder) => (holder + 1) % values.length);
+                }, 2000); // Delay before starting typing the next string
+            }
+        }, 100); // Typing speed (adjust as needed)
+        return () => clearInterval(interval);
+    }, [holder, values]);
+
+    return <div className="dynamic">{typedText}</div>;
+};
 
 const Hero = () => {
     return (
         <div className="hero-section">
             <div className="content">
                 <div className="headline gradient-bw">
-                    Unleash your
-                    Potential
-                    at <span className="gradient-color">INSTRUO</span>
+                    <div>Unleash your</div>
+                    <div><Dynamic /></div>
+                    <div>
+                        at <span className="gradient-color">INSTRUO</span>
+                    </div>
                 </div>
                 <div className="byline">
                     Step into Kolkata's ultimate tech extravaganza! Dive into innovation, challenge your limits in
@@ -17,7 +46,6 @@ const Hero = () => {
                 </div>
                 <div className="button-group">
                     <CustomButton
-                        
                         style={{
                             width: "fit-content",
                             fontWeight: 800,

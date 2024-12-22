@@ -45,18 +45,18 @@ const ProfileDropdown = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(null);
     useEffect(() => {
-        axios
-            .get("https://instruo-backend.onrender.com/auth/status", {
+            fetch("https://instruo-backend.onrender.com/auth/status", {
                 credentials: "include",
             })
-            .then((res) => {
+            .then((res)=>res.json())
+            .then((data) => {
                 console.log("I have got some status!!");
 
-                console.log(JSON.stringify(res, null, 2));
+                console.log(JSON.stringify(data, null, 2));
 
-                setIsLoggedIn(res.data.loggedIn);
-                if (res.data.loggedIn) {
-                    console.log(res.data.user);
+                setIsLoggedIn(data.loggedIn);
+                if (data.loggedIn) {
+                    console.log(data.user);
                 }
             })
             .catch((error) => {

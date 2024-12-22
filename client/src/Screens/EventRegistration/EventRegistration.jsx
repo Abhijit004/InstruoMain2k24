@@ -1,16 +1,47 @@
 import React, { useState } from "react";
-import { Form, Input, DatePicker, Upload, Button, ConfigProvider, theme } from "antd";
+import { Form, Input, DatePicker, Upload, Button, ConfigProvider, theme, InputNumber, Select } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import "./EventRegistration.css";
+import axios from "axios";
 
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 
 const EventRegistration = () => {
     const [form] = Form.useForm();
+    // Template for body
+    // const { name, email, phone, members, teamName, eventId } = req.body;
 
-    const onFinish = (values) => {
-        console.log("Form values:", values);
+    const onFinish = async (values) => {
+        const formData = new FormData();
+        formData.append("name", values.name);
+        formData.append("description", values.description);
+        formData.append("startTime", values.time[0].$d);
+        formData.append("endTime", values.time[1].$d);
+        formData.append("venue", values.venue);
+        formData.append("rules", values.rules);
+        formData.append("rulesDoc", values.rulesDocUrl);
+        formData.append("type", values.type);
+        formData.append("maxSize", values.maxTeamSize);
+        formData.append("minSize", values.minTeamSize);
+        formData.append("poster", values.posterImage.fileList[0].originFileObj);
+        values.galleryImages.fileList.forEach((file) => {
+            formData.append("gallery", file.originFileObj);
+        });
+        try {
+            // POST request to create event
+            const response = await axios.post("/api/event/create", formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            console.log("Event created successfully!");
+            const { _id } = response.data; // Assuming MongoDB ID is returned as `_id`
+            console.log("API Response:", response.data);
+        } catch (error) {
+           console.log("Error occurred while creating event.");
+            console.error("Error:", error.response?.data || error.message);
+        }
+        console.log(values);
     };
 
     return (
@@ -99,19 +130,96 @@ const EventRegistration = () => {
                                 },
                             ]}
                         >
-                            <Upload maxCount={1} listType="picture" accept="image/*" action={"/#"}>
+                            <Upload
+                                beforeUpload={() => false}
+                                maxCount={1}
+                                listType="picture"
+                                accept="image/*"
+                                action={"/#"}
+                            >
                                 <Button icon={<UploadOutlined />}>Upload Poster</Button>
                             </Upload>
                         </Form.Item>
 
                         {/* Gallery Images */}
                         <Form.Item label="Gallery Images" name="galleryImages">
-                            <Upload multiple listType="picture" accept="image/*">
+                            <Upload multiple listType="picture" accept="image/*" beforeUpload={() => false}>
                                 <Button icon={<UploadOutlined />}>Upload Gallery Images</Button>
                             </Upload>
                         </Form.Item>
 
-                        {/* Submit Button */}
+                        <Form.Item
+                            name="type"
+                            label="Event type"
+                            rules={[{ required: true, message: "Please select an event type!" }]}
+                        >
+                            <Select placeholder="Select an option">
+                                <Option value="Single">Single</Option>
+                                <Option value="Team">Team</Option>
+                                <Option value="Combined">Combined</Option>
+                            </Select>
+                        </Form.Item>
+                        <div
+                            style={{
+                                display: "flex",
+                                JustifyContent: "center",
+                                alignItems: "left",
+                                gap: "1rem",
+                            }}
+                        >
+                            <Form.Item
+                                name="minTeamSize"
+                                label="Min team size"
+                                rules={[
+                                    { required: true, message: "Please enter minimum team size!", type: "integer" },
+                                    () => ({
+                                        validator(_, value) {
+                                            const maxNum = form.getFieldValue("maxTeamSize");
+                                            if (
+                                                value === undefined ||
+                                                maxNum === undefined ||
+                                                (value <= maxNum && value >= 1)
+                                            ) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(
+                                                new Error("Minimum team size must be positive or <= maximum team size")
+                                            );
+                                        },
+                                    }),
+                                ]}
+                            >
+                                <InputNumber placeholder="Enter Minimum team size" style={{ width: "100%" }} />
+                            </Form.Item>
+
+                            <Form.Item
+                                name="maxTeamSize"
+                                label="Max team size"
+                                rules={[
+                                    { required: true, message: "Please enter the maximum team size!", type: "number" },
+                                    () => ({
+                                        validator(_, value) {
+                                            const minNum = form.getFieldValue("minTeamSize");
+                                            if (
+                                                value === undefined ||
+                                                minNum === undefined ||
+                                                (value >= minNum && value >= 0)
+                                            ) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(
+                                                new Error(
+                                                    "Maximum team size must be positive or >= the minimum team size!"
+                                                )
+                                            );
+                                        },
+                                    }),
+                                ]}
+                            >
+                                <InputNumber style={{ width: "100%" }} placeholder="Enter maximum number" />
+                            </Form.Item>
+                            {/* Submit Button */}
+                        </div>
                         <Form.Item>
                             <Button size="large" type="primary" htmlType="submit">
                                 Register Event

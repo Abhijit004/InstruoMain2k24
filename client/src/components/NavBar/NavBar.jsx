@@ -10,6 +10,7 @@ import {
     UserOutlined,
     SettingOutlined,
     LogoutOutlined,
+    HomeOutlined,
 } from "@ant-design/icons";
 import DrawerSidebar from "./SideBar";
 import ProfileDropdown from "./ProfileDropdown";
@@ -19,7 +20,7 @@ const { Header } = Layout;
 
 const Navbar = () => {
     const width = window.innerWidth;
-    const [selectedKey, setSelectedKey] = useState([]);
+    const [selectedKey, setSelectedKey] = useState([""]);
     return (
         <>
             {width >= 810 ? (
@@ -60,6 +61,13 @@ const Navbar = () => {
                             }}
                             className="instruo-navmenu"
                         >
+                            <Menu.Item
+                                key="/"
+                                icon={<HomeOutlined />}
+                                onClick={() => setSelectedKey(["/"])}
+                            >
+                                <Link to="/">Home</Link>
+                            </Menu.Item>
                             <Menu.Item
                                 key="/workshops"
                                 icon={<ToolOutlined />}

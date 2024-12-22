@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./EventGroup.css";
 import CustomButton from "../CustomButton/CustomButton";
+import { Link } from "react-router-dom";
 
 const backdrop = (src) => {
     return {
@@ -23,7 +24,9 @@ const Card = ({ rank, genre, open, changeFocus }) => {
                     Alias fuga, velit exercitationem facere necessitatibus quae, delectus incidunt ipsam ipsum hic
                     temporibus?
                 </div>
-                <CustomButton variant="secondary" className="button" text={"Know more"} />
+                <Link to="/events/newevent">
+                    <CustomButton variant="secondary" className="button" text={"Know more"} />
+                </Link>
                 <div className="rating">12k+ reads and 100+ orders</div>
             </div>
         </div>
@@ -32,19 +35,19 @@ const Card = ({ rank, genre, open, changeFocus }) => {
 
 const genres = ["Fantasy", "Thriller", "Romance", "Comedy"];
 
-const EventGroup = () => {
+const EventGroup = (events) => {
     const [cardNumber, setCardNumber] = useState(0);
     const changeFocus = (num) => {
         setCardNumber(() => num);
     };
+    console.log(events);
     return (
         <div className="eventbox-wrapper">
-            {genres.map((val, idx) => (
+            {events && events.length > 0 && events.map((val, idx) => (
                 <Card key={idx} rank={idx} genre={val} open={cardNumber === idx} changeFocus={changeFocus} />
             ))}
         </div>
     );
 };
-
 
 export default EventGroup;

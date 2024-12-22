@@ -5,12 +5,14 @@ import PageHeading from "../../components/PageHeading/PageHeading";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Mesh from "../../components/Mesh/Mesh";
 
-const DayLeft = ({day}) => {
+const DayLeft = ({day, events}) => {
     return (
         <div className="dayleft">
             <div className="content">
                 <div className="about-day">
-                    <Mesh />
+                    <Mesh style={{
+                        right: 0
+                    }} />
                     <PageHeading variant={"color"} text={`Day ${day}`} />
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ratione excepturi minima animi
@@ -19,7 +21,7 @@ const DayLeft = ({day}) => {
                     </p>
                     <CustomButton text={"Know more"} />
                 </div>
-                <EventGroup />
+                <EventGroup events={events} />
             </div>
         </div>
     );

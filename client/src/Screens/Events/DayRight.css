@@ -43,4 +43,7 @@
         flex-flow: column-reverse;
         align-items: flex-end
     }
+    .dayright .content .about-day {
+        max-width: 100vw;
+    }
 }

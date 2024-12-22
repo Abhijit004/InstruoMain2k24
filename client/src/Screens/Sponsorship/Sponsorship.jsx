@@ -1,12 +1,35 @@
 import "./Sponsorship.css";
 import Carousel from "/src/components/Carousel/Carousel";
 
+const contacts = [
+  { name: "Person 1", role: "Chairperson" },
+  { name: "Person 2", role: "Joint Convenor" },
+  { name: "Person 3", role: "Joint Convenor" },
+  { name: "Person 4", role: "Treasurer" },
+  { name: "Person 5", contact: "+91 95552 09179" },
+  { name: "Person 6", contact: "+91 78909 38525" },
+  { name: "Person 7", contact: "+91 84204 74705" },
+];
+
 const Sponsorship = () => {
   return (
-    <div className="sponsors-container">
-      <img src="/assets/Sponsor/Ellipse 8.svg" className="ellipse-1" alt="" />
-      <img src="/assets/Sponsor/Ellipse 9.svg" className="ellipse-2" alt="" />
-      <img src="/assets/Sponsor/Ellipse 10.svg" className="ellipse-3" alt="" />
+    <div className="sponsors-container flex-center">
+      <img
+        src="/assets/Sponsor/Ellipse 8.svg"
+        className="ellipse ellipse-1"
+        alt=""
+      />
+      <img
+        src="/assets/Sponsor/Ellipse 9.svg"
+        className="ellipse ellipse-2"
+        alt=""
+      />
+      <img
+        src="/assets/Sponsor/Ellipse 10.svg"
+        className="ellipse ellipse-3"
+        alt=""
+      />
+
       <h1 className="sponsors-title main-title">Sponsor Us</h1>
       <p className="main-para">
         Step into Kolkata's ultimate tech extravaganza! Dive into innovation,
@@ -14,10 +37,12 @@ const Sponsorship = () => {
         transformative workshops. Ignite your ideas and be the spark that
         revolutionizes the future!
       </p>
+
       <a href="#" className="btn">
         Download Brochure
       </a>
-      <div className="events">
+
+      <div className="sponsors-secondary flex-center">
         <h1 className="sponsors-title">Why Sponsor Us ?</h1>
         <p className="sponsor-para">
           Sponsoring our college fest is a wonderful opportunity to connect with
@@ -26,6 +51,7 @@ const Sponsorship = () => {
           enhance the event’s success but also leave a lasting impression on the
           next generation of changemakers.
         </p>
+
         <div className="btn-group">
           <a href="#" className="btn">
             Read More About Us
@@ -36,72 +62,42 @@ const Sponsorship = () => {
         </div>
       </div>
 
-      <img
-        src="/assets/Sponsor/Footer-lamp.png"
-        alt=""
-        className="footer-lamp"
-      />
-      <h1 className="sponsors-title">Past Sponsors</h1>
+      <div className="carousel-container flex-center">
+        <img
+          src="/assets/Sponsor/Footer-lamp.png"
+          alt=""
+          className="sponsor-lamp"
+        />
+        <h1 className="sponsors-title">Past Sponsors</h1>
+        <Carousel />
+      </div>
 
-      {/* Carousel Component */}
-      <Carousel />
-
-      <div className="sponsors-cta">
+      <div className="sponsors-cta flex-center">
         <h1 className="sponsors-title">Connect With Us</h1>
 
         <div className="contacts">
           <div className="contact-grid">
-            <div className="contact-card">
-              <div>Person 1</div>
-              <div className="role">Chairperson</div>
-            </div>
-            <div className="contact-card">
-              <div>Person 2</div>
-              <div className="role">Joint Convenor</div>
-            </div>
-            <div className="contact-card">
-              <div>Person 3</div>
-              <div className="role">Joint Convenor</div>
-            </div>
-            <div className="contact-card">
-              <div>Person 4</div>
-              <div className="role">Treasurer</div>
-            </div>
-            <div className="contact-card">
-              <div>Person 5</div>
-              <div className="contact-info">
-                <img
-                  src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"
-                  alt="Phone"
-                />
-                <span>+91 95552 09179</span>
+            {contacts.map((contact, index) => (
+              <div className="contact-card" key={index}>
+                <h1>{contact.name}</h1>
+                {contact.role ? (
+                  <div className="role">{contact.role}</div>
+                ) : (
+                  <div className="contact-info">
+                    <img
+                      src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"
+                      alt="Phone"
+                    />
+                    <span>{contact.contact}</span>
+                  </div>
+                )}
               </div>
-            </div>
-            <div className="contact-card">
-              <div>Person 6</div>
-              <div className="contact-info">
-                <img
-                  src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"
-                  alt="Phone"
-                />
-                <span>+91 78909 38525</span>
-              </div>
-            </div>
-            <div className="contact-card">
-              <div>Person 7</div>
-              <div className="contact-info">
-                <img
-                  src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"
-                  alt="Phone"
-                />
-                <span>+91 84204 74705</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-      {/* <textarea name="textv classNameName="text-area"></textarea> */}
     </div>
+    // {/* <textarea name="textv classNameName="text-area"></textarea> */}
   );
 };
 

@@ -29,7 +29,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer flex-center">
       <div className="footer-content">
         <div className="footer-section left">
           <div className="logo">
@@ -86,7 +86,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-bottom">
+      <div className="footer-bottom flex-center">
         <p>Copyright © 2024 Instruo. All rights reserved</p>
       </div>
     </footer>

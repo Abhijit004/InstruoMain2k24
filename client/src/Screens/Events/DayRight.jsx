@@ -11,7 +11,9 @@ const DayRight = () => {
             <div className="content">
                 <EventGroup />
                 <div className="about-day">
-                    <Mesh />
+                    <Mesh style={{
+                        left: 0
+                    }} />
                     <PageHeading variant={"color"} text={"Day two"} />
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ratione excepturi minima animi

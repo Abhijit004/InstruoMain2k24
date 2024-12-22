@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "./Mesh.css"; // Import CSS file for styling
 
-const Mesh = () => {
+const Mesh = ({...style}) => {
     const gridSize = 10; // Size of the grid (10x10)
     const [trigger, setTrigger] = useState(0);
     useEffect(() => {
@@ -12,7 +12,7 @@ const Mesh = () => {
         return () => clearInterval(interval); // Cleanup on component unmount
     }, []);
     return (
-        <div className="mesh-container">
+        <div className="mesh-container" {...style}>
             {Array.from({ length: gridSize * gridSize }).map((_, index) => {
                 const row = Math.floor(index / gridSize);
                 const col = index % gridSize;

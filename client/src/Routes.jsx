@@ -15,6 +15,7 @@ import UserRegistration from "./Screens/UserRegistration/UserRegistration";
 import Mesh from "./components/Mesh/Mesh";
 import Events from "./Screens/Events/Events";
 import EventGroup from "./components/EventGroup/EventGroup";
+import SingleEvent from "./Screens/SingleEvent/SingleEvent";
 
 const AllRoutes = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ const AllRoutes = () => {
       <Route path="/" exact element={<Home />} />
       <Route path="/sponsors" exact element={<Sponsorship />} />
       <Route path="/events" exact element={<Events />} />
+      <Route exact path="/events/:eventID" element={<SingleEvent />} />
       <Route path="/eregister" element={<EventRegistration />} />
       <Route
         path="/uregister"

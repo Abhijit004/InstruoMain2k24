@@ -29,6 +29,7 @@ html {
 }
 #root {
     width: 100%;
+    /* position:relative; */
 }
 
 input, textarea {

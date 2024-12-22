@@ -1,0 +1,37 @@
+.single-event {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: var(--navbar-height);
+    color: #fff;
+}
+
+.single-event .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    position:relative;
+    z-index: 0;
+}
+
+.single-event .hero .heading {
+    font-size: 3rem !important;
+}
+
+.single-event .hero .byline {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+}
+
+.single-event .hero .banner {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity :0.4;
+}

@@ -3,6 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    min-height: 100vh;
     /* padding-top: 4rem; */
 }
 

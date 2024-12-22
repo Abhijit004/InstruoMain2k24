@@ -118,10 +118,26 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                 },
             }}
         >
-            <div className="register-page">
+            <div
+                className="register-page"
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                }}
+            >
+                <img
+                    style={{
+                        // position: "fixed",
+                        transform: "scale(0.7)",
+                        cursor: "pointer",
+                    }}
+                    src="/assets/favicon.svg"
+                    onClick={() => {
+                        window.open("http://instruo.tech", "_blank");
+                    }}
+                />
+                <Typography.Title>Event Registration</Typography.Title>
                 <div className="register-container">
-                    <h2>Register for the event</h2>
-
                     <span style={{ fontSize: "1rem", color: "#fff", margin: "0.5rem 0" }}>Registration Mode</span>
                     <Radio.Group
                         size="large"

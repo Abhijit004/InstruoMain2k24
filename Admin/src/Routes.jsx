@@ -11,14 +11,7 @@ const AllRoutes = () => {
     }, [location]);
     return (
         <Routes>
-            <Route
-                path="/eregister"
-                element={<EventRegistration />}
-            />
-            <Route
-                path="/"
-                element={<EventRegistration />}
-            />
+            <Route path="/" element={<EventRegistration />} />
             <Route path="/login" element={<Login />} />
         </Routes>
     );

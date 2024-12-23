@@ -1,36 +1,70 @@
-import React, { useEffect, useState } from 'react'
-import "./Events.css"
-import EventsHero from './EventsHero'
-import DayLeft from './DayLeft'
-import DayRight from './DayRight'
-import { createEvent } from '../../services/api'
+import React, { useEffect, useState } from "react";
+import "./Events.css";
+import EventsHero from "./EventsHero";
+import DayLeft from "./DayLeft";
+import DayRight from "./DayRight";
+import { getEvents } from "../../services/api";
+import formatTimestamp from "../../services/FormatTime";
 
 const Events = () => {
-  const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState([]);
+    const [dayOne, setDayOne] = useState([]);
+    const [dayTwo, setDayTwo] = useState([]);
+    const [dayThree, setDayThree] = useState([]);
 
-  // const getEventsData = async () => {
-  //   try {
-  //     const res = getEvents();
-  //     setEvents(res.data);
-  //   }
-  //   catch (err) {
-  //     console.log(err.message)
-  //   }
-  // }
+    const getEventsData = async () => {
+        try {
+            const res = await getEvents();
+            console.log("I got events data: ");
+            console.log(res.data);
+            setEvents(res.data);
 
-  // useEffect(() => {
-  //   getEventsData();
-  // })
+            if (res.data) {
+                const dayOneTemp = [];
+                const dayTwoTemp = [];
+                const dayThreeTemp = [];
 
+                res.data.forEach((e) => {
+                    const time = formatTimestamp(e.startTime);
+                    console.log(e);
 
-  return (
-		<div className="events-page">
-			<EventsHero />
-			<DayLeft events={events} day={"one"} />
-			<DayRight events={events} />
-			<DayLeft events={events} day={"three"} />
-		</div>
-  );
-}
+                    // Based on hour, push to the appropriate day
+                    const hour = parseInt(time.slice(0, 2));
 
-export default Events
+                    if (hour === 10) {
+                        dayOneTemp.push(e);
+                    } else if (hour === 11) {
+                        dayTwoTemp.push(e);
+                    } else if (hour === 12) {
+                        dayThreeTemp.push(e);
+                    } else {
+                        // Push events to default dayOne for now
+                        dayOneTemp.push(e);
+                    }
+                });
+
+                // Set states after processing events
+                setDayOne(dayOneTemp);
+                setDayTwo(dayTwoTemp);
+                setDayThree(dayThreeTemp);
+            }
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+    useEffect(() => {
+        getEventsData();
+    }, []);
+
+    return (
+        <div className="events-page">
+            <EventsHero />
+            <DayLeft events={dayOne} day={"one"} />
+            <DayRight events={dayTwo} />
+            <DayLeft events={dayThree} day={"three"} />
+        </div>
+    );
+};
+
+export default Events;

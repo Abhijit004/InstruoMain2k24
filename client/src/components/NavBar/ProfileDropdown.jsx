@@ -45,26 +45,26 @@ const ProfileDropdown = () => {
     };
 
     const [isLoggedIn, setIsLoggedIn] = useState(null);
-    useEffect(() => {
-            fetch("https://instruo-backend.onrender.com/auth/status", {
-                credentials: "include",
-            })
-            .then((res)=>res.json())
-            .then((data) => {
-                console.log("I have got some status!!");
+    // useEffect(() => {
+    //         fetch("https://instruo-backend.onrender.com/auth/status", {
+    //             credentials: "include",
+    //         })
+    //         .then((res)=>res.json())
+    //         .then((data) => {
+    //             console.log("I have got some status!!");
 
-                console.log(JSON.stringify(data, null, 2));
+    //             console.log(JSON.stringify(data, null, 2));
 
-                setIsLoggedIn(data.loggedIn);
-                if (data.loggedIn) {
-                    console.log(data.user);
-                }
-            })
-            .catch((error) => {
-                console.error("Error fetching login status:", error);
-                setIsLoggedIn(false);
-            });
-    }, []);
+    //             setIsLoggedIn(data.loggedIn);
+    //             if (data.loggedIn) {
+    //                 console.log(data.user);
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             console.error("Error fetching login status:", error);
+    //             setIsLoggedIn(false);
+    //         });
+    // }, []);
 
     return (
         <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>

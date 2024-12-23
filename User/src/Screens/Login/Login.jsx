@@ -128,7 +128,7 @@ const Login = () => {
                             style={{
                                 background: "linear-gradient(120deg, var(--pink), var(--sky))",
                                 backgroundClip: "text",
-                                "-webkit-background-clip": "text !important",
+                                "webkitBackgroundClip": "text !important",
                                 color: "transparent",
                                 fontWeight: "bold",
                                 fontSize: "3rem",

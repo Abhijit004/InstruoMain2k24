@@ -29,7 +29,7 @@ export default (props) => {
 	return (
 		<button
 			style={{
-				padding: "10px 20px",
+				padding: "20px 40px",
 			}}
 			onClick={googleLogin}
 		>

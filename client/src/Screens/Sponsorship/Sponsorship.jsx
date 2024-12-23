@@ -1,6 +1,7 @@
 import "./Sponsorship.css";
 import Carousel from "/src/components/Carousel/Carousel";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import { DownloadOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 const contacts = [
     { name: "Person 1", role: "Chairperson" },
@@ -13,6 +14,16 @@ const contacts = [
 ];
 
 const Sponsorship = () => {
+    const fileDownload = () => {
+        const pdfUrl = "./assets/SponsorshipBrochure_Instruo13.pdf";
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = "Instruo13brochure.pdf"; // specify the filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <div className="sponsors-container flex-center">
             <img src="/assets/Sponsor/Ellipse 8.svg" className="ellipse ellipse-1" alt="" />
@@ -26,7 +37,12 @@ const Sponsorship = () => {
                 revolutionizes the future!
             </p>
 
-            <CustomButton text={"Download Brochure"} style={{ marginTop: "1rem", fontWeight: 900  }} />
+            <CustomButton
+                text={"Download Brochure"}
+                style={{ marginTop: "1rem", fontWeight: 900 }}
+                onClick={fileDownload}
+                icon={<DownloadOutlined />}
+            />
 
             <div className="sponsors-secondary flex-center">
                 <h1 className="sponsors-title">Why Sponsor Us ?</h1>
@@ -38,8 +54,13 @@ const Sponsorship = () => {
                 </p>
 
                 <div className="btn-group">
-                    <CustomButton text={"Read More"} style={{ marginTop: "1rem", zIndex: 4, fontWeight: 900  }} />
-                    <CustomButton text={"Download Brochure"} style={{ marginTop: "1rem", zIndex: 4, fontWeight: 900 }} />
+                    <a href="https://www.iiests.ac.in/">
+                        <CustomButton
+                            text={"Read More"}
+                            style={{ marginTop: "1rem", zIndex: 4, fontWeight: 900 }}
+                            icon={<ArrowRightOutlined />}
+                        />
+                    </a>
                 </div>
             </div>
 

@@ -20,9 +20,6 @@ const itemsLogin = [
 ];
 const itemsLogout = [
     {
-        type: "divider",
-    },
-    {
         label: (
             <a href="https://instruo-backend.onrender.com/auth/logout">
                 Logout
@@ -34,6 +31,8 @@ const itemsLogout = [
 ];
 
 const ProfileDropdown = () => {
+    const [userName, setUserName] = useState('No User')
+    const [email, setEmail] = useState("login to register for events")
     const token = useToken();
     const contentStyle = {
         backgroundColor: "#1f1f1f",
@@ -84,8 +83,8 @@ const ProfileDropdown = () => {
                                 gap: "0",
                             }}
                         >
-                            <h2>User name</h2>
-                            <span style={{ opacity: "0.7" }}>email@gmail.com</span>
+                            <h3>{userName}</h3>
+                            <span style={{ opacity: "0.7" }}>{email}</span>
                         </Space>
                         {React.cloneElement(menu, {
                             style: menuStyle,
@@ -96,7 +95,7 @@ const ProfileDropdown = () => {
                 <Space>
                     <Avatar
                         size="large"
-                        icon={<UserOutlined style={{ color: "#000" }} />}
+                        icon={<UserOutlined style={{ color: "#000000", fontSize: 16 }} />}
                         style={{ cursor: "pointer", backgroundColor: "#fff" }}
                     />
                 </Space>

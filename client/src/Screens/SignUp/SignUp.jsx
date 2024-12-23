@@ -25,66 +25,67 @@ const SignUp = () => {
                 },
             }}
         >
-            <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-                <div
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    height: "100vh",
+                    width: "100vw",
+                }}
+            >
+                <img
                     style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexDirection: "column",
-                        height: "100vh",
-                        width: "100vw",
+                        // position: "fixed",
+                        transform: "scale(0.7)",
+                        cursor: "pointer",
+                    }}
+                    src="/favicon.svg"
+                    onClick={() => {
+                        window.open("http://instruo.tech", "_blank");
+                    }}
+                />
+                <Typography.Title
+                    level={1}
+                    style={{
+                        textAlign: "center",
+                        paddingBottom: "2rem",
                     }}
                 >
-                    <img
+                    Sign in to{" "}
+                    <Typography.Text
                         style={{
-                            // position: "fixed",
-                            transform: "scale(0.7)",
-                            cursor: "pointer",
-                        }}
-                        src="/favicon.svg"
-                        onClick={() => {
-                            window.open("http://instruo.tech", "_blank");
-                        }}
-                    />
-                    <Typography.Title
-                        level={1}
-                        style={{
-                            textAlign: "center",
-                            paddingBottom: "2rem",
+                            background: "linear-gradient(120deg, var(--pink), var(--sky))",
+                            backgroundClip: "text",
+                            WebkitBackgroundClip: "text !important",
+                            color: "transparent",
+                            fontWeight: "bold",
+                            fontSize: "3rem",
                         }}
                     >
-                        Sign in to{" "}
-                        <Typography.Text
-                            style={{
-                                background: "linear-gradient(120deg, var(--pink), var(--sky))",
-                                backgroundClip: "text",
-                                "webkitBackgroundClip": "text !important",
-                                color: "transparent",
-                                fontWeight: "bold",
-                                fontSize: "3rem",
-                            }}
-                        >
-                            INSTRUO
-                        </Typography.Text>
-                    </Typography.Title>
-                    <Card style={{ width: "min(400px, 80%)", padding: 20 }}>
-                        <Form layout="vertical">
-                            <Form.Item>
+                        INSTRUO
+                    </Typography.Text>
+                </Typography.Title>
+                <Card style={{ width: "min(400px, 80%)", padding: 20 }}>
+                    <Form layout="vertical">
+                        <Form.Item>
+                            <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
                                 <GoogleLogin setUser={setUser}></GoogleLogin>
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" block>
-                                    Login
-                                </Button>
-                            </Form.Item>
-                        </Form>
-                        {user?user.email:"No email"}
-                        <br />
-                        {user?user.name:"No name"}
-                    </Card>
-                </div>
-            </GoogleOAuthProvider>
+                            </GoogleOAuthProvider>
+                        </Form.Item>
+                        <Form.Item>
+                            <Button type="primary" block>
+                                Login
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                    {user ? user.email : "No email"}
+                    <br />
+                    {user ? user.name : "No name"}
+                </Card>
+            </div>
+            {/* </GoogleOAuthProvider> */}
         </ConfigProvider>
     );
 };

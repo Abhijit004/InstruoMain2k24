@@ -3,24 +3,24 @@ import "./Events.css"
 import EventsHero from './EventsHero'
 import DayLeft from './DayLeft'
 import DayRight from './DayRight'
-import { getEvents } from '../../services/api'
+import { createEvent } from '../../services/api'
 
 const Events = () => {
   const [events, setEvents] = useState([]);
 
-  const getEventsData = async () => {
-    try {
-      const res = getEvents();
-      setEvents(res.data);
-    }
-    catch (err) {
-      console.log(err.message)
-    }
-  }
+  // const getEventsData = async () => {
+  //   try {
+  //     const res = getEvents();
+  //     setEvents(res.data);
+  //   }
+  //   catch (err) {
+  //     console.log(err.message)
+  //   }
+  // }
 
-  useEffect(() => {
-    getEventsData();
-  })
+  // useEffect(() => {
+  //   getEventsData();
+  // })
 
 
   return (

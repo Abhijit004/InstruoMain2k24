@@ -188,7 +188,7 @@ const EventRegistration = () => {
                             name="rulesDocUrl"
                             rules={[
                                 {
-                                    required: true,
+                                    required: false,
                                     type: "url",
                                     message: "Please enter a valid URL for the rules document",
                                 },

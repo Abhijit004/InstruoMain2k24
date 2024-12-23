@@ -13,7 +13,7 @@ const AllRoutes = () => {
     }, [location]);
     return (
         <Routes>
-            <Route path="/" element={<UserRegistration maxTeamSize={4} minTeamSize={1} regType={"combined"} />} />
+            <Route path="/" element={<UserRegistration maxTeamSize={4} minTeamSize={3} regType={"combined"} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             {/* <Route path="/payment" element={<Payment />} /> */}

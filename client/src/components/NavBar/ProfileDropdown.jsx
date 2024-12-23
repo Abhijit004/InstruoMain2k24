@@ -1,39 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider } from "antd";
 import { UserOutlined, SettingOutlined, LogoutOutlined, LoginOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
-import axios from "axios";
 // import { AuthContext } from "./AuthContext";
+import { googleLogout, googleStatus } from "../../services/api";
+import { message } from "antd";
+
+message.config({
+    top: 64
+})
 
 const { useToken } = theme;
-const itemsLogin = [
-    {
-        type: "divider",
-    },
-    {
-        label: (
-            <Link href="/auth/login">
-                Login
-            </Link>
-        ),
-        key: "0",
-        icon: <LoginOutlined />,
-    }
-];
-const itemsLogout = [
-    {
-        label: (
-            <a href="http://localhost:5000/auth/logout">
-                Logout
-            </a>
-        ),
-        key: "0",
-        icon: <LoginOutlined />,
-    }
-];
 
 const ProfileDropdown = () => {
-    
     const token = useToken();
     const contentStyle = {
         backgroundColor: "#1f1f1f",
@@ -44,34 +22,65 @@ const ProfileDropdown = () => {
         boxShadow: "none",
     };
 
+    const handleLogout = async() => {
+        try {
+            const res = await googleLogout();
+            console.log("Logout successfully");
+            window.location.href="/"
+        } catch (err) {
+            console.log("Unable to call logout");
+            console.log(err.message);
+        }
+    };
+
+    const handleLogin = ()=>{
+        window.location.href="/auth/login"
+    }
+
+    const handleStatus = async()=>{
+        try{
+            const res = await googleStatus();
+            setIsLoggedIn(res.data.loggedIn);
+            if(res.data.loggedIn){
+                setUser(res.data.user);
+                // message.success("Logged in as "+res.data.user.name, 5)
+            }
+        }catch(err){
+            console.log("Login failed:");
+            console.log(err.message);
+        }
+    }
+
+    const itemsLogin = [
+        {
+            type: "divider",
+        },
+        {
+            label: <div onClick={handleLogin}>Login</div>,
+            key: "0",
+            icon: <LoginOutlined />,
+        },
+    ];
+    const itemsLogout = [
+        {
+            label: <div onClick={handleLogout}>Logout</div>,
+            key: "0",
+            icon: <LoginOutlined />,
+        },
+    ];
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
 
-    useEffect(() => {
-            axios
-            .get("http://localhost:5000/user/status", {
-                withCredentials: true,
-            })
-            .then((res) => {
-                console.log("Status fetch successful.");
-
-                console.log("Login status: "+res.data.loggedIn);
-
-                setIsLoggedIn(res.data.loggedIn);
-                if (res.data.loggedIn) {
-                    setUser(res.data.user)
-                }
-            })
-            .catch((error) => {
-                console.log("Error fetching login status:", error);
-            });
+    useEffect( () => {
+        handleStatus();
     }, []);
 
     return (
         <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
             <Dropdown
                 menu={{
-                    items: isLoggedIn?itemsLogout:itemsLogin,
+                    items: isLoggedIn ? itemsLogout : itemsLogin,
                 }}
                 trigger={["click"]}
                 dropdownRender={(menu) => (
@@ -85,8 +94,8 @@ const ProfileDropdown = () => {
                                 gap: "0",
                             }}
                         >
-                            <h3>{isLoggedIn?user?.name:"No user"}</h3>
-                            <span style={{ opacity: "0.7" }}>{isLoggedIn?user?.email:""}</span>
+                            <h3>{isLoggedIn ? user?.name : "No user"}</h3>
+                            <span style={{ opacity: "0.7" }}>{isLoggedIn ? user?.email : ""}</span>
                         </Space>
                         {React.cloneElement(menu, {
                             style: menuStyle,
@@ -99,7 +108,7 @@ const ProfileDropdown = () => {
                         size="large"
                         icon={!isLoggedIn ? <UserOutlined style={{ color: "#000", fontSize: 16 }} /> : null}
                         style={{ cursor: "pointer", backgroundColor: "#fff" }}
-                        src={isLoggedIn?user?.image:""}
+                        src={isLoggedIn ? user?.image : ""}
                     />
                 </Space>
             </Dropdown>

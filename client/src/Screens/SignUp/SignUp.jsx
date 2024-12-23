@@ -16,8 +16,8 @@ const SignUp = () => {
 
     useEffect(() => {
         if(user){
-            navigate("/")
-            console.log("Hey out of here!");
+            console.log("User logged in! Redirect!");
+            window.location.href = "/"
             
         };
     }, [user]);

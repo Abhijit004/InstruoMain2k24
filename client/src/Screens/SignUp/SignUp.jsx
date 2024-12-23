@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Card, Typography, ConfigProvider, theme } from "antd";
+import { Form, Button, Card, Typography, ConfigProvider, theme, message } from "antd";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
+
+message.config({
+    top: 64
+})
 
 const { Title } = Typography;
 
@@ -17,8 +21,10 @@ const SignUp = () => {
     useEffect(() => {
         if(user){
             console.log("User logged in! Redirect!");
-            window.location.href = "/"
-            
+            message.success(`Logged in as ${user.name}.\nPlease wait`, 2)
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 2000);
         };
     }, [user]);
 

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider } from "antd";
+import { Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider, message } from "antd";
 import { UserOutlined, SettingOutlined, LogoutOutlined, LoginOutlined } from "@ant-design/icons";
 // import { AuthContext } from "./AuthContext";
 import { googleLogout, googleStatus } from "../../services/api";
-import { message } from "antd";
 
 message.config({
     top: 64
@@ -26,10 +25,14 @@ const ProfileDropdown = () => {
         try {
             const res = await googleLogout();
             console.log("Logout successfully");
-            window.location.href="/"
+            message.success("Logout successful. Please wait.")
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 2000);
         } catch (err) {
             console.log("Unable to call logout");
             console.log(err.message);
+            message.error("Soem error occured in logout. Please try again later.")
         }
     };
 

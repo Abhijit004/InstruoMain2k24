@@ -1,6 +1,6 @@
 import axios from "axios";
-// const API_URL = import.meta.env.VITE_API_URL;
-const API_URL = `https://instruo-backend.onrender.com`
+const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = `http://localhost:5000`
 //https://instruo-backend.onrender.com
 
 axios.defaults.withCredentials = true;

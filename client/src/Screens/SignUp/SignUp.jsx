@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Card, Typography, ConfigProvider, theme } from "antd";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
@@ -6,13 +6,21 @@ import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
 const { Title } = Typography;
 
-const GOOGLE_CLIENT_ID = `1087823542920-ektv5k5fq64hj28rs5b8iak18ub525fg.apps.googleusercontent.com`;
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 const SignUp = () => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(null);
     const [isAdmin, setIsAdmin] = useState(null);
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        if(user){
+            navigate("/")
+            console.log("Hey out of here!");
+            
+        };
+    }, [user]);
 
     return (
         <ConfigProvider
@@ -76,9 +84,6 @@ const SignUp = () => {
                             </GoogleOAuthProvider>
                         </Form.Item>
                     </Form>
-                    {user ? user.email : "No email"}
-                    <br />
-                    {user ? user.name : "No name"}
                 </Card>
             </div>
             {/* </GoogleOAuthProvider> */}

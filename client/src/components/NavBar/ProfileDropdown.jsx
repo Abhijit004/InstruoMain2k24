@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { Space, Avatar, Dropdown, ConfigProvider, theme, Button, Divider } from "antd";
 import { UserOutlined, SettingOutlined, LogoutOutlined, LoginOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 import axios from "axios";
+// import { AuthContext } from "./AuthContext";
 
 const { useToken } = theme;
 const itemsLogin = [
@@ -10,9 +12,9 @@ const itemsLogin = [
     },
     {
         label: (
-            <a href="https://instruo-backend.onrender.com/auth/google">
+            <Link href="/auth/login">
                 Login
-            </a>
+            </Link>
         ),
         key: "0",
         icon: <LoginOutlined />,
@@ -21,7 +23,7 @@ const itemsLogin = [
 const itemsLogout = [
     {
         label: (
-            <a href="https://instruo-backend.onrender.com/auth/logout">
+            <a href="http://localhost:5000/auth/logout">
                 Logout
             </a>
         ),
@@ -31,8 +33,7 @@ const itemsLogout = [
 ];
 
 const ProfileDropdown = () => {
-    const [userName, setUserName] = useState('No User')
-    const [email, setEmail] = useState("login to register for events")
+    
     const token = useToken();
     const contentStyle = {
         backgroundColor: "#1f1f1f",
@@ -43,27 +44,28 @@ const ProfileDropdown = () => {
         boxShadow: "none",
     };
 
-    const [isLoggedIn, setIsLoggedIn] = useState(null);
-    // useEffect(() => {
-    //         fetch("https://instruo-backend.onrender.com/auth/status", {
-    //             credentials: "include",
-    //         })
-    //         .then((res)=>res.json())
-    //         .then((data) => {
-    //             console.log("I have got some status!!");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState(null);
 
-    //             console.log(JSON.stringify(data, null, 2));
+    useEffect(() => {
+            axios
+            .get("http://localhost:5000/user/status", {
+                withCredentials: true,
+            })
+            .then((res) => {
+                console.log("Status fetch successful.");
 
-    //             setIsLoggedIn(data.loggedIn);
-    //             if (data.loggedIn) {
-    //                 console.log(data.user);
-    //             }
-    //         })
-    //         .catch((error) => {
-    //             console.error("Error fetching login status:", error);
-    //             setIsLoggedIn(false);
-    //         });
-    // }, []);
+                console.log("Login status: "+res.data.loggedIn);
+
+                setIsLoggedIn(res.data.loggedIn);
+                if (res.data.loggedIn) {
+                    setUser(res.data.user)
+                }
+            })
+            .catch((error) => {
+                console.log("Error fetching login status:", error);
+            });
+    }, []);
 
     return (
         <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
@@ -83,8 +85,8 @@ const ProfileDropdown = () => {
                                 gap: "0",
                             }}
                         >
-                            <h3>{userName}</h3>
-                            <span style={{ opacity: "0.7" }}>{email}</span>
+                            <h3>{isLoggedIn?user?.name:"No user"}</h3>
+                            <span style={{ opacity: "0.7" }}>{isLoggedIn?user?.email:""}</span>
                         </Space>
                         {React.cloneElement(menu, {
                             style: menuStyle,
@@ -95,8 +97,9 @@ const ProfileDropdown = () => {
                 <Space>
                     <Avatar
                         size="large"
-                        icon={<UserOutlined style={{ color: "#000000", fontSize: 16 }} />}
+                        icon={!isLoggedIn ? <UserOutlined style={{ color: "#000", fontSize: 16 }} /> : null}
                         style={{ cursor: "pointer", backgroundColor: "#fff" }}
+                        src={isLoggedIn?user?.image:""}
                     />
                 </Space>
             </Dropdown>

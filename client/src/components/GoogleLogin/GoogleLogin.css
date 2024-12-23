@@ -1,0 +1,25 @@
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap :10px;
+
+  background: transparent;
+  color: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.google-button:hover {
+  box-shadow: 0 0px 4px 4px rgba(149, 0, 255, 0.358);
+}
+
+.google-button:active {
+  background: rgba(149, 0, 255, 0.208)
+}

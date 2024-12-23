@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button, Card, Typography, ConfigProvider, theme } from "antd";
-import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
+import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
 const { Title } = Typography;
 
@@ -73,11 +74,6 @@ const SignUp = () => {
                             <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
                                 <GoogleLogin setUser={setUser}></GoogleLogin>
                             </GoogleOAuthProvider>
-                        </Form.Item>
-                        <Form.Item>
-                            <Button type="primary" block>
-                                Login
-                            </Button>
                         </Form.Item>
                     </Form>
                     {user ? user.email : "No email"}

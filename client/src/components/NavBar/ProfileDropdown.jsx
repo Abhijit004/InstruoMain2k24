@@ -94,7 +94,7 @@ const ProfileDropdown = () => {
                                 gap: "0",
                             }}
                         >
-                            <h3>{isLoggedIn ? user?.name : "No user"}</h3>
+                            {isLoggedIn && (<h3>{user?.name}</h3>)}
                             <span style={{ opacity: "0.7" }}>{isLoggedIn ? user?.email : ""}</span>
                         </Space>
                         {React.cloneElement(menu, {

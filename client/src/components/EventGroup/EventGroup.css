@@ -5,6 +5,7 @@
     gap: 0.5rem;
     /* border: 1px solid black; */
     color: #fff;
+    width: max-content;
 }
 
 .eventcard {
@@ -20,6 +21,7 @@
     transition: all ease 0.2s;
     cursor: pointer;
     border-radius: 7px;
+    border: 1px solid var(--grey);
 }
 
 .eventcard.open {

@@ -27,8 +27,29 @@
     position: relative;
 }
 
+.dayleft .content .event-scroll {
+    width: 40vw;
+    height: 100%;
+    overflow-x: scroll;
+}
+
 .dayleft .content .about-day p {
     padding: 1.2rem 0rem;
+}
+
+.dayleft .content .event-scroll::-webkit-scrollbar {
+    height: 2px;
+    background-color: var(--app-background);
+}
+
+.dayleft .content .event-scroll::-webkit-scrollbar-thumb {
+    width: 5px !important;
+    border-radius: 10px;
+    background: var(--purple);
+}
+.dayleft .content .event-scroll::-webkit-scrollbar-button,
+.dayleft .content .event-scroll::-webkit-scrollbar-corner {
+    display: none;
 }
 
 @media only screen and (max-width: 850px) {
@@ -38,5 +59,9 @@
     }
     .dayleft .content .about-day {
         max-width: 100vw;
+    }
+
+    .dayleft .content .event-scroll {
+        width: 80vw;
     }
 }

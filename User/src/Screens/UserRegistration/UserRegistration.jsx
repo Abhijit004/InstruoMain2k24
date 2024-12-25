@@ -24,7 +24,10 @@ import {
     TeamOutlined,
 } from "@ant-design/icons";
 import "./UserRegistration.css";
+import { registerEvent } from "../../Services/Api";
+import { useParams } from "react-router-dom";
 
+// Mock searchresults for 'tejas'
 const apiFetched = [
     {
         _id: "6767f82afbf4b80b2fa9e18c",
@@ -58,6 +61,7 @@ const apiFetched = [
     },
 ];
 
+// checking for IIESTians
 const IIEST = "iiests.ac.in";
 const allAreIIESTians = (array) => {
     if (!array) return true;
@@ -91,14 +95,7 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
                 },
             }}
         >
-            <Modal
-                title="Payment"
-                open={isVisible}
-                onCancel={onClose}
-                footer={null}
-                width={400}
-                style={{ top: 20 }}
-            >
+            <Modal title="Payment" open={isVisible} onCancel={onClose} footer={null} width={400} style={{ top: 20 }}>
                 <div className="register-container" style={{ maxWidth: 400 }}>
                     {" "}
                     <Form form={form} layout="vertical" onFinish={onFinish} size="large">
@@ -132,49 +129,89 @@ const PaymentModal = ({ isVisible, onClose, formValues }) => {
 
 const searchAPI = `http://localhost:5000/user/search`;
 
-const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
+const UserRegistration = ({ userInfo }) => {
+
+    // Needed for curating the registration form
+    // Will come from this API: /api/event/:id
+    const [regType, setRegType] = useState(null);
+    const [minTeamSize, setMinTeamSize] = useState(null);
+    const [maxTeamSize, setMaxTeamSize] = useState(null);
+
+    const { eventId } = useParams();
     const [form] = Form.useForm();
-    const [regMode, SetRegMode] = useState(regType != "combined" ? regType : "Individual");
+    const [regMode, SetRegMode] = useState("Individual");
     const [isPaymentRequired, setIsPaymentRequired] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [formValues, setFormValues] = useState({});
     const options = [
-        { label: "Individual", value: "Individual", disabled: regType === "team" },
-        { label: "Team", value: "Team", disabled: regType === "individual" },
+        { label: "Individual", value: "Individual", disabled: false },
+        { label: "Team", value: "Team", disabled: false },
     ];
-    maxTeamSize -= 1;
     const [filtered, setFiltered] = useState([]);
     const [selectedMembers, setSelectedMembers] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
-    const membersList = [];
+    const bestMatchList = [];
     const emailMapper = {};
+    const selectedList = [];
 
-    for (let user of apiFetched) {
-        membersList.push(user.email);
-        emailMapper[user.email] = user.name;
-    }
+    /*
+    Require a useEffect to extract Event Information(maxsize, minsize, regType)
+    id is captured from useParams(#133)
+    */
+
+    useEffect(() => {
+        if (userInfo?.email) {
+            form.setFieldsValue({ email: userInfo.email }); // Dynamically set the email field value
+        }
+    }, [userInfo, form]);
+
+
+    // DO api fetch in useeffect for every change in input field
+    // for (let user of apiFetched) {
+    //     bestMatchList.push(user.email);
+    //     emailMapper[user.email] = user.name;
+    // }
 
     const onFinish = (values) => {
-        console.log(selectedMembers);
+        console.log(values);
+        console.log(eventId);
 
-        if ((1+selectedMembers.length) < minTeamSize) {
-            message.error(`Team size must be atleast ${minTeamSize}`)
-            return
-        } 
+        const formData = new FormData();
+        formData.append("name", values.name);
+        formData.append("email", values.email);
+        formData.append("phone", values.phone);
+        formData.append("eventId", eventId);
+        formData.append("members", selectedList);
+        
+        // Team size checking
+        // if ((1+selectedMembers.length) < minTeamSize) {
+        //     message.error(`Team size must be atleast ${minTeamSize}`)
+        //     return
+        // }
 
-        if (values.email.endsWith(IIEST) && allAreIIESTians(values.members)) {
-            // Handle form submission without payment
-            const formData = new FormData();
-            formData.append("name", values.name);
+        // IIESTians checking
+        // if (values.email.endsWith(IIEST) && allAreIIESTians(values.members)) {
+        //     // Handle form submission without payment
+        //     const formData = new FormData();
+        //     formData.append("name", values.name);
 
-            message.success("Registration completed");
-            console.log("Form Submitted:", values);
-        } else {
-            setIsPaymentRequired(true);
-            setIsModalVisible(true);
-            setFormValues(values);
-        }
+        //     message.success("Registration completed");
+        //     console.log("Form Submitted:", values);
+        // } else {
+        //     setIsPaymentRequired(true);
+        //     setIsModalVisible(true);
+        //     setFormValues(values);
+        // }
+        registerEvent(formData)
+            .then((res) => {
+                console.log(res.data);
+                message.success("Successful registration");
+            })
+            .catch((err) => {
+                console.log(err.message);
+                message.warning("Registration Failed");
+            });
     };
 
     const closePaymentModal = () => {
@@ -185,7 +222,7 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
         setFiltered(
             !value
                 ? []
-                : membersList
+                : bestMatchList
                       .filter((member) => member.toLowerCase().includes(value.toLowerCase()))
                       .map((member) => ({ value: member }))
         );
@@ -268,7 +305,9 @@ const UserRegistration = ({ regType, maxTeamSize, minTeamSize }) => {
                                 { type: "email", message: "Please enter a valid email" },
                             ]}
                         >
-                            <Input placeholder="Enter your email" />
+                            <Input
+                                disabled // Makes the field unchangeable
+                            />
                         </Form.Item>
 
                         {/* Phone */}

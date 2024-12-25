@@ -1,9 +1,12 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import AllRoutes from "./Routes";
+
+// import AllRoutes from "./Routes";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/footer";
+import AllRoutes from "./Routes";
 
 function App() {
+
     return (
         <Router>
             {/* <NavBar /> */}

@@ -4,11 +4,11 @@ import "./Carousel.css";
 const sponsors1 = [
   {
     name: "Sears Holdings India",
-    logo: "/public/assets/Sponsor/sears.webp",
+    logo: "https://instruo-web-app.vercel.app/assets/sears.e1c8a5e7.png",
   },
   {
     name: "Sears Deep Learning Centre",
-    logo: "/public/assets/Sponsor/Sears-deep-learning.webp",
+    logo: "https://instruo-web-app.vercel.app/assets/SDLC.29769708.png",
   },
   {
     name: "Coding Ninjas",
@@ -18,14 +18,6 @@ const sponsors1 = [
     name: "T.I.M.E",
     logo: "/public/assets/Sponsor/time-logo.webp",
   },
-  // {
-  //   name: "Erudite",
-  //   logo: "/public/assets/Sponsor/Erudite.webp",
-  // },
-  // {
-  //   name: "Roasted Cart",
-  //   logo: "/public/assets/Sponsor/Roasted Cart.webp",
-  // },
 ];
 
 const sponsors2 = [

@@ -1,30 +1,49 @@
 import { useEffect, useRef } from "react";
 import "./Carousel.css";
 
-const sponsors = [
+const sponsors1 = [
   {
-    name: "Google",
-    logo: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    name: "Sears Holdings India",
+    logo: "/public/assets/Sponsor/sears.webp",
   },
   {
-    name: "Microsoft",
-    logo: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31",
+    name: "Sears Deep Learning Centre",
+    logo: "/public/assets/Sponsor/Sears-deep-learning.webp",
   },
   {
-    name: "Apple",
-    logo: "https://www.apple.com/ac/globalnav/7/en_US/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_apple_image__b5er5ngrzxqq_large.svg",
+    name: "Coding Ninjas",
+    logo: "/public/assets/Sponsor/coding-ninjas.webp",
   },
   {
-    name: "Amazon",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png",
+    name: "T.I.M.E",
+    logo: "/public/assets/Sponsor/time-logo.webp",
+  },
+  // {
+  //   name: "Erudite",
+  //   logo: "/public/assets/Sponsor/Erudite.webp",
+  // },
+  // {
+  //   name: "Roasted Cart",
+  //   logo: "/public/assets/Sponsor/Roasted Cart.webp",
+  // },
+];
+
+const sponsors2 = [
+  {
+    name: "Erudite",
+    logo: "/public/assets/Sponsor/Erudite.webp",
   },
   {
-    name: "Facebook",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png",
+    name: "Roasted Cart",
+    logo: "/public/assets/Sponsor/Roasted Cart.webp",
   },
   {
-    name: "Tesla",
-    logo: "https://www.tesla.com/themes/custom/tesla_frontend/assets/logos/logo-energy-red.svg",
+    name: "DTS",
+    logo: "/public/assets/Sponsor/DTS.webp",
+  },
+  {
+    name: "IIC",
+    logo: "/public/assets/Sponsor/iic.webp",
   },
 ];
 
@@ -43,9 +62,9 @@ const Carousel = () => {
         ) {
           carousel.scrollLeft = 0;
         } else {
-          carousel.scrollLeft += 0.5;
+          carousel.scrollLeft += 0.6;
         }
-      }, 120);
+      }, 150);
     };
 
     const stopScroll = () => {
@@ -67,7 +86,7 @@ const Carousel = () => {
     <>
       <div ref={carouselRef} className="sponsors-carousel">
         <div className="sponsors-track">
-          {[...sponsors, ...sponsors].map((sponsor, index) => (
+          {[...sponsors1, ...sponsors1].map((sponsor, index) => (
             <div
               key={`${sponsor.name}-${index}`}
               className="sponsor-card flex-center"
@@ -86,7 +105,7 @@ const Carousel = () => {
           ))}
         </div>
         <div className="sponsors-track">
-          {[...sponsors, ...sponsors].map((sponsor, index) => (
+          {[...sponsors2, ...sponsors2].map((sponsor, index) => (
             <div
               key={`${sponsor.name}-${index}`}
               className="sponsor-card flex-center"

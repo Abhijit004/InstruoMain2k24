@@ -1,5 +1,5 @@
 import "./Sponsorship.css";
-// import Carousel from "/src/components/Carousel/Carousel";
+import Carousel from "/src/components/Carousel/Carousel";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { DownloadOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
@@ -78,7 +78,7 @@ const Sponsorship = () => {
         </div>
       </div>
 
-      {/* <div className="carousel-container flex-center">
+      <div className="carousel-container flex-center">
         <img
           src="/assets/Sponsor/Footer-lamp.png"
           alt=""
@@ -86,7 +86,7 @@ const Sponsorship = () => {
         />
         <h1 className="sponsors-title">Past Sponsors</h1>
         <Carousel />
-      </div> */}
+      </div>
 
       {/* <div className="sponsors-cta flex-center">
                 <h1 className="sponsors-title">Connect With Us</h1>

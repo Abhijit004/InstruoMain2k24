@@ -83,6 +83,7 @@
   color: hsl(0, 0%, 100%, 0.8);
   font-weight: 300;
   font-size: 1.1rem;
+  width: 100%;
 }
 
 .instruo-about .about-card-wrapper .about-card .heading {

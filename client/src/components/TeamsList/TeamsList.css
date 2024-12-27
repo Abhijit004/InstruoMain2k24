@@ -22,9 +22,9 @@
     margin-right: -1rem;
 }
 
-@media only screen and (max-width: 416px) {
+/* @media only screen and (max-width: 416px) {
     .team-section .row{
         position: relative;
         left: 15%;
     }
-}
+} */

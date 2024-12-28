@@ -20,6 +20,7 @@ const Home = () => {
       <Hero />
       <Hype />
       <AboutUs />
+      {/* <PreviousEditions /> */}
       {/* <ParallaxScroller /> */}
     </section>
   );

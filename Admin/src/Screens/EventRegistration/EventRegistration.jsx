@@ -71,7 +71,7 @@ const EventRegistration = () => {
         }
         formData.append("poster", values.posterImage.fileList[0].originFileObj);
         formData.append("registrationAmount", values.registrationAmount);
-
+        formData.append("registrationUrl", values.registrationUrl)
         values.galleryImages?.fileList.forEach((file) => {
             formData.append("gallery", file.originFileObj);
         });
@@ -122,219 +122,313 @@ const EventRegistration = () => {
     };
 
     return (
-        <ConfigProvider
-            theme={{
-                algorithm: theme.darkAlgorithm,
-                token: {
-                    colorPrimary: "#722ed1",
-                    colorInfo: "#aa82e3",
-                    fontSize: 16,
-                    borderRadius: 5,
-                },
-            }}
-        >
-            <div className="register-page">
-                <div className="register-container">
-                    <h2>Event Registration</h2>
-                    <Form form={form} layout="vertical" onFinish={onFinish} size="large">
-                        {/* Name */}
-                        <Form.Item
-                            label="Name"
-                            name="name"
-                            rules={[{ required: true, message: "Please enter the event name" }]}
-                        >
-                            <Input placeholder="Enter event name" />
-                        </Form.Item>
+		<ConfigProvider
+			theme={{
+				algorithm: theme.darkAlgorithm,
+				token: {
+					colorPrimary: "#722ed1",
+					colorInfo: "#aa82e3",
+					fontSize: 16,
+					borderRadius: 5,
+				},
+			}}
+		>
+			<div className="register-page">
+				<div className="register-container">
+					<h2>Event Registration</h2>
+					<Form
+						form={form}
+						layout="vertical"
+						onFinish={onFinish}
+						size="large"
+					>
+						{/* Name */}
+						<Form.Item
+							label="Name"
+							name="name"
+							rules={[
+								{
+									required: true,
+									message: "Please enter the event name",
+								},
+							]}
+						>
+							<Input placeholder="Enter event name" />
+						</Form.Item>
 
-                        {/* Description */}
-                        <Form.Item
-                            label="Description"
-                            name="description"
-                            rules={[{ required: true, message: "Please enter a description" }]}
-                        >
-                            <TextArea rows={4} placeholder="Enter event description" />
-                        </Form.Item>
+						{/* Description */}
+						<Form.Item
+							label="Description"
+							name="description"
+							rules={[
+								{
+									required: true,
+									message: "Please enter a description",
+								},
+							]}
+						>
+							<TextArea
+								rows={4}
+								placeholder="Enter event description"
+							/>
+						</Form.Item>
 
-                        {/* Start Time and End Time */}
-                        <Form.Item
-                            label="Start and End Time"
-                            name="time"
-                            rules={[{ required: true, message: "Please select start and end time" }]}
-                        >
-                            <RangePicker showTime />
-                        </Form.Item>
+						{/* Start Time and End Time */}
+						<Form.Item
+							label="Start and End Time"
+							name="time"
+							rules={[
+								{
+									required: true,
+									message: "Please select start and end time",
+								},
+							]}
+						>
+							<RangePicker showTime />
+						</Form.Item>
 
-                        {/* Venue */}
-                        <Form.Item
-                            label="Venue"
-                            name="venue"
-                            rules={[{ required: true, message: "Please enter the venue" }]}
-                        >
-                            <Input placeholder="Enter event venue" />
-                        </Form.Item>
+						{/* Venue */}
+						<Form.Item
+							label="Venue"
+							name="venue"
+							rules={[
+								{
+									required: true,
+									message: "Please enter the venue",
+								},
+							]}
+						>
+							<Input placeholder="Enter event venue" />
+						</Form.Item>
 
-                        {/* Rules */}
-                        <Form.Item
-                            label="Rules"
-                            name="rules"
-                            rules={[{ required: true, message: "Please specify the rules" }]}
-                        >
-                            <TextArea rows={3} placeholder="Enter event rules" />
-                        </Form.Item>
+						{/* Rules */}
+						<Form.Item
+							label="Rules"
+							name="rules"
+							rules={[
+								{
+									required: true,
+									message: "Please specify the rules",
+								},
+							]}
+						>
+							<TextArea
+								rows={3}
+								placeholder="Enter event rules"
+							/>
+						</Form.Item>
 
-                        {/* Rules Document URL */}
-                        <Form.Item
-                            label="Rules Document URL"
-                            name="rulesDocUrl"
-                            rules={[
-                                {
-                                    required: false,
-                                    type: "url",
-                                    message: "Please enter a valid URL for the rules document",
-                                },
-                            ]}
-                        >
-                            <Input placeholder="Enter URL" />
-                        </Form.Item>
+						{/* Rules Document URL */}
+						<Form.Item
+							label="Rules Document URL"
+							name="rulesDocUrl"
+							rules={[
+								{
+									required: false,
+									type: "url",
+									message:
+										"Please enter a valid URL for the rules document",
+								},
+							]}
+						>
+							<Input placeholder="Enter URL" />
+						</Form.Item>
 
-                        {/* Poster Image */}
-                        <Form.Item
-                            label="Poster Image"
-                            name="posterImage"
-                            rules={[
-                                {
-                                    required: true,
-                                },
-                            ]}
-                        >
-                            <Upload
-                                beforeUpload={() => false}
-                                maxCount={1}
-                                listType="picture"
-                                accept="image/png, image/jpeg, image/jpg"
-                                action={"/#"}
-                            >
-                                <Button icon={<UploadOutlined />}>Upload Poster</Button>
-                            </Upload>
-                        </Form.Item>
+						{/* Poster Image */}
+						<Form.Item
+							label="Poster Image"
+							name="posterImage"
+							rules={[
+								{
+									required: true,
+								},
+							]}
+						>
+							<Upload
+								beforeUpload={() => false}
+								maxCount={1}
+								listType="picture"
+								accept="image/png, image/jpeg, image/jpg"
+								action={"/#"}
+							>
+								<Button icon={<UploadOutlined />}>
+									Upload Poster
+								</Button>
+							</Upload>
+						</Form.Item>
 
-                        {/* Gallery Images */}
-                        <Form.Item label="Gallery Images" name="galleryImages">
-                            <Upload
-                                multiple
-                                listType="picture"
-                                accept="image/png, image/jpeg, image/jpg"
-                                beforeUpload={() => false}
-                            >
-                                <Button icon={<UploadOutlined />}>Upload Gallery Images</Button>
-                            </Upload>
-                        </Form.Item>
+						{/* Gallery Images */}
+						<Form.Item label="Gallery Images" name="galleryImages">
+							<Upload
+								multiple
+								listType="picture"
+								accept="image/png, image/jpeg, image/jpg"
+								beforeUpload={() => false}
+							>
+								<Button icon={<UploadOutlined />}>
+									Upload Gallery Images
+								</Button>
+							</Upload>
+						</Form.Item>
 
-                        <Form.Item
-                            name="type"
-                            label="Event type"
-                            rules={[{ required: true, message: "Please select an event type!" }]}
-                        >
-                            <Select placeholder="Select an option" onChange={(e) => setEventType(e)}>
-                                <Option value="Single">Single</Option>
-                                <Option value="Team">Team</Option>
-                                <Option value="Combined">Combined</Option>
-                            </Select>
-                        </Form.Item>
-                        {eventType !== "Single" && (
-                            <div
-                                style={{
-                                    display: "flex",
-                                    JustifyContent: "center",
-                                    alignItems: "left",
-                                    gap: "1rem",
-                                }}
-                            >
-                                <Form.Item
-                                    name="minTeamSize"
-                                    label="Min team size"
-                                    rules={[
-                                        { required: true, message: "Please enter minimum team size!", type: "integer" },
-                                        () => ({
-                                            validator(_, value) {
-                                                const maxNum = form.getFieldValue("maxTeamSize");
-                                                if (
-                                                    value === undefined ||
-                                                    maxNum === undefined ||
-                                                    (value <= maxNum && value >= 1)
-                                                ) {
-                                                    return Promise.resolve();
-                                                }
-                                                return Promise.reject(
-                                                    new Error(
-                                                        "Minimum team size must be positive or <= maximum team size"
-                                                    )
-                                                );
-                                            },
-                                        }),
-                                    ]}
-                                >
-                                    <InputNumber placeholder="Enter Minimum team size" style={{ width: "100%" }} />
-                                </Form.Item>
+						<Form.Item
+							name="type"
+							label="Event type"
+							rules={[
+								{
+									required: true,
+									message: "Please select an event type!",
+								},
+							]}
+						>
+							<Select
+								placeholder="Select an option"
+								onChange={(e) => setEventType(e)}
+							>
+								<Option value="Single">Single</Option>
+								<Option value="Team">Team</Option>
+								<Option value="Combined">Combined</Option>
+							</Select>
+						</Form.Item>
+						{eventType !== "Single" && (
+							<div
+								style={{
+									display: "flex",
+									JustifyContent: "center",
+									alignItems: "left",
+									gap: "1rem",
+								}}
+							>
+								<Form.Item
+									name="minTeamSize"
+									label="Min team size"
+									rules={[
+										{
+											required: true,
+											message:
+												"Please enter minimum team size!",
+											type: "integer",
+										},
+										() => ({
+											validator(_, value) {
+												const maxNum =
+													form.getFieldValue(
+														"maxTeamSize"
+													);
+												if (
+													value === undefined ||
+													maxNum === undefined ||
+													(value <= maxNum &&
+														value >= 1)
+												) {
+													return Promise.resolve();
+												}
+												return Promise.reject(
+													new Error(
+														"Minimum team size must be positive or <= maximum team size"
+													)
+												);
+											},
+										}),
+									]}
+								>
+									<InputNumber
+										placeholder="Enter Minimum team size"
+										style={{ width: "100%" }}
+									/>
+								</Form.Item>
 
-                                <Form.Item
-                                    name="maxTeamSize"
-                                    label="Max team size"
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: "Please enter the maximum team size!",
-                                            type: "number",
-                                        },
-                                        () => ({
-                                            validator(_, value) {
-                                                const minNum = form.getFieldValue("minTeamSize");
-                                                if (
-                                                    value === undefined ||
-                                                    minNum === undefined ||
-                                                    (value >= minNum && value >= 0)
-                                                ) {
-                                                    return Promise.resolve();
-                                                }
-                                                return Promise.reject(
-                                                    new Error(
-                                                        "Maximum team size must be positive or >= the minimum team size!"
-                                                    )
-                                                );
-                                            },
-                                        }),
-                                    ]}
-                                >
-                                    <InputNumber style={{ width: "100%" }} placeholder="Enter maximum number" />
-                                </Form.Item>
-                                {/* Submit Button */}
-                            </div>
-                        )}
-                        <Form.Item
-                            name="registrationAmount"
-                            label="Registration Fee for Non-IIESTians (give 0 if not applicable)"
-                            rules={[
-                                { required: true, message: "Please provide event fee details" },
-                                { pattern: /^[0-9]+$/, message: "Please enter a valid amount" },
-                            ]}
-                        >
-                            <InputNumber
-                                addonBefore={<RupeeFilled />}
-                                placeholder="Enter Registration Fee"
-                                type="number"
-                                min={0}
-                            />
-                        </Form.Item>
-                        <Form.Item>
-                            <Button size="large" type="primary" htmlType="submit" loading={loading}>
-                                Register Event
-                            </Button>
-                        </Form.Item>
-                    </Form>
-                </div>
-            </div>
-        </ConfigProvider>
-    );
+								<Form.Item
+									name="maxTeamSize"
+									label="Max team size"
+									rules={[
+										{
+											required: true,
+											message:
+												"Please enter the maximum team size!",
+											type: "number",
+										},
+										() => ({
+											validator(_, value) {
+												const minNum =
+													form.getFieldValue(
+														"minTeamSize"
+													);
+												if (
+													value === undefined ||
+													minNum === undefined ||
+													(value >= minNum &&
+														value >= 0)
+												) {
+													return Promise.resolve();
+												}
+												return Promise.reject(
+													new Error(
+														"Maximum team size must be positive or >= the minimum team size!"
+													)
+												);
+											},
+										}),
+									]}
+								>
+									<InputNumber
+										style={{ width: "100%" }}
+										placeholder="Enter maximum number"
+									/>
+								</Form.Item>
+								{/* Submit Button */}
+							</div>
+						)}
+						<Form.Item
+							name="registrationAmount"
+							label="Registration Fee for Non-IIESTians (give 0 if not applicable)"
+							rules={[
+								{
+									required: true,
+									message: "Please provide event fee details",
+								},
+								{
+									pattern: /^[0-9]+$/,
+									message: "Please enter a valid amount",
+								},
+							]}
+						>
+							<InputNumber
+								addonBefore={<RupeeFilled />}
+								placeholder="Enter Registration Fee"
+								type="number"
+								min={0}
+							/>
+						</Form.Item>
+						<Form.Item
+							label="Registration URL"
+							name="registrationUrl"
+							rules={[
+								{
+									required: false,
+									type: "url",
+									message:
+										"Please enter a valid URL for the Registration Google Form",
+								},
+							]}
+						>
+							<Input placeholder="Enter URL" />
+						</Form.Item>
+						<Form.Item>
+							<Button
+								size="large"
+								type="primary"
+								htmlType="submit"
+								loading={loading}
+							>
+								Register Event
+							</Button>
+						</Form.Item>
+					</Form>
+				</div>
+			</div>
+		</ConfigProvider>
+	);
 };
 
 export default EventRegistration;

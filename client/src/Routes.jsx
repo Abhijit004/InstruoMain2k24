@@ -18,7 +18,7 @@ import EventGroup from "./components/EventGroup/EventGroup";
 import SingleEvent from "./Screens/SingleEvent/SingleEvent";
 import SignUp from "./Screens/SignUp/SignUp";
 
-const AllRoutes = () => {
+const AllRoutes = ({user, login, logout}) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const AllRoutes = () => {
       <Route path="/events" exact element={<Events />} />
       <Route exact path="/events/:eventID" element={<SingleEvent />} />
       <Route path="/eregister" element={<EventRegistration />} />
-      <Route path="/auth/login" element={<SignUp />} />
+      <Route path="/auth" element={<SignUp />} />
       <Route
         path="/uregister"
         element={

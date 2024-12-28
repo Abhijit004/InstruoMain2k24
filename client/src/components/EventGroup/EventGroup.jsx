@@ -31,9 +31,9 @@ const Card = ({ rank, eventData, open, changeFocus }) => {
                     <Link to={`/events/${eventData._id}`}>
                         <CustomButton style={{fontWeight: 600}} variant="secondary" className="button" text={"Know more"} />
                     </Link>
-                    <Link to={`/events/${eventData._id}`}>
-                        <CustomButton style={{fontWeight: 600}} variant="secondary" className="button" text={"Register"} />
-                    </Link>
+                    <a href={`https://register.instruo.tech?event=${eventData._id}`}>
+                        <CustomButton style={{fontWeight: 600}} className="button" text={"Register"} />
+                    </a>
                 </ButtonGroup>
                 <div className="rating">
                     {formatTimestamp(eventData.startTime)}

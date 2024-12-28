@@ -16,3 +16,5 @@ export const createEvent = (payload) => api.post('/api/event', payload);
 export const googleAuth = (code) => api.get(`/api/v1/auth/google?code=${code}`);
 export const googleLogout = () => api.get(`/api/v1/auth/logout`);
 export const googleStatus = () => api.get(`/user/status`);
+
+export const getUsers = (email) => api.get('/user?email=' + email);

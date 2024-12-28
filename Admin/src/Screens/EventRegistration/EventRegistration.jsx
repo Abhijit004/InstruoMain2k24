@@ -86,7 +86,7 @@ const EventRegistration = () => {
                 setLoading(false);
 
                 // start modal to redirect
-                let countdownTime = 5;
+                let countdownTime = 3;
                 let secondsToGo = countdownTime;
                 const instance = Modal.success({
                     title: "Event Added Successfully",
@@ -119,6 +119,7 @@ const EventRegistration = () => {
             });
 
         // console.log(values);
+
     };
 
     return (

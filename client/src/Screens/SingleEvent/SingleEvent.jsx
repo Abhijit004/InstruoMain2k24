@@ -30,11 +30,7 @@ const SingleEvent = () => {
       </div>
       <div className="event-container">
         <div className="image-container">
-          <img
-            src="/public/assets/SingleEvent/image.png"
-            alt=""
-            className="image"
-          />
+          <img src="/assets/SingleEvent/image.png" alt="" className="image" />
         </div>
         <div className="event-text">
           <p>
@@ -56,7 +52,7 @@ const SingleEvent = () => {
                 width: "fit-content",
                 fontWeight: 800,
               }}
-              text={"EVENT RULE"}
+              text={"EVENT RULES"}
             />
           </div>
         </div>

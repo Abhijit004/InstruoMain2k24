@@ -1,20 +1,20 @@
 /* Sponsors Container */
 .sponsors-container {
-    margin-top: 4rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 80px 20px;
-    background-color: #0a0a12;
-    color: white;
+  margin-top: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: #0a0a12;
+  color: white;
 }
 
 /* General Paragraph Style */
 p {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* ellipse background */
@@ -84,12 +84,13 @@ p {
 }
 
 .sponsors-container .main-title {
-  background: var(--sponsor-title-gradient), linear-gradient(90deg, yellow, #f304d3);
+  background: var(--sponsor-title-gradient),
+    linear-gradient(90deg, yellow, #f304d3);
   background-clip: text;
   text-fill-color: transparent;
   -webkit-background-clip: text; /* Clip the background to the text */
   -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
-  font-size: 3.5rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
 }
 .sponsors-container .main-para,
@@ -165,12 +166,12 @@ p {
 
 /* Animation */
 @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Responsive Design */
@@ -209,7 +210,7 @@ p {
     padding: 5rem 5rem;
   }
   .sponsors-container .sponsors-title {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
   .sponsors-container .carousel-container .sponsor-lamp {
     max-width: 70%;
@@ -234,5 +235,9 @@ p {
 
   .sponsors-container .footer-bottom {
     font-size: 0.7rem;
+  }
+
+  .sponsors-container .main-title {
+    font-size: 3.2rem;
   }
 }

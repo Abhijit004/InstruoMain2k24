@@ -113,7 +113,6 @@ const Sponsorship = () => {
                 </div>
             </div> */}
     </div>
-    // {/* <textarea name="textv classNameName="text-area"></textarea> */}
   );
 };
 

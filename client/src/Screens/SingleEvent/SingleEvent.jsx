@@ -14,21 +14,24 @@ const SingleEvent = () => {
         <div className="banner"></div>
         <div className="heading gradient-bw">The Arena</div>
         <div className="time">10th jan, 11:50PM - 12th Jan, 9:00AM</div>
-        <div className="venue">Alumni Seminar Hall, Main Building</div>
+        {/* <div className="venue">Alumni Seminar Hall, Main Building</div> */}
         <div className="byline">
           Welcome to the Events section of Instruo, where passion meets purpose,
-          and creativity knows no bounds. Here, you'll find a carefully curated
+          and creativity knows no bounds.
+          {/* Here, you'll find a carefully curated
           lineup of experiences designed to challenge your skills, ignite your
           imagination, and connect you with like-minded visionaries. Let’s make
-          every moment unforgettable."
+          every moment unforgettable." */}
         </div>
-        <img
-          src="/public/assets/SingleEvent/Double Down.svg"
-          alt=""
-          className="hero-image"
-        />
+        <a href="#event-container">
+          <img
+            src="/assets/SingleEvent/Double Down.svg"
+            alt=""
+            className="hero-image"
+          />
+        </a>
       </div>
-      <div className="event-container">
+      <div className="event-container" id="event-container">
         <div className="image-container">
           <img src="/assets/SingleEvent/image.png" alt="" className="image" />
         </div>

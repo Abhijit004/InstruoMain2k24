@@ -50,7 +50,6 @@ p {
   min-width: 100%;
   background: url("/assets/Sponsor/Check-background.svg") no-repeat
     center/contain;
-  /* background-size: contain; */
 }
 
 .sponsors-container .btn-group {
@@ -71,16 +70,13 @@ p {
 
 /* Title Styles */
 .sponsors-container .sponsors-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 0.8rem;
-  background: var(--sponsor-title-gradient);
+  background: linear-gradient(#fff, hsla(0, 0%, 100%, 30%));
   background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text; /* Clip the background to the text */
-  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+  color: transparent;
+  font-size: 3rem;
+  font-weight: 900;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
 }
 
 .sponsors-container .main-title {
@@ -209,9 +205,6 @@ p {
   .sponsors-container {
     padding: 5rem 5rem;
   }
-  .sponsors-container .sponsors-title {
-    font-size: 2.4rem;
-  }
   .sponsors-container .carousel-container .sponsor-lamp {
     max-width: 70%;
     top: -18rem;
@@ -238,6 +231,6 @@ p {
   }
 
   .sponsors-container .main-title {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
 }

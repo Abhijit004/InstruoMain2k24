@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Hero.css";
 import CustomButton from "../../components/CustomButton/CustomButton";
-
+// import AboutUs from "./AboutUs";
+import { Link } from "react-router-dom";
 const Dynamic = () => {
     const [holder, setHolder] = useState(0);
     const [index, setIndex] = useState(0);
@@ -35,7 +36,9 @@ const Hero = () => {
             <div className="content">
                 <div className="headline gradient-bw">
                     <div>Unleash your</div>
-                    <div><Dynamic /></div>
+                    <div>
+                        <Dynamic />
+                    </div>
                     <div>
                         at <span className="gradient-color">INSTRUO</span>
                     </div>
@@ -45,21 +48,23 @@ const Hero = () => {
                     thrilling competitions!
                 </div>
                 <div className="button-group">
-                    <CustomButton
-                        style={{
-                            width: "fit-content",
-                            fontWeight: 800,
-                        }}
-                        text={"EVENTS"}
-                    />
-                    <CustomButton
-                        variant={"secondary"}
-                        style={{
-                            width: "fit-content",
-                            fontWeight: 800,
-                        }}
-                        text={"WORKSHOPS"}
-                    />
+                    <Link to="/events">
+                        <CustomButton
+                            style={{
+                                width: "fit-content",
+                                fontWeight: 800,
+                            }}
+                            text={"EVENTS"}
+                        />
+                    </Link>
+                    {/* <CustomButton
+            variant={"secondary"}
+            style={{
+              width: "fit-content",
+              fontWeight: 800,
+            }}
+            text={"WORKSHOPS"}
+          /> */}
                 </div>
             </div>
             <div className="image">

@@ -51,7 +51,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/4.jpg" alt="" />
       </div>
       <div
         style={{
@@ -66,7 +66,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/4.jpg" alt="" />
       </div>
       <div
         style={{
@@ -79,7 +79,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/3.jpg" alt="" />
       </div>
       <div
         style={{
@@ -94,7 +94,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/4.jpg" alt="" />
       </div>
       <div
         style={{
@@ -107,7 +107,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/long.webp" alt="" />
       </div>
       <div
         style={{
@@ -262,7 +262,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/3.jpg" alt="" />
       </div>
       <div
         style={{
@@ -290,7 +290,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/4.jpg" alt="" />
       </div>
       <div
         style={{
@@ -303,7 +303,7 @@ const BentoGrid = ({ scale }) => {
           borderRadius: 3.5,
         }}
       >
-        <img src="assets/groupfie.webp" alt="" />
+        <img src="assets/Gallery/1.jpg" alt="" />
       </div>
       <div
         style={{

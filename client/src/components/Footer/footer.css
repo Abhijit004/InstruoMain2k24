@@ -13,7 +13,7 @@
   max-width: 1200px;
   justify-content: space-between;
   gap: 40px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   line-height: 1.5;
 }
 
@@ -23,35 +23,63 @@
   min-width: 250px;
 }
 
-.footer .footer-content .footer-section .logo {
+.footer .footer-content .left .logo {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.footer .footer-content .footer-section .logo h1 {
+.footer .footer-content .left .logo h1 {
   font-size: 30px;
   font-weight: bold;
 }
 
-.footer .footer-content .footer-section .logo .logo-icon {
+.footer .footer-content .left .logo .logo-icon {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
 
 /* Middle section */
+
 .footer .footer-content .footer-section.middle {
   display: flex;
-  flex: 2;
-  justify-content: space-around;
-  gap: 40px;
+  flex-direction: column;
+  gap: 2rem;
   min-width: 300px;
+  /* border: 2px solid red; */
+  padding: 0 1rem;
 }
 
-.footer .footer-content .footer-section .quick-links h3,
-.footer .footer-content .footer-section .contact h3,
+.footer .footer-content .footer-section .main-head {
+  font-size: 1.5rem;
+  margin-bottom: -0.7rem;
+}
+.footer .footer-content .middle .coordinators {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer .footer-content .middle .main-coordinators {
+  display: flex;
+  /* gap: 0.5rem; */
+  flex-direction: column;
+  width: 300px;
+}
+
+.footer .footer-content .footer-section .main-coordinators li {
+  /* margin-bottom: 0.7rem; */
+  padding: 10px;
+}
+.footer .footer-content .footer-section .main-coordinators .contacts-name {
+  font-size: 1.2rem;
+}
+
+.footer .footer-content .middle h3,
+.footer .footer-content .footer-section .main-coordinators h3,
 .footer .footer-content .right h3 {
   font-size: 18px;
   margin-bottom: 20px;
@@ -60,6 +88,9 @@
 
 .footer .footer-content .footer-section .quick-links ul,
 .footer .footer-content .footer-section .contact ul {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
   list-style: none;
   padding: 0;
 }
@@ -87,10 +118,16 @@
   color: #fff;
 }
 
-.footer .footer-content .footer-section .contact .phone-icon {
-  font-size: 14px;
+.footer .footer-content .footer-section .main-coordinators .phone-icons {
+  display: flex;
+  gap: 10px;
+
+  /* font-size: 14px; */
 }
 
+.footer .footer-content .footer-section .main-coordinators .mail-icon {
+  height: 1.7rem;
+}
 /* Right section */
 .footer .footer-content .footer-section.right {
   flex: 1;

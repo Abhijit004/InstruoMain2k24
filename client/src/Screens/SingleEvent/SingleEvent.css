@@ -27,6 +27,7 @@
     text-align: center;
     width: 80%;
     color: var(--grey);
+    padding-top: 2rem;
 }
 
 .single-event .hero .banner {

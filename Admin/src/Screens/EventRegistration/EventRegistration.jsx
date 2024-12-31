@@ -203,7 +203,7 @@ const EventRegistration = () => {
 						</Form.Item>
 
 						{/* Rules */}
-						<Form.Item
+						{/* <Form.Item
 							label="Rules"
 							name="rules"
 							rules={[
@@ -217,7 +217,7 @@ const EventRegistration = () => {
 								rows={3}
 								placeholder="Enter event rules"
 							/>
-						</Form.Item>
+						</Form.Item> */}
 
 						{/* Rules Document URL */}
 						<Form.Item
@@ -225,7 +225,7 @@ const EventRegistration = () => {
 							name="rulesDocUrl"
 							rules={[
 								{
-									required: false,
+									required: true,
 									type: "url",
 									message:
 										"Please enter a valid URL for the rules document",
@@ -406,7 +406,7 @@ const EventRegistration = () => {
 							name="registrationUrl"
 							rules={[
 								{
-									required: false,
+									required: true,
 									type: "url",
 									message:
 										"Please enter a valid URL for the Registration Google Form",

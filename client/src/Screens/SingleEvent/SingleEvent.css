@@ -24,7 +24,7 @@
   margin-bottom: 0.8rem;
   background: var(--sponsor-title-gradient);
   background-clip: text;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent; */
   -webkit-background-clip: text; /* Clip the background to the text */
   -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
   text-align: center;
@@ -64,8 +64,8 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 7rem;
-  background: url("/assets/Sponsor/Check-background.svg") no-repeat
-    center/contain;
+  /* background: url("/assets/Sponsor/Check-background.svg") no-repeat
+    center/contain; */
 }
 
 .single-event .event-container .image-container {
@@ -82,6 +82,8 @@
   padding: 2rem;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
+  z-index: 0;
 }
 
 .single-event .event-container .event-text p {

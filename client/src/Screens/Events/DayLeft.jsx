@@ -21,7 +21,7 @@ const DayLeft = ({ day, events }) => {
                         odit, vitae dignissimos nisi expedita obcaecati commodi at sunt nostrum corporis tenetur amet
                         iusto. Est, nam totam.
                     </p>
-                    <CustomButton text={"Know more"} />
+                    {/* <CustomButton text={"Know more"} /> */}
                 </div>
                 <div className="event-scroll">
                     <EventGroup events={events} />

@@ -7,7 +7,7 @@ function formatTimestamp(timestamp) {
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
-    const month = monthNames[date.getUTCMonth()];
+    const month = monthNames[date.getUTCMonth()].slice(0, 3);
     const year = date.getUTCFullYear();
 
     // Get day suffix

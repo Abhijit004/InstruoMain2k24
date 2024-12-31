@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Dynamic = () => {
     const [holder, setHolder] = useState(0);
     const [index, setIndex] = useState(0);
-    let values = ["Potential", "Creativity", "Sharpness"];
+    let values = ["Potential", "Creativity", "Ingenuity"];
     const [typedText, setTypedText] = useState("");
 
     useEffect(() => {

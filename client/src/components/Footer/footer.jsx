@@ -3,24 +3,42 @@ import "./footer.css";
 import logo from "/assets/Footer/logo.svg";
 import phone from "/assets/Footer/Phone.svg";
 
-const phoneNumbers = [
-  "+91 1234234534",
-  "+91 1234234534",
-  "+91 1234234534",
-  "+91 1234234534",
+const mainCoordinators = [
+  { number: "+91-9135712063", name: "Rahul Kumar" },
+  { number: "+91-9926091967", name: "Aniket Chanda" },
+  { number: "+91-7803847434", name: "Raksha Pahariya" },
+];
+
+const sponsorCoordinators = [
+  { number: "+91-6394731738", name: "Vaishnavi Malviya" },
+  { number: "+91-8788330638", name: "Ketan Mohan Masurkar" },
+  { number: "+91-6296883037", name: "Krishnendu Mondal" },
+];
+const convenors = [
+  {
+    number: "+91-7003198150",
+    name: "Dr. Shyamlendu Kandar",
+    email: "shyamalenduk@it.iiests.ac.in",
+  },
+  {
+    number: "+91-9986150962",
+    name: "Dr. Indrajeet Mukherjee",
+    email: "imukherjee@aero.iiests.ac.in",
+  },
 ];
 
 const quickLinks = [
+  { path: "/workshops", label: "Workshops" },
   { path: "/events", label: "Events" },
-  { path: "/team", label: "Our Team" },
   { path: "/sponsors", label: "Sponsors" },
+  { path: "/team", label: "Our Team" },
 ];
 
 const socials = [
   {
-    url: "director@iiests.ac.in",
+    url: "mailto:sponsorship.instruo@gmail.com",
     src: "/assets/Footer/Email.svg",
-    alt: "Email",
+    alt: "Website",
   },
   {
     url: "https://www.facebook.com/instruo.iiests",
@@ -60,29 +78,72 @@ const Footer = () => {
         </div>
 
         <div className="footer-section middle">
-          <div className="quick-links">
-            <h3>Quick Links</h3>
-            <ul>
-              {quickLinks.map(({ path, label }, index) => (
-                <li key={index}>
-                  <Link to={path}>{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="contact">
-            <h3>Get in touch</h3>
-            <ul>
-              {phoneNumbers.map((number, index) => (
-                <li key={index}>
-                  <span className="phone-icon">
-                    <img src={phone} alt="phone-icon" />
-                  </span>
-                  <span>{number}</span>
-                </li>
-              ))}
-            </ul>
+          <h3 className="middle-main-heading">Get in touch</h3>
+          <div className="coordinators">
+            <div className="main-coordinators">
+              <h3>Main Coordinators</h3>
+              <ul>
+                {mainCoordinators.map(({ number, name }, index) => (
+                  <>
+                    <li>
+                      <span className="contacts-name">{name}</span>
+                    </li>
+                    <li key={index}>
+                      <span className="phone-icons">
+                        <img src={phone} alt="phone-icon" />
+                        <span>{number}</span>
+                      </span>
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </div>
+            <div className="main-coordinators ">
+              <h3>Sponsorship Coordinators</h3>
+              <ul>
+                {sponsorCoordinators.map(({ number, name }, index) => (
+                  <>
+                    <li>
+                      <span className="contacts-name">{name}</span>
+                    </li>
+                    <li key={index}>
+                      <span className="phone-icons">
+                        <img src={phone} alt="phone-icon" />
+                        <span>{number}</span>
+                      </span>
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </div>
+            <div className="main-coordinators">
+              <h3>Convenors</h3>
+              <ul>
+                {convenors.map(({ number, name, email }, index) => (
+                  <>
+                    <li key={index}>
+                      <span className="contacts-name">{name}</span>
+                    </li>
+                    <li key={index}>
+                      <span className="phone-icons">
+                        <img src={phone} alt="phone-icon" />
+                        <span>{number}</span>
+                      </span>
+                    </li>
+                    <li>
+                      <span className="phone-icons">
+                        <img
+                          src="/assets/Footer/Email.svg"
+                          alt="phone-icon"
+                          className="mail-icon"
+                        />
+                        <span>{email}</span>
+                      </span>
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -94,6 +155,17 @@ const Footer = () => {
                 <img src={src} alt={alt} />
               </a>
             ))}
+          </div>
+
+          <div className="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+              {quickLinks.map(({ path, label }, index) => (
+                <li key={index}>
+                  <Link to={path}>{label}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

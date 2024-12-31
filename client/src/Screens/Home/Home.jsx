@@ -34,7 +34,7 @@ const Home = () => {
       <Hero />
       <Hype />
       <AboutUs />
-      <ParallaxScroller /> */}
+      <ParallaxScroller />
       {/* {isLargeScreen ? <PreviousEditions /> : <ParallaxScroller />} */}
     </section>
   );

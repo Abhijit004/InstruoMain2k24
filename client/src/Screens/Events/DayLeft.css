@@ -38,7 +38,7 @@
 }
 
 .dayleft .content .event-scroll::-webkit-scrollbar {
-    height: 2px;
+    height: 5px;
     background-color: var(--app-background);
 }
 

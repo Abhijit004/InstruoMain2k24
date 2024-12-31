@@ -9,7 +9,9 @@ const DayRight = () => {
     return (
         <div className="dayright">
             <div className="content">
-                <EventGroup />
+                <div className="event-scroll">
+                    <EventGroup />
+                </div>
                 <div className="about-day">
                     <Mesh
                         style={{

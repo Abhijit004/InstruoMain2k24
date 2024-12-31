@@ -49,6 +49,7 @@
   flex-direction: column;
   margin-top: 2.5rem;
   padding: 1rem;
+  position: relative;
 }
 
 .instruo-about .about-card-wrapper .about-card {
@@ -68,6 +69,7 @@
   justify-content: center;
   align-items: start;
   flex-direction: column;
+  color: #fff;
 }
 
 .instruo-about .about-card-wrapper .about-card[about="instruo"] {
@@ -79,12 +81,21 @@
   margin-bottom: 2rem;
 }
 
-.instruo-about .about-card-wrapper .about-card p {
+.instruo-about .about-card-wrapper .about-card {
   color: hsl(0, 0%, 100%, 0.8);
   font-weight: 300;
   font-size: 1.1rem;
-  width: 100%;
+  /* width: 100%; */
 }
+
+.instruo-about .about-card-wrapper .about-card h3 {
+  background: linear-gradient(#fff, hsla(0, 0%, 100%, 0.5));
+  background-clip: text;
+  color: transparent;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+} 
 
 .instruo-about .about-card-wrapper .about-card .heading {
   font-size: 2rem;
@@ -102,13 +113,22 @@
   color: transparent;
 }
 
+.instruo-about .about-card-wrapper .about-card[about="college"] {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background-image: url("/assets/college.jpg");
+  background-size: cover;
+}
+
 .instruo-about .about-card-wrapper img {
   width: min(55rem, 100%);
   transform: scale(0.63);
   position: absolute;
   z-index: 0;
-  /* top: 0; */
+  top: 0;
 }
+
 
 @media only screen and (max-width: 900px) {
   .instruo-about > .heading {

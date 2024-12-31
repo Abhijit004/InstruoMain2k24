@@ -33,18 +33,12 @@ const Card = ({ rank, eventData, open, changeFocus }) => {
 				<ButtonGroup
 					style={{
 						gap: "10px",
+						paddingTop: "1rem"
 					}}
 				>
-					{eventData.rulesDoc && (
-						<a href={eventData.rulesDoc}>
-							<CustomButton
-								style={{ fontWeight: 600 }}
-								variant="secondary"
-								className="button"
-								text={"Rulebook"}
-							/>
-						</a>
-					)}
+					<Link to={`/events/${eventData._id}`}>
+						<CustomButton text={"Know more"} />
+					</Link>
 					{eventData.registrationUrl && (
 						<a href={eventData.registrationUrl}>
 							<CustomButton

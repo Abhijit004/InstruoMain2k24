@@ -4,12 +4,27 @@ import "./SingleEvent.css";
 import { CalendarOutlined, EnvironmentOutlined } from "@ant-design/icons";
 import { getEventByID } from "../../services/api";
 import formatTimestamp from "../../services/FormatTime";
+import CustomButton from "../../components/CustomButton/CustomButton";
+import Mesh from "../../components/Mesh/Mesh";
 
 const SingleEvent = () => {
     const { eventID } = useParams();
     const [bg, setBg] = useState(0);
     const [eventDetail, setEventDetail] = useState(null);
-    const [bglist, setBglist] = useState(["/assets/groupfie.webp"]);
+    const [bglist, setBglist] = useState([]);
+    const [poster, setPoster] = useState("");
+
+    useEffect(() => {
+        if (eventDetail) {
+            const bgtemp = ["/assets/groupfie.webp"];
+            eventDetail.images.forEach((image) => {
+                if (image.type === "poster") setPoster(image.url);
+                else bgtemp.push(image.url);
+            });
+
+            setBglist(bgtemp);
+        }
+    }, [eventDetail]);
 
     // useEffect(() => {
     //     const galleryInterval = setInterval(() => {
@@ -62,19 +77,24 @@ const SingleEvent = () => {
                 <div className="venue">
                     <EnvironmentOutlined /> {eventDetail?.venue}
                 </div>
+                <a href="#event-container">
+                    <img
+                        style={{
+                            width: "2rem",
+                            margin: "2rem",
+                        }}
+                        src="/assets/SingleEvent/Double Down.svg"
+                        alt=""
+                    />
+                </a>
             </div>
-            <a href="#event-container">
-                <img src="/assets/SingleEvent/Double Down.svg" alt="" className="hero-image" />
-            </a>
-            <div className="event-container" id="event-container">
+            <section className="event-container" id="event-container">
                 <div className="image-container">
-                    <img src="/assets/SingleEvent/image.png" alt="" className="image" />
+                    <img src={poster} alt="" />
                 </div>
                 <div className="event-text">
-                    <p>
-                        Some cheesy lines to talk about what the event is about. I hope this text is legible enough to
-                        read, but incase its not. Damn you wasted time to read it we have a better description below.
-                    </p>
+                    <Mesh style={{}} />
+                    <p>{eventDetail?.description}</p>
                     <div className="button-group">
                         <CustomButton
                             style={{
@@ -90,16 +110,20 @@ const SingleEvent = () => {
                                 fontWeight: 800,
                             }}
                             text={"EVENT RULES"}
+                            href={eventDetail?.rulesDoc}
                         />
                     </div>
                 </div>
-            </div>
+            </section>
 
             <div className="info-container">
                 <div className="time">
                     <h1>Time and Place</h1>
-                    <p>10th jan, 11:50PM - 12th Jan, 9:00AM</p>
-                    <p>Alumni Seminar Hall, Main building</p>
+                    <p>
+                        {eventDetail && formatTimestamp(eventDetail.startTime)} to{" "}
+                        {eventDetail && formatTimestamp(eventDetail.endTime)}
+                    </p>
+                    <p>{eventDetail?.venue}</p>
                 </div>
                 <div className="POC">
                     <h1>POC</h1>

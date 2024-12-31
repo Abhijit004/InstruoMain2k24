@@ -95,7 +95,7 @@
   font-size: 1.5rem;
   margin-top: 1rem;
   font-weight: 500;
-} 
+}
 
 .instruo-about .about-card-wrapper .about-card .heading {
   font-size: 2rem;
@@ -128,7 +128,6 @@
   z-index: 0;
   top: 0;
 }
-
 
 @media only screen and (max-width: 900px) {
   .instruo-about > .heading {

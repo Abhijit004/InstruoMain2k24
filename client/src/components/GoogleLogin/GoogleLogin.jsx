@@ -4,7 +4,7 @@ import { googleAuth } from "../../services/api";
 import "./GoogleLogin.css";
 import { GoogleOutlined } from "@ant-design/icons";
 
-export default (props) => {
+const GoogleLogin = (props) => {
     const responseGoogle = async (authResult) => {
         try {
             if (authResult["code"]) {
@@ -36,3 +36,5 @@ export default (props) => {
         </button>
     );
 };
+
+export default GoogleLogin;

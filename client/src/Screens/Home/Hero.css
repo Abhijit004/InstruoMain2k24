@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100vw;
-    height: min(850px, 100vh);
+    height: max(850px, max-content);
     color: #fff;
 
     background: url("/assets/homepage-background.webp");
@@ -11,6 +11,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    /* outline: 1px solid lime; */
 }
 
 .hero-section .image {
@@ -49,7 +50,6 @@
     background: linear-gradient(120deg, #fff, hsla(0, 0%, 100%, 30%));
     background-clip: text;
     color: transparent;
-
     display: flex;
     align-items: left;
     justify-content: space-between;
@@ -86,14 +86,19 @@
 }
 
 @keyframes blinking {
-    from{
+    from {
         border-right-color: #fff;
-    }to {
+    }
+    to {
         border-right-color: transparent;
     }
 }
 
 @media only screen and (max-width: 900px) {
+    .hero-section {
+        padding-top: 4rem;
+    }
+
     .hero-section .content .headline,
     .hero-section .content .byline {
         text-align: center;
@@ -102,6 +107,7 @@
     .hero-section .content {
         width: 100%;
         z-index: 2;
+        display: flex;
         justify-content: center;
         align-items: center;
         padding: 0;
@@ -114,6 +120,7 @@
         z-index: 0;
         opacity: 0.1;
         width: 100%;
+        /* display: none; */
     }
 
     .hero-section .content .button-group {

@@ -4,16 +4,18 @@ import EventGroup from "../../components/EventGroup/EventGroup";
 import PageHeading from "../../components/PageHeading/PageHeading";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Mesh from "../../components/Mesh/Mesh";
-
+import { Link } from "react-router-dom";
 const DayRight = () => {
     return (
         <div className="dayright">
             <div className="content">
                 <EventGroup />
                 <div className="about-day">
-                    <Mesh style={{
-                        left: 0
-                    }} />
+                    <Mesh
+                        style={{
+                            left: 0,
+                        }}
+                    />
                     <PageHeading variant={"color"} text={"Day two"} />
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ratione excepturi minima animi

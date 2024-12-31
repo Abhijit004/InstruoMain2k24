@@ -20,7 +20,7 @@ const SignUp = () => {
 
     useEffect(() => {
         if(user){
-            console.log("User logged in! Redirect!");
+            console.log("User logged in!");
             message.success(`Logged in as ${user.name}.\nPlease wait`, 2)
             setTimeout(() => {
                 window.location.href = "/";

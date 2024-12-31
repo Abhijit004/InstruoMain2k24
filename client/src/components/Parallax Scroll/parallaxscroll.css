@@ -1,0 +1,11 @@
+.parallax-heading {
+  background: linear-gradient(hsla(0, 0%, 100%, 30%), #fff);
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+@me;

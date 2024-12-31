@@ -128,6 +128,7 @@
   color: #9ca3af;
   padding: 20px;
   border-top: 1px solid #333;
+  margin-top: 2rem;
 }
 
 /* Responsive design */
@@ -145,5 +146,12 @@
 
   .footer .footer-content .footer-section {
     width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .footer-content {
+    padding-left: 2rem;
+    flex-direction: column;
+    gap: 30px;
   }
 }

@@ -17,14 +17,26 @@ const quickLinks = [
 ];
 
 const socials = [
-  { url: "#", src: "/assets/Footer/Email.svg", alt: "Email" },
-  { url: "#", src: "/assets/Footer/Facebook.svg", alt: "Facebook" },
+  {
+    url: "director@iiests.ac.in",
+    src: "/assets/Footer/Email.svg",
+    alt: "Email",
+  },
+  {
+    url: "https://www.facebook.com/instruo.iiests",
+    src: "/assets/Footer/Facebook.svg",
+    alt: "Facebook",
+  },
   {
     url: "https://www.instagram.com/instruo_iiests?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     src: "/assets/Footer/Instagram.svg",
     alt: "Instagram",
   },
-  { url: "#", src: "/assets/Footer/YouTube.svg", alt: "YouTube" },
+  {
+    url: "https://www.linkedin.com/company/instruo-iiests/",
+    src: "/assets/Footer/LinkedIn.svg",
+    alt: "YouTube",
+  },
 ];
 
 const Footer = () => {

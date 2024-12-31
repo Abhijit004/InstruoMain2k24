@@ -78,7 +78,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-section middle">
-          <h3 className="middle-main-heading">Get in touch</h3>
+          <h3 className="main-head">Get in touch</h3>
           <div className="coordinators">
             <div className="main-coordinators">
               <h3>Main Coordinators</h3>

@@ -52,6 +52,10 @@
   padding: 0 1rem;
 }
 
+.footer .footer-content .footer-section .main-head {
+  font-size: 1.5rem;
+  margin-bottom: -0.7rem;
+}
 .footer .footer-content .middle .coordinators {
   display: flex;
   justify-content: space-between;
@@ -61,7 +65,7 @@
 
 .footer .footer-content .middle .main-coordinators {
   display: flex;
-  gap: 0.5rem;
+  /* gap: 0.5rem; */
   flex-direction: column;
   width: 300px;
 }

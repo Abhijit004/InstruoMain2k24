@@ -1,0 +1,28 @@
+.instruo-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+}
+
+.instruo-error .errorh {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(180deg, #fff, #ffffff67);
+    background-clip: text;
+    color: transparent;
+    width: 100%;
+    text-align: center;
+    line-height: 1em;
+    margin-bottom: 2rem;
+}
+
+.instruo-error .errordesc {
+    width: min(100%, 30ch);
+    text-align: center;
+    color: #ffffff78;
+    font-size: 1.5rem;
+}

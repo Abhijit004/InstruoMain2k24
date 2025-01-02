@@ -17,49 +17,42 @@ const backdrop = (src) => {
 const Card = ({ rank, eventData, open, changeFocus }) => {
     console.log(formatTimestamp(eventData.startTime));
 
-    console.log("event doc: ", eventData.rulesDoc)
+    console.log("event doc: ", eventData.rulesDoc);
 
     const src = eventData.images[0].url;
     return (
-		<div
-			onClick={() => changeFocus(rank)}
-			className={`eventcard ${open ? "open" : ""}`}
-		>
-			<div style={backdrop(src)} className="background"></div>
-			<div className="heading">{eventData.name}</div>
-			<div className="body">
-				<div className="head">{eventData.name}</div>
-				<div className="text">{eventData.description}</div>
-				<ButtonGroup
-					style={{
-						gap: "10px",
-						paddingTop: "1rem"
-					}}
-				>
-					<Link to={`/events/${eventData._id}`}>
-						<CustomButton text={"Know more"} />
-					</Link>
-					{eventData.registrationUrl && (
-						<a href={eventData.registrationUrl}>
-							<CustomButton
-								style={{ fontWeight: 600 }}
-								className="button"
-								text={"Register"}
-							/>
-						</a>
-					)}
-				</ButtonGroup>
-				<div className="rating">
-					{formatTimestamp(eventData.startTime)}
-					<br />
-					to {formatTimestamp(eventData.endTime)}
-				</div>
-			</div>
-		</div>
-	);
-};
+        <div onClick={() => changeFocus(rank)} className={`eventcard ${open ? "open" : ""}`}>
+            <div style={backdrop(src)} className="background"></div>
+            <div className="heading">{eventData.name}</div>
+            <div className="body">
+                <div className="head">{eventData.name}</div>
+                <div className="text">{eventData.description}</div>
+                <ButtonGroup
+                    style={{
+                        // gap: "10px",
+                        paddingTop: "1rem",
+                    }}
+                >
+                    {/* <Link to={`/events/${eventData._id}`}> */}
+                    <CustomButton href={`/events/${eventData._id}`} text={"Know more"} />
+                    {/* </Link> */}
 
-const genres = ["Fantasy", "Thriller", "Romance", "Comedy"];
+                    <CustomButton
+                        variant={"secondary"}
+                        style={{ fontWeight: 600 }}
+                        text={"Register"}
+                        href={eventData ? eventData.registrationUrl : "#"}
+                    />
+                </ButtonGroup>
+                <div className="rating">
+                    {formatTimestamp(eventData.startTime)}
+                    <br />
+                    to {formatTimestamp(eventData.endTime)}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const EventGroup = ({ events }) => {
     const [cardNumber, setCardNumber] = useState(0);

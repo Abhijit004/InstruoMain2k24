@@ -43,8 +43,8 @@ const DrawerSidebar = () => {
                         width: "100%",
                         backgroundColor: "rgba(0, 0, 0, 0.48)",
                         backdropFilter: "blur(10px)",
-						display: 'flex',
-						justifyContent: 'space-between'
+                        display: "flex",
+                        justifyContent: "space-between",
                     }}
                 >
                     <Icon
@@ -70,7 +70,7 @@ const DrawerSidebar = () => {
                             Instruo 2k25
                         </div>
                     </Link>
-					<ProfileDropdown />
+                    {/* <ProfileDropdown /> */}
                 </Header>
             </Layout>
             <Drawer
@@ -80,8 +80,19 @@ const DrawerSidebar = () => {
                 onClose={closeDrawer}
                 visible={visible}
                 bodyStyle={{ padding: 0 }}
+                width={"100vw"}
             >
-                <Menu mode="inline" selectedKeys={[selectedKey]} style={{ height: "100%" }}>
+                <Menu
+                    mode="inline"
+                    selectedKeys={[selectedKey]}
+                    style={{ 
+                        height: "100%", 
+                        background: `url("/assets/sidebar-banner.svg")`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat"
+                    }}
+                >
                     <Menu.Item key="/" icon={<HomeOutlined />}>
                         <Link to="/" onClick={closeDrawer}>
                             Home
@@ -92,21 +103,21 @@ const DrawerSidebar = () => {
                             Events
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="/workshops" icon={<ToolOutlined />}>
+                    {/* <Menu.Item key="/workshops" icon={<ToolOutlined />}>
                         <Link to="/workshops" onClick={closeDrawer}>
                             Workshops
                         </Link>
-                    </Menu.Item>
+                    </Menu.Item> */}
                     <Menu.Item key="/sponsor" icon={<DollarOutlined />}>
                         <Link to="/sponsors" onClick={closeDrawer}>
                             Sponsors
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="/team" icon={<TeamOutlined />}>
+                    {/* <Menu.Item key="/team" icon={<TeamOutlined />}>
                         <Link to="/team" onClick={closeDrawer}>
                             Our Team
                         </Link>
-                    </Menu.Item>
+                    </Menu.Item> */}
                 </Menu>
             </Drawer>
         </ConfigProvider>

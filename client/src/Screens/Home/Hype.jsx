@@ -2,6 +2,7 @@ import React from "react";
 import "./Hype.css";
 import HypeCard from "../../components/HypeCard/HypeCard";
 import { CalendarOutlined, SmileOutlined, SmileTwoTone, TrophyOutlined, UsergroupAddOutlined } from "@ant-design/icons";
+import Mesh from "../../components/Mesh/Mesh"
 
 const Hype = () => {
     return (
@@ -10,6 +11,7 @@ const Hype = () => {
                 Making The Hype <span>Real</span>
             </div>
             <div className="hype-stats">
+                <Mesh />
                 <HypeCard
                     count={"6000"}
                     desc={"Crowds Growing with Excited Footfall"}

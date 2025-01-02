@@ -2,6 +2,7 @@ import "./Sponsorship.css";
 import Carousel from "/src/components/Carousel/Carousel";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { DownloadOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import Mesh from "../../components/Mesh/Mesh"
 
 const contacts = [
     { name: "Person 1", role: "Chairperson" },

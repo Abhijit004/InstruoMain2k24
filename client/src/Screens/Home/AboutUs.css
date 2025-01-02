@@ -61,7 +61,7 @@
   border-radius: 16px;
   border: 1.5px solid #7a7a7a;
   padding: 2rem;
-  width: min(55rem, 100%);
+  width: min(75ch, 90%);
   position: relative;
   z-index: 2;
   backdrop-filter: blur(90px);
@@ -70,6 +70,15 @@
   align-items: start;
   flex-direction: column;
   color: #fff;
+}
+
+.instruo-about .about-card-wrapper .about-card div {
+  width: min(75ch, 90%);
+  text-wrap: wrap;
+}
+
+.instruo-about .about-card-wrapper .about-card p {
+  width: 100%;
 }
 
 .instruo-about .about-card-wrapper .about-card[about="instruo"] {

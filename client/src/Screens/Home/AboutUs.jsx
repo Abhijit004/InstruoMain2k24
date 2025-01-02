@@ -14,14 +14,14 @@ const AboutUs = () => {
             <section className="about-card-wrapper">
                 <section className="about-card" about="instruo">
                     <div className="heading">Instruo@2k25</div>
-                    <div>
+                    <p>
                         INSTRUO, the Annual Technical Fest of IIEST, Shibpur, is all about “Driving Innovation.” From a
                         modest and humble beginning in 2009 to becoming the largest Tech-Fest of Kolkata and the second
                         largest in Eastern India, it has skyrocketed its way to being a signature event in Kolkata's "
                         technical " calendars. This year “INSTRUO 2025 - THE 13TH EDITION”. So, be ready to witness the
                         unique magnanimity of INSTRUO packed with a humongous number of events ranging from technical
                         and high-end Robowars to beautiful and surreal literary contests.
-                    </div>
+                    </p>
                     <div>
                         <h3>Mission</h3>
                         INSTRUO plans to achieve a new clean and clear concept of new innovations worldwide and give the

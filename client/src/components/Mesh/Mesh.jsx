@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import "./Mesh.css"; // Import CSS file for styling
 
 const Mesh = ({...style}) => {
-    const gridSize = 10; // Size of the grid (10x10)
+    const gridSize = 15; // Size of the grid (10x10)
     const [trigger, setTrigger] = useState(0);
     useEffect(() => {
         const interval = setInterval(() => {

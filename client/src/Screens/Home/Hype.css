@@ -3,13 +3,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("/assets/hype-bg.webp");
+    /* background-image: url("/assets/hype-bg.webp");
     background-position: center;
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     /* outline: 1px solid lime; */
     padding-top: 3rem;
     width: 100%;
+    z-index: 0;
+    position:relative;
 }
 
 .instruo-hype .heading {

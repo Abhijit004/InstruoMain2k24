@@ -1,74 +1,54 @@
 /* Sponsors Container */
 .sponsors-container {
+    width: 100%;
     margin-top: 4rem;
     position: relative;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    padding: 80px 20px;
-    background-color: #0a0a12;
-    color: white;
+    padding: 5rem 2rem;
+    color: var(--white);
 }
 
 /* General Paragraph Style */
 p {
     opacity: 0.8;
 }
-
-/* ellipse background */
-.sponsors-container .ellipse {
-    position: absolute;
-    top: 0;
-    height: 20%;
-}
-
-.sponsors-container .ellipse-1 {
-    left: 8rem;
-}
-
-.sponsors-container .ellipse-2 {
-    right: 30rem;
-}
-
-.sponsors-container .ellipse-3 {
-    right: 7rem;
-}
+/* Carousel Container */
 .sponsors-container .carousel-container {
+    /* border: 2px solid lime; */
     flex-direction: column;
+    max-width: 100%;
     position: relative;
 }
 .sponsors-container .carousel-container .sponsor-lamp {
+    width: 130%;
+    /* outline: 2px solid pink; */
     position: absolute;
-    top: -21rem;
-    max-width: 100%;
+    /* z-index: 2; */
+    transform-origin: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 10rem; */
+    align-items: center;
+    /* top: -180px; */
 }
+
+/* Sponsors Secondary */
+
 .sponsors-container .sponsors-secondary {
     flex-direction: column;
     height: 100vh;
-    min-width: 100%;
+    max-width: 100%;
     background: url("/assets/Sponsor/Check-background.svg") no-repeat
         center/contain;
     margin-top: 3rem;
 }
 
-.sponsors-container .btn-group {
-    display: flex;
-    gap: 1.5rem;
+/* sponsors secondary */
+.sponsors-container .sponsors-primary {
+    flex-direction: column;
 }
-
-.sponsors-container .btn {
-    background: var(--btn-gradient);
-    color: var(--white);
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
-    margin: 5rem 0 -4rem;
-    z-index: 4;
-}
-
 /* Title Styles */
 .sponsors-container .sponsors-title {
     background: linear-gradient(#fff, hsla(0, 0%, 100%, 30%));
@@ -80,9 +60,13 @@ p {
     z-index: 2;
 }
 
-.sponsors-container .main-title {
-    background: linear-gradient(180deg, hsla(0, 0%, 100%, 30%), hsla(0, 0%, 100%, 80%)),
-        linear-gradient(90deg, #2D76FF, #50379B);
+.sponsors-container .sponsors-primary .main-title {
+    background: linear-gradient(
+            180deg,
+            hsla(0, 0%, 100%, 30%),
+            hsla(0, 0%, 100%, 80%)
+        ),
+        linear-gradient(90deg, #2d76ff, #50379b);
     background-clip: text;
     text-fill-color: transparent;
     -webkit-background-clip: text; /* Clip the background to the text */
@@ -90,154 +74,30 @@ p {
     font-size: 4rem;
     margin-bottom: 2rem;
 }
-.sponsors-container .main-para,
-.sponsor-para,
-.sponsors-description {
+.sponsors-container .sponsors-primary .main-para,
+.sponsors-container .sponsors-secondary .sponsor-para {
     text-align: center;
-    font-size: 1.2rem;
-    max-width: min(60%, 45rem);
+    font-size: 1rem;
+    max-width: min(100%, 45rem);
 }
-.sponsors-container .sponsor-para,
-.sponsors-description {
+.sponsors-container .sponsor-para {
     margin-top: 3rem;
 }
-.sponsors-container .sponsors-description {
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
+
+.sponsors-container .sponsors-primary .backstar {
+    width: 100%;
+    pointer-events: none;
+    height: 100vh;
+    position: absolute;
+    top: -8rem;
+    opacity: 0.7;
 }
 
-/* CTA Section Styles */
-.sponsors-container .sponsors-cta {
-    flex-direction: column;
-    text-align: center;
-    margin-top: 10rem;
-}
-.sponsors-container .sponsors-cta p {
-    margin-bottom: 1.5rem;
-    opacity: 0.6;
-}
-
-/* Contact Us Section */
-.sponsors-container .contacts {
-    text-align: center;
-    max-width: 1000px;
-    padding: 20px;
-}
-.sponsors-container .contacts h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-}
-.sponsors-container .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Responsive grid */
-    gap: 24px;
-}
-.sponsors-container .contact-card {
-    background-color: #193152; /* Slightly lighter background for cards */
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: left;
-}
-.sponsors-container .contact-card h1 {
-    font-size: 16px;
-    line-height: 1.4;
-}
-.sponsors-container .role {
-    color: #aaa; /* Grey color for roles */
-    font-size: 14px;
-    margin-top: 4px;
-}
-.sponsors-container .contact-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 12px;
-}
-.sponsors-container .contact-info img {
-    width: 16px;
-    height: 16px;
-}
-
-/* Responsive text sizes for smaller screens */
-
-/* Animation */
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
     100% {
         transform: translateX(-50%);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .sponsors-container {
-        /* max-width: 100%; */
-        padding: 60px 16px;
-    }
-    .sponsors-container .sponsors-title {
-        font-size: 3rem;
-    }
-    .sponsors-container .main-para,
-    .sponsors-container .sponsor-para {
-        padding: 0 2.5rem;
-        /* font-size: 1.2rem; */
-    }
-
-    .sponsors-container .contact-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    .sponsors-container .contacts h2 {
-        font-size: 20px;
-    }
-
-    .contact-card {
-        font-size: 14px;
-        padding: 12px;
-    }
-}
-
-.sponsors-container .backstar {
-    position: absolute;
-    top: -8rem;
-    /* opacity: 0.7; */
-}
-
-@media (max-width: 520px) {
-    .sponsors-container {
-        padding: 5rem 5rem;
-    }
-    .sponsors-container .carousel-container .sponsor-lamp {
-        max-width: 70%;
-        top: -18rem;
-    }
-    .sponsors-container .main-para,
-    .sponsors-container .sponsor-para {
-        padding: 0 1.5rem;
-        font-size: 0.9rem;
-    }
-    .sponsors-container .btn-group {
-        flex-direction: column;
-        gap: 0.8rem;
-        margin-bottom: 10rem;
-    }
-    p {
-        width: 350px;
-    }
-    .sponsors-container .ellipse-1 {
-        display: none;
-    }
-
-    .sponsors-container .footer-bottom {
-        font-size: 0.7rem;
-    }
-
-    .sponsors-container .main-title {
-        font-size: 3rem;
     }
 }

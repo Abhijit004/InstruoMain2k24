@@ -1,0 +1,114 @@
+/* CTA Section Styles */
+/* .sponsors-container .sponsors-cta {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10rem;
+}
+.sponsors-container .sponsors-cta p {
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+} */
+
+/* Contact Us Section */
+/* .sponsors-container .contacts {
+    text-align: center;
+    max-width: 1000px;
+    padding: 20px;
+}
+.sponsors-container .contacts h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+.sponsors-container .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 24px;
+} */
+/* .sponsors-container .contact-card {
+    background-color: #193152; 
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: left; 
+} */
+/* .sponsors-container .contact-card h1 {
+    font-size: 16px;
+    line-height: 1.4;
+} */
+/* .sponsors-container .role {
+    color: #aaa; 
+    font-size: 14px;
+    margin-top: 4px;
+}
+.sponsors-container .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+.sponsors-container .contact-info img {
+    width: 16px;
+    height: 16px;
+} */
+
+/* Responsive text sizes for smaller screens */
+
+/* Animation */
+
+/* Responsive Design */
+/* @media (max-width: 768px) {
+    .sponsors-container {
+        max-width: 100%;
+        padding: 60px 16px;
+    }
+    .sponsors-container .main-para,
+    .sponsors-container .sponsor-para {
+        padding: 0 2.5rem;
+        font-size: 1.2rem;
+    }
+
+    .sponsors-container .contact-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+} */
+
+/* @media (max-width: 600px) {
+    .sponsors-container .contacts h2 {
+        font-size: 20px;
+    }
+
+    .contact-card {
+        font-size: 14px;
+        padding: 12px;
+    }
+} */
+
+/* @media (max-width: 520px) {
+    .sponsors-container {
+        padding: 5rem 5rem;
+    }
+    .sponsors-container .carousel-container .sponsor-lamp {
+        max-width: 70%;
+        top: -18rem;
+    }
+    .sponsors-container .main-para,
+    .sponsors-container .sponsor-para {
+        padding: 0 1.5rem;
+        font-size: 0.9rem;
+    }
+    .sponsors-container .btn-group {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 10rem;
+    }
+    p {
+        width: 350px;
+    }
+    .sponsors-container .ellipse-1 {
+        display: none;
+    }
+
+    .sponsors-container .footer-bottom {
+        font-size: 0.7rem;
+    }
+} */

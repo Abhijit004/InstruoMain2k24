@@ -2,7 +2,8 @@ import "./Sponsorship.css";
 import Carousel from "/src/components/Carousel/Carousel";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { DownloadOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import Mesh from "../../components/Mesh/Mesh"
+import Mesh from "../../components/Mesh/Mesh";
+import lamp from "/assets/AboutUsLamp.webp";
 
 const contacts = [
     { name: "Person 1", role: "Chairperson" },
@@ -42,24 +43,32 @@ const Sponsorship = () => {
                 className="ellipse ellipse-3"
                 alt=""
             /> */}
-            <img src="/assets/Sponsor/sponsorship.webp" alt="star" className="backstar"/>
+            <div className="sponsors-primary flex-center">
+                <img
+                    src="/assets/Sponsor/sponsorship.webp"
+                    alt="star"
+                    className="backstar"
+                />
+                <h1 className="sponsors-title gradient-bw main-title">
+                    Sponsor Us
+                </h1>
+                <p className="main-para">
+                    Step into Kolkata&apos;s ultimate tech extravaganza! Dive
+                    into innovation, challenge your limits in thrilling
+                    competitions, and get hands-on with transformative
+                    workshops. Ignite your ideas and be the spark that
+                    revolutionizes the future!
+                </p>
 
-            <h1 className="sponsors-title main-title">Sponsor Us</h1>
-            <p className="main-para">
-                Step into Kolkata's ultimate tech extravaganza! Dive into
-                innovation, challenge your limits in thrilling competitions, and
-                get hands-on with transformative workshops. Ignite your ideas
-                and be the spark that revolutionizes the future!
-            </p>
-
-            <CustomButton
-                text={"Download Brochure"}
-                style={{ marginTop: "1rem", fontWeight: 900 }}
-                onClick={fileDownload}
-                icon={<DownloadOutlined />}
-            />
-
+                <CustomButton
+                    text={"Download Brochure"}
+                    style={{ marginTop: "1rem", fontWeight: 900 }}
+                    onClick={fileDownload}
+                    icon={<DownloadOutlined />}
+                />
+            </div>
             <div className="sponsors-secondary flex-center">
+                <div className="checkered-bg"></div>
                 <h1 className="sponsors-title">Why Sponsor Us ?</h1>
                 <p className="sponsor-para">
                     Sponsoring our college fest is a wonderful opportunity to
@@ -75,7 +84,7 @@ const Sponsorship = () => {
                         <CustomButton
                             text={"Read More"}
                             style={{
-                                marginTop: "1rem",
+                                marginTop: "2rem",
                                 zIndex: 4,
                                 fontWeight: 900,
                             }}
@@ -84,13 +93,10 @@ const Sponsorship = () => {
                     </a>
                 </div>
             </div>
-
             <div className="carousel-container flex-center">
-                <img
-                    src="/assets/Sponsor/Footer-lamp.png"
-                    alt=""
-                    className="sponsor-lamp"
-                />
+                <div className="sponsor-lamp" style={{ top: "-3rem" }}>
+                    <img src={lamp} alt="lamp" />
+                </div>
                 <h1 className="sponsors-title">Past Sponsors</h1>
                 <Carousel />
             </div>

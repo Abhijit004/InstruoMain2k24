@@ -27,15 +27,29 @@ const Sponsorship = () => {
 
     return (
         <div className="sponsors-container flex-center">
-            <img src="/assets/Sponsor/Ellipse 8.svg" className="ellipse ellipse-1" alt="" />
-            <img src="/assets/Sponsor/Ellipse 9.svg" className="ellipse ellipse-2" alt="" />
-            <img src="/assets/Sponsor/Ellipse 10.svg" className="ellipse ellipse-3" alt="" />
+            {/* <img
+                src="/assets/Sponsor/Ellipse 8.svg"
+                className="ellipse ellipse-1"
+                alt=""
+            />
+            <img
+                src="/assets/Sponsor/Ellipse 9.svg"
+                className="ellipse ellipse-2"
+                alt=""
+            />
+            <img
+                src="/assets/Sponsor/Ellipse 10.svg"
+                className="ellipse ellipse-3"
+                alt=""
+            /> */}
+            <img src="/assets/Sponsor/sponsorship.webp" alt="star" className="backstar"/>
 
             <h1 className="sponsors-title main-title">Sponsor Us</h1>
             <p className="main-para">
-                Step into Kolkata's ultimate tech extravaganza! Dive into innovation, challenge your limits in thrilling
-                competitions, and get hands-on with transformative workshops. Ignite your ideas and be the spark that
-                revolutionizes the future!
+                Step into Kolkata's ultimate tech extravaganza! Dive into
+                innovation, challenge your limits in thrilling competitions, and
+                get hands-on with transformative workshops. Ignite your ideas
+                and be the spark that revolutionizes the future!
             </p>
 
             <CustomButton
@@ -46,29 +60,37 @@ const Sponsorship = () => {
             />
 
             <div className="sponsors-secondary flex-center">
-                <Mesh />
                 <h1 className="sponsors-title">Why Sponsor Us ?</h1>
                 <p className="sponsor-para">
-                    Sponsoring our college fest is a wonderful opportunity to connect with a vibrant and enthusiastic
-                    audience while supporting a celebration of creativity, talent, and innovation. Your partnership will
-                    not only enhance the event's success but also leave a lasting impression on the next generation of
-                    changemakers.
+                    Sponsoring our college fest is a wonderful opportunity to
+                    connect with a vibrant and enthusiastic audience while
+                    supporting a celebration of creativity, talent, and
+                    innovation. Your partnership will not only enhance the
+                    event’s success but also leave a lasting impression on the
+                    next generation of changemakers.
                 </p>
 
                 <div className="btn-group">
                     <a href="https://www.iiests.ac.in/">
                         <CustomButton
                             text={"Read More"}
-                            style={{ marginTop: "1rem", zIndex: 4, fontWeight: 900 }}
+                            style={{
+                                marginTop: "1rem",
+                                zIndex: 4,
+                                fontWeight: 900,
+                            }}
                             icon={<ArrowRightOutlined />}
-                            iconPosition="end"
                         />
                     </a>
                 </div>
             </div>
 
             <div className="carousel-container flex-center">
-                <img src="/assets/Sponsor/Footer-lamp.png" alt="" className="sponsor-lamp" />
+                <img
+                    src="/assets/Sponsor/Footer-lamp.png"
+                    alt=""
+                    className="sponsor-lamp"
+                />
                 <h1 className="sponsors-title">Past Sponsors</h1>
                 <Carousel />
             </div>

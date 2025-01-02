@@ -57,6 +57,7 @@ const SingleEvent = () => {
 
     useEffect(() => {
         getEventDetails();
+        console.log(eventDetail?.registrationUrl)
     }, []);
 
     return (
@@ -99,7 +100,7 @@ const SingleEvent = () => {
                     <div className="button-group">
                         <CustomButton
                             href={
-                                eventDetail ? eventDetail.registrationUrl : "#"
+                                (eventDetail && eventDetail.registrationUrl)? eventDetail.registrationUrl : "#"
                             }
                             style={{
                                 width: "fit-content",
@@ -114,7 +115,7 @@ const SingleEvent = () => {
                                 fontWeight: 800,
                             }}
                             text={"EVENT RULES"}
-                            href={eventDetail?.rulesDoc}
+                            href={eventDetail?eventDetail.rulesDoc:"#"}
                         />
                     </div>
                 </div>

@@ -48,8 +48,11 @@ p {
   flex-direction: column;
   height: 100vh;
   min-width: 100%;
-  background: url("/assets/Sponsor/Check-background.svg") no-repeat
-    center/contain;
+  /* background: url("/assets/Sponsor/Check-background.svg") no-repeat
+    center/contain; */
+
+  position: relative;
+  z-index: 1;
 }
 
 .sponsors-container .btn-group {

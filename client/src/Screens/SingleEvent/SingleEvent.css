@@ -44,7 +44,7 @@
   height: 100vh;
   z-index: -1;
   opacity: 0.4;
-  background: url("/assets/groupfie.webp");
+  background: url("/assets/groupfie.webp") no-repeat center/contain;
 }
 
 .single-event .hero .time,

@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     padding: 2rem;
-    outline: 1px solid lime;
+    /* outline: 1px solid lime; */
     background: var(--footer-background);
     color: var(--white);
     margin-top: 3rem;

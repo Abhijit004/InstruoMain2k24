@@ -15,9 +15,9 @@ const backdrop = (src) => {
 };
 
 const Card = ({ rank, eventData, open, changeFocus }) => {
-    console.log(formatTimestamp(eventData.startTime));
+    // console.log(formatTimestamp(eventData.startTime));
 
-    console.log("event doc: ", eventData.rulesDoc);
+    // console.log("event doc: ", eventData.rulesDoc);
 
     const src = eventData.images[0].url;
     return (

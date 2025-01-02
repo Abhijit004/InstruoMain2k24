@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: space-between;
     width: 100vw;
-    height: max(850px, max-content);
+    /* height: max(850px, max-content); */
+    height: max(600px, 100vh);
     color: #fff;
 
     background: url("/assets/homepage-background.webp");

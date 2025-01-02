@@ -30,9 +30,9 @@ const AllRoutes = ({user, login, logout}) => {
       <Route path="/sponsors" exact element={<Sponsorship />} />
       <Route path="/events" exact element={<Events />} />
       <Route exact path="/events/:eventID" element={<SingleEvent />} />
-      <Route path="/eregister" element={<EventRegistration />} />
-      <Route path="/auth" element={<SignUp />} />
-      <Route
+      {/* <Route path="/eregister" element={<EventRegistration />} /> */}
+      {/* <Route path="/auth" element={<SignUp />} /> */}
+      {/* <Route
         path="/uregister"
         element={
           <UserRegistration
@@ -41,7 +41,7 @@ const AllRoutes = ({user, login, logout}) => {
             regType={"combined"}
           />
         }
-      />
+      /> */}
       {/* <Route path="/" exact element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/sponsor" element={<Sponsor />} />

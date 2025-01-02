@@ -87,7 +87,7 @@ const DrawerSidebar = () => {
                     selectedKeys={[selectedKey]}
                     style={{ 
                         height: "100%", 
-                        background: `url("/assets/sidebar-banner.svg")`,
+                        background: `url("/assets/sidebar-banner.png")`,
                         backgroundPosition: "center",
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat"

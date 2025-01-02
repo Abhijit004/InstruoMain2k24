@@ -1,0 +1,117 @@
+.nf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    /* outline: 1px solid lime; */
+    background: var(--footer-background);
+    color: var(--white);
+    margin-top: 3rem;
+}
+
+.nf .fcontent {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+}
+
+.nf .fcontent .about-instruo {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.nf .fcontent .about-instruo .heading {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    gap: 1rem;
+}
+
+.nf .fcontent .about-instruo .heading img {
+    height: 2.5rem;
+}
+
+.nf .fcontent .about-instruo p {
+    width: 35ch;
+    margin-top: 1rem;
+}
+
+.nf .fcontent .about-instruo .social {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.nf .fcontent .about-instruo .social a:hover {
+    transition: all 0.2s linear;
+    color: #9ca3af
+}
+
+.nf .fcontent .people {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.nf .fcontent .people .content {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.person-name {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.nf .fcontent .people .content .peoplebox {
+    width: max-content;
+    margin-top: 1rem;
+}
+
+.nf .nf-end {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid #9ca3af6c;
+    width: 100%;
+    text-align: center;
+    color: #9ca3af
+}
+
+.nf .nf-end p {
+    width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .nf .fcontent {
+        flex-wrap: wrap;
+    }
+
+    .nf .fcontent .people {
+        margin-top: 1.2rem;
+    }
+
+    .nf .fcontent .people .content .peoplebox {
+        width: max-content;
+        margin: 0;
+    }
+
+    .nf .fcontent .about-instruo p {
+        width: 100%;
+    }
+}

@@ -8,7 +8,7 @@ import ButtonGroup from "antd/es/button/button-group";
 const backdrop = (src) => {
     return {
         background: `url("${src}")`,
-        backgroundSize: "cover",
+        backgroundSize: "50rem",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
     };

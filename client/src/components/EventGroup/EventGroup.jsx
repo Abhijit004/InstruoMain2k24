@@ -24,7 +24,7 @@ const Card = ({ rank, eventData, open, changeFocus }) => {
     srcSep.splice(6, 0, 'q_01,f_auto')
     src = srcSep.join('/')
     src = src.slice(0, src.lastIndexOf('.'))
-    console.log(src);
+    // console.log(src);
     
     return (
         <div onClick={() => changeFocus(rank)} className={`eventcard ${open ? "open" : ""}`}>

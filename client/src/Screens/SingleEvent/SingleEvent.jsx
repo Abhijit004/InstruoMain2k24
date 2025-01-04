@@ -7,6 +7,14 @@ import formatTimestamp from "../../services/FormatTime";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Mesh from "../../components/Mesh/Mesh";
 
+const OptimiseImage = (src, q=100)=>{
+    const srcSep = src.split('/')
+    srcSep.splice(6, 0, `q_${q},f_auto`)
+    var src = srcSep.join('/')
+    src = src.slice(0, src.lastIndexOf('.'))
+    return src
+}
+
 const SingleEvent = () => {
     const { eventID } = useParams();
     const [bg, setBg] = useState(0);
@@ -18,8 +26,8 @@ const SingleEvent = () => {
         if (eventDetail) {
             const bgtemp = ["/assets/groupfie.webp"];
             eventDetail.images.forEach((image) => {
-                if (image.type === "poster") setPoster(image.url);
-                else bgtemp.push(image.url);
+                if (image.type === "poster") setPoster(OptimiseImage(image.url));
+                else bgtemp.push(OptimiseImage(image.url));
             });
 
             setBglist(bgtemp);
@@ -40,7 +48,7 @@ const SingleEvent = () => {
         try {
             const res = await getEventByID(eventID);
             setEventDetail(res.data);
-            console.log(res.data);
+            // console.log(res.data);
             if (res) {
                 const tempBg = bglist;
                 res.data.images.forEach((img) => {
@@ -57,7 +65,7 @@ const SingleEvent = () => {
 
     useEffect(() => {
         getEventDetails();
-        console.log(eventDetail?.registrationUrl)
+        // console.log(eventDetail?.registrationUrl)
     }, []);
 
     return (

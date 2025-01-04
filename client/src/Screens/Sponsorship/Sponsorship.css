@@ -22,16 +22,12 @@ p {
 }
 .sponsors-container .carousel-container .sponsor-lamp {
     width: 130%;
-    /* outline: 2px solid pink; */
     position: absolute;
-    /* z-index: 2; */
     transform-origin: center;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    /* margin-bottom: 10rem; */
     align-items: center;
-    /* top: -180px; */
 }
 
 /* Sponsors Secondary */

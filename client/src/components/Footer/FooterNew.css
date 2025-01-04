@@ -52,7 +52,7 @@
 
 .nf .fcontent .about-instruo .social a:hover {
     transition: all 0.2s linear;
-    color: #9ca3af
+    color: #9ca3af;
 }
 
 .nf .fcontent .people {
@@ -90,7 +90,7 @@
     border-top: 1px solid #9ca3af6c;
     width: 100%;
     text-align: center;
-    color: #9ca3af
+    color: #9ca3af;
 }
 
 .nf .nf-end p {

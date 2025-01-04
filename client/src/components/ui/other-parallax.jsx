@@ -5,15 +5,11 @@ import { motion } from "framer-motion";
 // import Image from "next/image";
 import { cn } from "../../lib/utils";
 
-export const ParallaxScrollA = ({ images, className }) => {
-    const gridRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        container: gridRef, // remove this if your container is not fixed height
-        offset: ["start start", "end start"], // remove this if your container is not fixed height
-    });
+export const ParallaxScroll = ({ images, className }) => {
+    const { scrollYProgress } = useScroll(); // Default to the viewport scroll
 
     const translateFirst = useTransform(scrollYProgress, [0, 1], [0, -200]);
-    const translateSecond = useTransform(scrollYProgress, [0, 1], [0, 200]);
+    const translateSecond = useTransform(scrollYProgress, [0, 1], [0, 100]);
     const translateThird = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
     const third = Math.ceil(images.length / 3);
@@ -23,18 +19,8 @@ export const ParallaxScrollA = ({ images, className }) => {
     const thirdPart = images.slice(2 * third);
 
     return (
-        <div
-            className={cn(
-                "h-[60rem] items-start overflow-auto w-full border-2 border-red-100",
-
-                className
-            )}
-            ref={gridRef}
-        >
-            <div
-                className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 items-start  max-w-5xl mx-auto gap-10 py-10 px-10"
-                ref={gridRef}
-            >
+        <div className={cn("h-auto w-full overflow-y-hidden mt-10", className)}>
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 items-start max-w-5xl mx-auto gap-10 py-10 px-10">
                 <div className="grid gap-10">
                     {firstPart.map((el, idx) => (
                         <motion.div

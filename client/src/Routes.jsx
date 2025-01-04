@@ -17,6 +17,7 @@ import Events from "./Screens/Events/Events";
 import EventGroup from "./components/EventGroup/EventGroup";
 import SingleEvent from "./Screens/SingleEvent/SingleEvent";
 import SignUp from "./Screens/SignUp/SignUp";
+import ErrorPage from "./Screens/Error/ErrorPage";
 
 const AllRoutes = ({user, login, logout}) => {
   const location = useLocation();
@@ -30,6 +31,7 @@ const AllRoutes = ({user, login, logout}) => {
       <Route path="/sponsors" exact element={<Sponsorship />} />
       <Route path="/events" exact element={<Events />} />
       <Route exact path="/events/:eventID" element={<SingleEvent />} />
+      <Route exact path="/error" element={<ErrorPage />} />
       {/* <Route path="/eregister" element={<EventRegistration />} /> */}
       {/* <Route path="/auth" element={<SignUp />} /> */}
       {/* <Route
@@ -56,6 +58,7 @@ const AllRoutes = ({user, login, logout}) => {
           <EventGroup />
         }
       />
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };

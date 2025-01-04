@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/footer";
 import { useState } from "react";
 import FooterNew from "./components/Footer/FooterNew";
+import { Analytics } from "@vercel/analytics/react"
 // import AuthProvider from "./components/AuthContext/AuthContext";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
     
     return (
 		<Router>
+			<Analytics />
 			<NavBar user={user} logout={logout} login={login} />
 			<div className="instruo-content">
 				<AllRoutes user={user} logout={logout} login={login} />

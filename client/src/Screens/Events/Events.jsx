@@ -26,7 +26,7 @@ const Events = () => {
 
                 res.data.forEach((e) => {
                     const time = formatTimestamp(e.startTime);
-                    console.log(time);
+                    // console.log(time);
 
                     // Based on day, push to the appropriate day
                     const day = parseInt(time.slice(0, 2));

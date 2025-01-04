@@ -19,7 +19,13 @@ const Card = ({ rank, eventData, open, changeFocus }) => {
 
     // console.log("event doc: ", eventData.rulesDoc);
 
-    const src = eventData.images[0].url;
+    var src = eventData.images[0].url;
+    const srcSep = src.split('/')
+    srcSep.splice(6, 0, 'q_01,f_auto')
+    src = srcSep.join('/')
+    src = src.slice(0, src.lastIndexOf('.'))
+    console.log(src);
+    
     return (
         <div onClick={() => changeFocus(rank)} className={`eventcard ${open ? "open" : ""}`}>
             <div style={backdrop(src)} className="background"></div>

@@ -5,12 +5,12 @@ import PageHeading from "../../components/PageHeading/PageHeading";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Mesh from "../../components/Mesh/Mesh";
 import { Link } from "react-router-dom";
-const DayRight = () => {
+const DayRight = ({events}) => {
     return (
         <div className="dayright">
             <div className="content">
                 <div className="event-scroll">
-                    <EventGroup />
+                    <EventGroup events={events} />
                 </div>
                 <div className="about-day">
                     <Mesh

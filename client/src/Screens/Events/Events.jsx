@@ -26,16 +26,16 @@ const Events = () => {
 
                 res.data.forEach((e) => {
                     const time = formatTimestamp(e.startTime);
-                    // console.log(e);
+                    console.log(time);
 
-                    // Based on hour, push to the appropriate day
-                    const hour = parseInt(time.slice(0, 2));
+                    // Based on day, push to the appropriate day
+                    const day = parseInt(time.slice(0, 2));
 
-                    if (hour === 10) {
+                    if (day === 10) {
                         dayOneTemp.push(e);
-                    } else if (hour === 11) {
+                    } else if (day === 11) {
                         dayTwoTemp.push(e);
-                    } else if (hour === 12) {
+                    } else if (day === 12) {
                         dayThreeTemp.push(e);
                     } else {
                         // Push events to default dayOne for now

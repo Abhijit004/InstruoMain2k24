@@ -36,6 +36,7 @@
     rgba(217, 217, 217, 0.12) 0%,
     rgba(115, 115, 115, 0.1) 100%
   );
+  scroll-behavior: smooth;
 }
 
 body,

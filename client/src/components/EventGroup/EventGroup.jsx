@@ -66,6 +66,17 @@ const EventGroup = ({ events }) => {
         setCardNumber(() => num);
     };
     // console.log(events);
+    
+    if (!events || events.length === 0) {
+        return (
+            <div className="loadingbox">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        )
+    }
 
     return (
         <div className="eventbox-wrapper">

@@ -160,10 +160,30 @@
     }
 }
 
+.loadingbox {
+    width: min(90%, 20rem);
+    height: 20rem;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
 
+.loadingbox div {
+    height: 100%;
+    flex-grow: 1;
+    background: linear-gradient(90deg, hsla(255, 48%, 41%, 0.5), hsla(255, 48%, 41%), hsla(255, 48%, 41%, 0.5));
+    border-radius: 8px;
+    background-size: 200% 200%;
+    animation: load 1s ease infinite;
+}
 
-
-
-
-
-
+@keyframes load {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}

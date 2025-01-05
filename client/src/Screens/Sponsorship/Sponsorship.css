@@ -36,9 +36,10 @@ p {
     flex-direction: column;
     height: 100vh;
     max-width: 100%;
-    background: url("/assets/Sponsor/Check-background.svg") no-repeat
-        center/contain;
+    /* background: url("/assets/Sponsor/Check-background.svg") no-repeat
+        center/contain; */
     margin-top: 3rem;
+    z-index: 0;
 }
 
 /* sponsors secondary */

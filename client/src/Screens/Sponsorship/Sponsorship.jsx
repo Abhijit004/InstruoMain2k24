@@ -68,7 +68,8 @@ const Sponsorship = () => {
                 />
             </div>
             <div className="sponsors-secondary flex-center">
-                <div className="checkered-bg"></div>
+                {/* <div className="checkered-bg"></div>// */}
+                <Mesh />
                 <h1 className="sponsors-title">Why Sponsor Us ?</h1>
                 <p className="sponsor-para">
                     Sponsoring our college fest is a wonderful opportunity to
